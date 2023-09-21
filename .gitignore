@@ -34,7 +34,10 @@
 *.tsbuildinfo
 /client/next-env.d.ts
 
-/server
+
+/server/srl/__pycache__
+/server/.env.local
+/server/config.py
 
 /client/.next
 
