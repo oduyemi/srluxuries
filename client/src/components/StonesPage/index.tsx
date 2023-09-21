@@ -2,7 +2,7 @@
 import React, { useEffect, useState} from "react";
 import ProductCatCard from "../Home/ProductCatCard";
 
-export const BeadsPage = () => {
+export const StonesPage = () => {
 
     return(
         <>
@@ -10,7 +10,7 @@ export const BeadsPage = () => {
                 <div className="collection mx-auto ">
                     <div className="abt-desc">
                         <h6 className="font-extrabold my-2 text-goldie">S R LUXURIES</h6>
-                        <h2 className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4">Luxury Beads</h2>
+                        <h2 className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4">Luxury Stones</h2>
                         </div> 
                     </div>
                 </section>

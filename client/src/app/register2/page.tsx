@@ -1,7 +1,7 @@
 import { Reg2 } from "@/components/Forms/Forms";
 import { Header } from "@/components/navigation/Header";
 
-export default function Register () {
+export default function Register2 () {
     return(
         <>
             <section>

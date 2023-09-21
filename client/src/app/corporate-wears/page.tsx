@@ -1,21 +1,20 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { AboutPage } from "@/components/AboutPage/index";
-import { Questions } from "@/components/Questions/index";
+import { Corporate } from "@/components/Wears/Corporate";
 
-export default function About () {
+export default function CorporateWears () {
     return(
         <>
             <section>
                 <Header />
             </section>
-                <AboutPage />
             <section>
-                <Questions />
+                <Corporate />
             </section>
             <section>
                 <Footer />
             </section>
         </>
+        
     )
 }

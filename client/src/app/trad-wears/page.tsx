@@ -1,18 +1,20 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { Questions } from "@/components/Questions/index";
+import { Trad } from "@/components/Wears/Trad";
 
-
-export default function Faqs () {
+export default function TradWears () {
     return(
         <>
             <section>
                 <Header />
             </section>
-            <Questions />
+            <section>
+                <Trad />
+            </section>
             <section>
                 <Footer />
             </section>
         </>
+        
     )
 }

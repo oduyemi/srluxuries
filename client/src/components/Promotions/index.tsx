@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Promotions = () => {
     return(
         <>
@@ -13,6 +15,12 @@ export const Promotions = () => {
                         <p className="text-sm pl-2 text-tan">
                             Don&apos;t miss out on another good deal.
                         </p>
+                        <div className="mt-4">
+                        <button className="rounded-full bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-white
+                            border border-goldie hover:border-tan"> 
+                            <Link href="/shop">Shop Now</Link>
+                        </button>
+                        </div>
                         </div> 
                     </div>
             </section>

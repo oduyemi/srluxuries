@@ -3,7 +3,7 @@ import { Footer } from "@/components/navigation/Footer";
 import { Tailor } from "@/components/Tailor/index";
 
 
-export default function Faqs () {
+export default function Services () {
     return(
         <>
             <section>

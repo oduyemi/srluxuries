@@ -1,21 +1,20 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { AboutPage } from "@/components/AboutPage/index";
-import { Questions } from "@/components/Questions/index";
+import { StonesPage } from "@/components/StonesPage/index";
 
-export default function About () {
+export default function Stones () {
     return(
         <>
             <section>
                 <Header />
             </section>
-                <AboutPage />
             <section>
-                <Questions />
+                <StonesPage />
             </section>
             <section>
                 <Footer />
             </section>
         </>
+        
     )
 }

@@ -1,18 +1,20 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { Promotions } from "@/components/Promotions/index";
+import { BeltsPage } from "@/components/BeltsPage/index";
 
-
-export default function Faqs () {
+export default function Belts () {
     return(
         <>
             <section>
                 <Header />
             </section>
-            <Promotions />
+            <section>
+                <BeltsPage />
+            </section>
             <section>
                 <Footer />
             </section>
         </>
+        
     )
 }

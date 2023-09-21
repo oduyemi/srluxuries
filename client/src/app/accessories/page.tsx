@@ -1,17 +1,15 @@
+import { CapsPage } from "@/components/CapsPage/index";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { AboutPage } from "@/components/AboutPage/index";
-import { Questions } from "@/components/Questions/index";
 
-export default function About () {
+export default function Accessories () {
     return(
         <>
             <section>
                 <Header />
             </section>
-                <AboutPage />
             <section>
-                <Questions />
+                <CapsPage />
             </section>
             <section>
                 <Footer />

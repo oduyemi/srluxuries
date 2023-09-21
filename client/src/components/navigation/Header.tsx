@@ -62,7 +62,7 @@ export const Header = () => {
                                     <Link href="/caps" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Caps</Link>
                                     </li>
                                     <li>
-                                        <Link href="/footwears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Footwears</Link>
+                                        <Link href="/foot" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Footwears</Link>
                                     </li>
                                     <li>
                                         <Link href="/beads" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Luxury Beads</Link>
@@ -90,13 +90,13 @@ export const Header = () => {
                             } bg-transparent text-base z-10 list-none rounded shadow absolute mt-2 w-36 left-30`}>
                                 <ul className="py-1" aria-labelledby="dropdownNavbarLink">
                                 <li>
-                                        <Link href="" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Corporate Wears</Link>
+                                        <Link href="corporate-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Corporate Wears</Link>
                                     </li>
                                     <li>
-                                        <Link href="" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Summer Wears</Link>
+                                        <Link href="summer-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Summer Wears</Link>
                                     </li>
                                     <li>
-                                        <Link href="" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Trad Wears</Link>
+                                        <Link href="trad-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Trad Wears</Link>
                                     </li>
 
                                     {/* <li>
@@ -127,6 +127,18 @@ export const Header = () => {
                             <input type="search" className="px-2 py-1 h-8 border border-solid  border-butter rounded-full text-sm leading-snug text-tan shadow-none outline-none focus:outline-none w-full font-normal rounded-l-none flex-1 border-l-0 placeholder-butter" placeholder="&emsp;Search for products" />
                         </form>
                     </div> */}
+
+                    <div className="relative m-6 inline-flex w-fit pr-4">
+                        <Link href="/shop">
+                            <Image
+                                src="/assets/images/svg/cart-outline.svg"
+                                alt="Profile"
+                                width={10}
+                                height={10}
+                                className="h-8 w-8 object-contain"
+                            />
+                        </Link>
+                    </div>
                    
                     <div className="relative m-6 inline-flex w-fit pr-4">
                         <Link href="/login">
