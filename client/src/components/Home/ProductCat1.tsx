@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ProductCatCard from "./ProductCatCard";
+import "animate.css";
 
 export const ProductCat1 = () => {
     return(
@@ -15,7 +16,7 @@ export const ProductCat1 = () => {
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
                                 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></Link>
-                            </span><Link href="/collection"> collection</Link>
+                            </span><Link href="/collection" className="animate__animated animate__flash animate__delay-3s"> collection</Link>
                         </h2>
                     </div>
                 </div>

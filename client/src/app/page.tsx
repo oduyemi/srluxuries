@@ -41,7 +41,7 @@ export default function Home() {
         <ProductCat3 />
       <section>
       </section>
-      <section>
+      <section className="my-8">
         <Brands />
       </section>
       <section>
