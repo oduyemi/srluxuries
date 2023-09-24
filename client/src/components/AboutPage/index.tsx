@@ -7,12 +7,12 @@ export const AboutPage = () => {
             <section className="h-full w-full">
                 <div className="abt mx-auto ">
                     <div className="abt-desc">
-                        <h6 className="font-extrabold my-2">about</h6>
-                        <h2 className="text-5xl font-extrabold mb-2 text-butter w-1/3">
+                        <h6 className="font-extrabold">about</h6>
+                        <h2 className="text-4xl font-extrabold mb-2 text-butter w-1/3 mt-0">
                             Samuel Rowland
-                            <span><h2 className="pl-4 text-[#39A9DB]">&nbsp;L U X U R I E S </h2></span>
+                            <span><h2 className="text-[#39A9DB]">&nbsp;L U X U R I E S </h2></span>
                         </h2>
-                        <p className="text-sm pl-10">
+                        <p className="text-sm pl-2">
                             It&apos;s not just the outfit. We build dreams.
                         </p>
                         </div> 
