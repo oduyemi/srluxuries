@@ -1,15 +1,15 @@
-import { CapsPage } from "@/components/CapsPage/index";
+import { Accessories } from "@/components/Accessories/index";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 
-export default function Accessories () {
+export default function accessories () {
     return(
         <>
             <section>
                 <Header />
             </section>
             <section>
-                <CapsPage />
+                <Accessories />
             </section>
             <section>
                 <Footer />

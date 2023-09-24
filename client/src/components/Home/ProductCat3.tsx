@@ -26,25 +26,25 @@ export const ProductCat3 = () => {
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-hover.jpg"
-                    productName="Product Name 1"
-                    price="149"
-                    originalPrice="199"
-                />
+                //     productName="Product Name 1"
+                //     price="149"
+                //     originalPrice="199"
+               />
 
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/beads/bd-2.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/beads/bd-2b.jpg"
-                    productName="Product Name 2"
-                    price="149"
-                    originalPrice="199"
+                    // productName="Product Name 2"
+                    // price="149"
+                    // originalPrice="199"
                 />
 
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1b.jpg"
-                    productName="Product Name 3"
-                    price="149"
-                    originalPrice="199"
+                    // productName="Product Name 3"
+                    // price="149"
+                    // originalPrice="199"
                 />
             </section>
         </>

@@ -6,10 +6,8 @@ export const Footer = () => {
     <footer className="footer_area">
     <div className="container">
         <div className="flex flex-wrap">
-            {/* Single Widget Area */}
             <div className="w-full md:w-1/2">
                 <div className="single_widget_area flex mb-8 md:mb-0">
-                    {/* Logo */}
                     <div className="footer-logo mr-4 md:mr-8">
                         <Link href="/">
                             <Image
@@ -21,21 +19,20 @@ export const Footer = () => {
                             />
                         </Link>
                     </div>
-                    {/* Footer Menu */}
                     <div className="footer_menu mb-5">
                         <ul className="pl-4">
                             <li>
                                 <Link href="/">Shop</Link>
                                 <ul>
-                                    <li><p className="text-white text-sm w-1/2">32 Ogundana Street, Allen Avenue, Ikeja</p></li>
+                                    <li><p className="text-white text-sm w-1/2">117, Obafemi Awolowo Way, Ikeja, Lagos</p></li>
                                 </ul>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link href="/services">Services</Link>
                                 <ul>
                                     <li><p className="text-white text-sm">Custom Designs</p></li>
                                 </ul>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link href="/">Contact</Link>
                                 <ul>
@@ -49,10 +46,8 @@ export const Footer = () => {
             </div>
             {/* Single Widget Area */}
             <div className="w-full md:w-1/2">
-                <div className="single_widget_area mb-8 md:mb-0">
+                <div className="single_widget_area mb-8 mt-4 md:mb-0">
                     <ul className="footer_widget_menu">
-                        <li><Link href="/">Payment Options</Link></li>
-                        <li><Link href="/">Shipping and Delivery</Link></li>
                         <li><Link href="/">Privacy Policy</Link></li>
                         <li><Link href="/">Terms of Use</Link></li>
                     </ul>
@@ -61,7 +56,6 @@ export const Footer = () => {
         </div>
 
         <div className="flex justify-center items-end">
-            {/* Single Widget Area */}
             <div className="w-full md:w-1/2">
                 <div className="single_widget_area pl-6">
                     <div className="footer_heading mb-8 md:mb-0">
@@ -80,7 +74,6 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            {/* Single Widget Area */}
             <div className="w-full md:w-1/2">
                 <div className="single_widget_area">
                     <div className="footer_social_area">

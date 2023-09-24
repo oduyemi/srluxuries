@@ -5,17 +5,19 @@ export const TopCategory = () => {
     return(
         <div className="cta-area">
             <div className="container">
-                <div className="w-full">
-                    <div className="cta-content bg-img background-overlay">
-                        <div className="h-100 flex items-center justify-end">
-                            <div className="cta--text">
-                                <h6 className="mt-14 text-l pl-8">Custom Designs</h6>
-                                <h3 className="text-tan font-bold text-5xl mt-4 mb-6">Tailored-To-Fit</h3>
-                                <button className="rounded-full bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-white ms-10
-                                border border-goldie hover:border-tan"><Link href="/services" className="">Order Now</Link></button>
+                <div className="w-full flex items-center justify-content">
+                    <div className="flex items-center justify-content cta-content bg-img background-overlay"></div>
+                        <div className="h-100 flex items-center justify-center">
+                            <div className="cta--text mr-10">
+                                <h6 className="text-l text-butter">Custom Designs</h6>
+                                <h3 className="text-tan font-bold text-5xl">Tailored-To-Fit</h3>
+                                <div className="my-4">
+                                <button className="rounded-full bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
+                                    hover:border-tan"><Link href="/services">Order Now</Link></button>
+                                </div>
+                                
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ export const Tailor = () => {
         <section className="h-full w-full mb-5 mx-auto">
                 <div className="serv mx-auto ">
                     <div className="abt-desc">
-                        <h6 className="font-extrabold my-2">services</h6>
+                        <h6 className="font-extrabold">services</h6>
                         <h2 className="text-5xl font-extrabold mb-2 text-butter w-1/3 mb-4">Tailored-To-Fit<span><h2 className="pl-2 text-[#39A9DB]">D E S I G N S</h2></span></h2>
                         <p className="text-sm pl-1 w-1/4">
                             SR Luxuries Consultancy presents an Avenue for our customers to upload
