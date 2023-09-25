@@ -63,7 +63,7 @@ export const Questions: React.FC = () => {
             id="collapse1"
         >
                         <div className="px-5 py-4">
-                            <strong className="text-ggreen">I am keen on satisfying my customers. </strong>
+                            <strong className="text-ggreen">We are keen on satisfying my customers. </strong>
                             You can. <code>Terms and conditions apply</code>.
                         </div>
                     </div>
@@ -102,10 +102,10 @@ export const Questions: React.FC = () => {
                     id="collapse2"
                     >
                         <div className="px-5 py-4">
-                            <strong className="text-ggreen">I take your measurements at registration.</strong> It is
+                            <strong className="text-ggreen">We take your measurements at registration.</strong> It is
                             best to get a good tailor to take your measurements, then enter the  
                             details when you register. You can update your measurements when your
-                            weight changes to keep me informed.
+                            weight changes to keep us informed.
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ export const Questions: React.FC = () => {
                         id="collapse4"
                     >
                         <div className="px-5 py-4">
-                            <strong className="text-ggreen">In the case of tailor-to-fit designs.</strong> I have
+                            <strong className="text-ggreen">In the case of tailor-to-fit designs.</strong> We have
                             made provision for you to upload your style image in your request
                             form. You can also add other necessary details. When your request
                             is received, you will be contacted for further detailing and 
@@ -227,7 +227,7 @@ export const Questions: React.FC = () => {
                         id="collapse5"
                     >
                         <div className="px-5 py-4">
-                            <strong className="text-ggreen">Almost immediately.</strong> It is
+                            <strong className="text-ggreen">Almost immediately.</strong>
                             We will provide a refund immediately upon the return of the product
                             However, bank providers may take 3 to 10 business days to process
                             the refund into the original mode of payment.
