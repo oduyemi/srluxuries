@@ -299,15 +299,15 @@ export const Appointment = () => {
                         </label>
                         <ul>
                             <li>
-                                <Radio value="Yes" label="Yes" size="small" name="firstVisit" />
+                                <Radio value="Yes" size="small" name="firstVisit" />
                                 <label htmlFor="firstVisit">Yes</label>
                             </li>
                             <li className="choice-2">
-                                <Radio value="No" label="firstVisit" size="small" name="firstVisit" />
+                                <Radio value="No" size="small" name="firstVisit" />
                                 <label htmlFor="firstVisit">No</label>
                             </li>
                             <li className="choice-3">
-                                <Radio value="Not Sure" label="firstVisit" size="small" name="firstVisit" />
+                                <Radio value="Not Sure" size="small" name="firstVisit" />
                                 <label htmlFor="firstVisit">Not sure</label>
                             </li>
                         </ul> 
@@ -318,15 +318,15 @@ export const Appointment = () => {
                         </label>
                         <ul>
                             <li>
-                                <Radio value="Yes" label="callback" size="small" name="callback" />
+                                <Radio value="Yes" size="small" name="callback" />
                                 <label htmlFor="callback">Yes</label>
                             </li>
                             <li className="choice-2">
-                                <Radio value="No" label="callback" size="small" name="callback" />
+                                <Radio value="No" size="small" name="callback" />
                                 <label htmlFor="callback">No</label>
                             </li>
                             <li className="choice-3">
-                                <Radio value="Maybe" label="callback" size="small" name="callback" />
+                                <Radio value="Maybe" size="small" name="callback" />
                                 <label htmlFor="callback">Maybe</label>
                             </li>
                         </ul> 
@@ -337,15 +337,15 @@ export const Appointment = () => {
                         </label>
                         <ul>
                             <li>
-                                <Radio value="three_days" label="visitPreference" size="small" name="firstVisit" />
+                                <Radio value="three_days" size="small" name="firstVisit" />
                                 <label htmlFor="visitPreference">Within 72 hours</label>
                             </li>
                             <li>
-                                <Radio value="one_week" label="visitPreference" size="small" name="firstVisit" />
+                                <Radio value="one_week" size="small" name="firstVisit" />
                                 <label htmlFor="visitPreference">Within a week</label>
                             </li>
                             <li className="choice-3">
-                                <Radio value="two_weeks" label="visitPreference" size="small" />
+                                <Radio value="two_weeks" size="small" />
                                 <label htmlFor="visitPreference">Within 2 weeks</label>
                             </li>
                         </ul> 
