@@ -7,35 +7,36 @@ import { ProductCat1 } from "@/components/Home/ProductCat1";
 import { ProductCat2 } from "@/components/Home/ProductCat2";
 import { ProductCat3 } from "@/components/Home/ProductCat3";
 import { Promotions } from "@/components/Promotions/index";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
     <main className="">
-      <section>
+      <Box>
         <Header />
         <Banner />
-      </section>
-      <section>
+      </Box>
+      <Box>
         <ProductCat1 />
-      </section>
-      <section className="my-8">
+      </Box>
+      <Box className="my-8">
         <TopCategory />
-      </section>
+      </Box>
         <ProductCat2 />
-      <section>
-      </section>
-      <section className="my-8">
+      <Box>
+      </Box>
+      <Box className="my-8">
         <Promotions />
-      </section>
+      </Box>
         <ProductCat3 />
-      <section>
-      </section>
-      <section className="my-8">
+      <Box>
+      </Box>
+      <Box className="my-8">
         <Brands />
-      </section>
-      <section>
+      </Box>
+      <Box>
         <Footer />
-      </section>
+      </Box>
     </main>
   )
 }
