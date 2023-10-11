@@ -9,14 +9,12 @@
   padding: 0;
 }
 
-
-
 body {
     color: #000000;
     background-color: #ffffff;
     scroll-behavior: smooth;
     font-family: Georgia, Times, serif;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 @media (max-width: breakpoint-xs) {
@@ -388,17 +386,17 @@ body {
       color: #ffffff;
   }
   
-  
+  .login{
+    position: relative;
+    left: 24%;
+  }
   .form{
     position:absolute;
     top: 20%;
     left:36%;
   }
 
-  .login{
-    position:absolute !important;
-    top:32%;
-  }
+
 
   .form-suit{
     position:absolute !important;
