@@ -20,7 +20,7 @@ export const Questions: React.FC = () => {
     };
     return(
         <>
-            <Box maxWidth="l" className="mb-5 mx-auto">
+            <Box maxWidth="sm" className="mb-5 mx-auto">
                 <Box className="abt-desc mx-auto">
                     <Typography vraiant="h6" className='font-extrabold my-2 text-tan'>faqs</Typography>
                     <Typography variant="h2" className='text-5xl font-extrabold mb-2 text-butter w-1/3'>Your<span><Typography variant="h2" className="pl-2 text-[#39A9DB] inline">Questions</Typography></span></Typography>

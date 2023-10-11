@@ -19,7 +19,7 @@ export const Promotions = () => {
                         <Box className="mt-4">
                             <Link href="/shop">
                                 <Button variant="contained" sx={{ backgroundColor:"#CD8F2C"}}
-                                    className="rounded-full bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-white
+                                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-white
                                     border border-goldie hover:border-tan"> 
                                     Shop Now
                                 </Button>

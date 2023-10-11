@@ -27,7 +27,7 @@ export default function ProductCatCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       <form>
-      <Link href="">
+      {/* <Link href="#"> */}
         {/* <input type={} */}
         <img
           src={isHovered ? hoverImageSrc : normalImageSrc}
@@ -64,13 +64,11 @@ export default function ProductCatCard({
 
           {/* /> */}
           <Box className="text-center my-5">
-            <Link href="">
-              <Button variant="contained" sx={{ BackgroundColor:"#CD8F2C" }} className="rounded bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
+              <Button variant="contained" sx={{ backgroundColor:"#CD8F2C" }} className="rounded bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
               hover:border-tan">Buy via WhatsApp</Button>
-            </Link>
           </Box>
         {/* </Box> */}
-      </Link>
+      {/* </Link> */}
       </form>
     </Box>
   );
