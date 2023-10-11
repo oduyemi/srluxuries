@@ -28,7 +28,12 @@ body {
 
 .nav-menu-wrapper{
   position: relative;
-  right:10%;
+  left:12%;
+}
+
+.menu-icons{
+  position: relative;
+  left:20%
 }
 
 .banner{
@@ -410,10 +415,13 @@ body {
   } */
 
 
-  /* Add this CSS to your stylesheet */
+
+
 @media (max-width: 768px) {
   .mobile-menu-button {
     display: block;
+    position: relative !important;
+    left: 22% !important;
   }
 
   #mobile-menu {
@@ -433,6 +441,10 @@ body {
     display: flex;
   }
 
+  .nav-menu-wrapper{
+    display:none;
+  }
+
   .cta--text h6{
     font-size: smaller !important;
   }
@@ -445,3 +457,5 @@ body {
 
   }*/
 }
+
+

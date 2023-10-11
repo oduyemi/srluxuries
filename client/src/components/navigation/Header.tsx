@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,37 +22,84 @@ export const Header = () => {
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
       };
+
+      const renderMobileMenu = () => {
+        if (isMobileMenuOpen) {
+          return (
+            <Box className="md:hidden">
+              <Link href="/" className="text-l block py-2 hover:text-butter">
+                Home
+              </Link>
+              <Link href="/about" className="text-l block py-2 hover:text-butter">
+                About
+              </Link>
+              <Link href="/belts" className="text-l block py-2 hover:text-butter">
+                Belts
+              </Link>
+              <Link href="/caps" className="text-l block py-2 hover:text-butter">
+                Caps
+              </Link>
+              <Link href="/foot" className="text-l block py-2 hover:text-butter">
+                Footwears
+              </Link>
+              <Link href="/beads" className="text-l block py-2 hover:text-butter">
+                Luxury Beads
+              </Link>
+              <Link href="/stones" className="text-l block py-2 hover:text-butter">
+                Luxury Stones
+              </Link>
+              <Link href="/corporate-wears" className="text-l block py-2 hover:text-butter">
+                Corporate Wears
+              </Link>
+              <Link href="/aummer-wears" className="text-l block py-2 hover:text-butter">
+                Summer Wears
+              </Link>
+              <Link href="/trad-wears" className="text-l block py-2 hover:text-butter">
+                Trad Wears
+              </Link>
+              <Link
+                href="/locator"
+                className="text-l block py-2 hover:text-butter"
+              >
+                Contact Us
+              </Link>
+            </Box>
+          );
+        }
+        return null;
+      };
       
     return(
         <nav id="header" className="bg-transparent">
-                <div className="w-full container flex flex-wrap items-center justify-between mt-0 py-1">
-                    <div className="logo-wrapper pl-11 flex items-center">
+                <Box maxWidth="xl" sx={{ display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"between"}} className=" mt-0 py-1">
+                    <Box maxWidth="sm" sx={{ display:"flex alignItems:center"}} className="logo-wrapper pl-11">
                         <Link href="/">
                         <Image
-                        src="/assets/images/logo.png"
+                            src="/assets/images/logo.png"
                             alt="Logo"
                             width={50}
-                        height={50}
+                            height={50}
                             className="h-14 w-14 object-contain ml-4"
                         />
                         </Link>
-                    </div>
-                    <div className="mobile-menu-button md:hidden">
+                    </Box>
+                    <Box maxWidth="l" className="mobile-menu-button md:hidden">
                         <button className="text-gray-700 p-2" onClick={toggleMobileMenu}>
                             <svg
-                                className="w-6 h-6"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http:www.w3.org/2000/svg"
+                            className="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http:www.w3.org/2000/svg"
                             >
-                                <path
+                            <path
                                 fillRule="evenodd"
                                 d="M12 4H4a1 1 0 100 2h8a1 1 0 100-2zM4 10a1 1 0 110-2h8a1 1 0 110 2H4zm8 3a1 1 0 100 2H4a1 1 0 100-2h8z"
                                 clipRule="evenodd"
-                                />
+                            />
                             </svg>
                         </button>
-               </div>
+                        {renderMobileMenu()}
+                    </Box>
                <ul
                  className="nav-menu-wrapper flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-l md:font-medium" id="mobile-menu">
                     <li>
@@ -73,7 +121,7 @@ export const Header = () => {
                                 </path>
                             </svg>
                         </button>
-                            <div 
+                            <Box 
                                 className={`${
                                     isShopDropdownOpen ? "block" : "hidden"
                                 } bg-transparent text-base z-10 list-none rounded shadow absolute mt-2 w-36 left-30`}>
@@ -94,7 +142,7 @@ export const Header = () => {
                                         <Link href="/stones" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Luxury Stones</Link>
                                     </li>
                                 </ul> 
-                            </div>                                           
+                            </Box>                                           
                     </li>
                     <li>
                         <button onClick={togglePagesDropdown} data-dropdown-toggle="dropdownNavbar"
@@ -107,7 +155,7 @@ export const Header = () => {
                                 </path>
                             </svg>
                         </button>
-                            <div
+                            <Box
                              className={`${
                                 isPagesDropdownOpen ? "block" : "hidden"
                             } bg-transparent text-base z-10 list-none rounded shadow absolute mt-2 w-36 left-30`}>
@@ -122,7 +170,7 @@ export const Header = () => {
                                         <Link href="trad-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Trad Wears</Link>
                                     </li>
                                 </ul>
-                        </div>
+                        </Box>
                     </li>
                     <li>
                         <Link href="" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Wedding Fit</Link>
@@ -131,8 +179,8 @@ export const Header = () => {
                     <Link href="locator" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Contact Us</Link>
                     </li>
                 </ul>
-                <div className="flex items-center justify-between space-x-2">
-                    <div className="relative m-6 inline-flex w-fit pr-4">
+                <Box maxWidth="sm" sx={{ display:"flex", alignItems:"center", justifyContent:"center"}} className="space-x-2 menu-icons">
+                    <Box className="relative m-6 inline-flex w-fit pr-4">
                         <Link href="/shop">
                             <Image
                                 src="/assets/images/svg/cart-outline.svg"
@@ -142,9 +190,9 @@ export const Header = () => {
                                 className="h-6 w-6 object-contain"
                             />
                         </Link>
-                    </div>
+                    </Box>
                    
-                    <div className="relative m-6 inline-flex w-fit pr-4">
+                    <Box className="relative m-6 inline-flex w-fit pr-4">
                         <Link href="/login">
                             <Image
                                 src="/assets/images/svg/person-outline.svg"
@@ -154,9 +202,9 @@ export const Header = () => {
                                 className="h-6 w-6 object-contain"
                             />
                         </Link>
-                    </div>
-                </div>
-            </div>
+                    </Box>
+                </Box>
+            </Box>
         </nav>
         );
     };

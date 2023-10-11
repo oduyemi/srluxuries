@@ -49,7 +49,6 @@ export const Footer = () => {
                 <div className="single_widget_area mb-8 mt-4 md:mb-0">
                     <ul className="footer_widget_menu">
                         <li><Link href="/">Privacy Policy</Link></li>
-                        <li><Link href="/">Terms of Use</Link></li>
                     </ul>
                 </div>
             </div>

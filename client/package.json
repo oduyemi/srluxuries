@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.14.13",
+    "@mui/material": "^5.14.13",
     "@types/node": "20.4.8",
     "@types/react-dom": "18.2.7",
     "animate.css": "^4.1.1",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { Box, Typography, Button } from "@mui/material";
 import Image from "next/image";;
 
 
@@ -51,16 +52,16 @@ export const ProductSlider: React.FC = () => {
   };
 
   return (
-    <section className="new_arrivals_area section-padding-80 clearfix">
-      <div className="col-12">
-        <div className="popular-products-slides owl-carousel">
+    <Box className="new_arrivals_area section-padding-80 clearfix">
+      <Box maxWidth="xl">
+        <Box className="popular-products-slides owl-carousel">
           {products.map((product, index) => (
-            <div
+            <Box
               key={product.id}
               className={`single-product-wrapper ${index === currentSlide ? "active" : ""}`}
             >
               {/* Product Image */}
-              <div className="product-img">
+              <Box className="product-img">
                 <Image src={product.imageSrc} alt={product.name} width={1} height={1} />
                 {/* Hover Thumb */}
                 <Image
@@ -71,38 +72,38 @@ export const ProductSlider: React.FC = () => {
                   className="hover-img"
                 />
                 {/* Favourite */}
-                <div className="product-favourite">
+                <Box className="product-favourite">
                   <Link href="#" className="favme fa fa-heart"></Link>
-                </div>
-              </div>
+                </Box>
+              </Box>
               {/* Product Description */}
-              <div className="product-description">
+              <Box className="product-description">
                 <span>{product.name}</span>
                 <Link href="">
                   <h6>{product.name}</h6>
                 </Link>
                 <p className="product-price">{product.price}</p>
                 {/* Hover Content */}
-                <div className="hover-content">
+                <Box className="hover-content">
                   {/* Add to Cart */}
-                  <div className="add-to-cart-btn">
+                  <Box className="add-to-cart-btn">
                     <Link href="#" className="btn essence-btn">
                       Add to Cart
                     </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
       <button className="prev-btn" onClick={handlePrevSlide}>
         Previous
       </button>
       <button className="next-btn" onClick={handleNextSlide}>
         Next
       </button>
-    </section>
+    </Box>
   );
 };
 

@@ -1,25 +1,28 @@
 import React from "react";
 import Link from "next/link";
+import { Box, Typography, Button } from "@mui/material";
 
 export const TopCategory = () => {
     return(
-        <div className="cta-area">
-            <div className="container">
-                <div className="w-full flex items-center justify-content">
-                    <div className="flex items-center justify-content cta-content bg-img background-overlay"></div>
-                        <div className="h-100 flex items-center justify-center">
-                            <div className="cta--text mr-10">
-                                <h6 className="text-l text-butter">Custom Designs</h6>
-                                <h3 className="text-tan font-bold text-5xl">Tailored-To-Fit</h3>
-                                <div className="my-4">
-                                <button className="rounded-full bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
-                                    hover:border-tan"><Link href="/services">Order Now</Link></button>
-                                </div>
+        <Box className="cta-area">
+            <Box className="container">
+                <Box maxWidth="xl" sx={{ display:"flex", justifyItems:"center", alignItems:"center"}}>
+                    <Box sx={{ display:"flex", justifyItems:"center", alignItems:"center"}} className="cta-content bg-img background-overlay"></Box>
+                        <Box sx={{ display:"flex", justifyItems:"center", alignItems:"center"}} className="h-100">
+                            <Box className="cta--text mr-10">
+                                <Typography variant="h6" className="text-l text-butter">Custom Designs</Typography>
+                                <Typography variant="h3" className="text-tan font-bold text-5xl">Tailored-To-Fit</Typography>
+                                <Box className="my-4">
+                                    <Link href="/services">
+                                        <Button variant="contained" sx={{ backgroundColor:"#CD8F2C"}} className="rounded bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
+                                            hover:border-tan">Order Now</Button>
+                                    </Link>
+                                </Box>
                                 
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+                            </Box>
+                        </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }

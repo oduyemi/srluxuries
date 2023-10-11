@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link';
 import { useState } from 'react';
+import { Box, Button } from "@mui/material";
 
 interface ProductCatCardProps {
   normalImageSrc: string;
@@ -20,7 +21,7 @@ export default function ProductCatCard({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
+    <Box
       className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -33,9 +34,9 @@ export default function ProductCatCard({
           alt="Product"
           className="h-80 w-72 object-cover rounded-t-xl"
         />
-        {/* <div className="px-4 py-3 w-72">
+        {/* <Box className="px-4 py-3 w-72">
           <p className="text-lg font-bold text-black truncate block capitalize">{productName}</p>
-          <div className="flex items-center">
+          <Box className="flex items-center">
             <p className="text-lg font-semibold text-black cursor-auto my-3">&#8358;{price}</p>
             {originalPrice && (
               <del>
@@ -59,16 +60,18 @@ export default function ProductCatCard({
                   d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"
                 />
               </svg> 
-          </div> */}
+          </Box> */}
 
           {/* /> */}
-          <div className="text-center my-5">
-            <button className="rounded-full bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
-              hover:border-tan"><Link href="">Buy via WhatsApp</Link></button>
-          </div>
-        {/* </div> */}
+          <Box className="text-center my-5">
+            <Link href="">
+              <Button variant="contained" sx={{ BackgroundColor:"#CD8F2C" }} className="rounded bg-goldie px-8 py-2 text-l hover:bg-tan hover:text-white border border-goldie
+              hover:border-tan">Buy via WhatsApp</Button>
+            </Link>
+          </Box>
+        {/* </Box> */}
       </Link>
       </form>
-    </div>
+    </Box>
   );
 }

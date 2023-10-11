@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import ProductCatCard from "../Home/ProductCatCard";
 import "animate.css";
@@ -5,19 +6,19 @@ import "animate.css";
 export const Accessories = () => {
     return(
         <>
-            <section className="h-full w-full mb-5 mx-auto">
-                <div className="collection mx-auto" id="accessories">
-                    <div className="abt-desc">
-                        <h6 className="font-extrabold text-goldie">S R LUXURIES</h6>
-                        <h2 className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4 mt-0">Accesories</h2>
-                        </div> 
-                    </div>
-                </section>
-            <section>
-            <div className="container">
-                <div className="justify-center mb-5 p-4 mt-10">
-                    <div className="w-full text-center">
-                        <h2 className=" text-gray-50 font-extrabold text-9xl mt-0 mb-4">
+            <Box maxWidth="xl" className="mb-5 mx-auto">
+                <Box className="collection mx-auto" id="accessories">
+                    <Box className="abt-desc">
+                        <Typography variant="h6" className="font-extrabold text-goldie">S R LUXURIES</Typography>
+                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4 mt-0">Accesories</Typography>
+                        </Box> 
+                    </Box>
+                </Box>
+            <Box>
+            <Box className="container">
+                <Box className="justify-center mb-5 p-4 mt-10">
+                    <Box maxWidth="xl" className="text-center">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
                             <span><Link href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -25,12 +26,12 @@ export const Accessories = () => {
                                 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></Link>
                             </span><Link href="/beads" className="animate__animated animate__flash animate__delay-10s"> Beads &amp; Stones</Link>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            </section>
-            <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+                        </Typography>
+                    </Box>
+                </Box>
+            </Box>
+            </Box>
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
@@ -50,12 +51,12 @@ export const Accessories = () => {
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-4.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-4b.jpg"
                 />
-            </section>
-            <section>
-            <div className="container">
-                <div className="justify-center mb-5 p-4 mt-10">
-                    <div className="w-full text-center">
-                        <h2 className=" text-gray-50 font-extrabold text-9xl mt-0 mb-4">
+            </Box>
+            <Box>
+            <Box className="container">
+                <Box className="justify-center mb-5 p-4 mt-10">
+                    <Box maxWidth="xl" className="text-center">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
                             <span><Link href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -63,12 +64,12 @@ export const Accessories = () => {
                                 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></Link>
                             </span><Link href="/belts" className="animate__animated animate__flash animate__delay-10s"> Belts</Link>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            </section>
-            <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+                        </Typography>
+                    </Box>
+                </Box>
+            </Box>
+            </Box>
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-hover.jpg"
@@ -97,12 +98,12 @@ export const Accessories = () => {
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-6.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-6b.jpg"
                 />
-            </section>
-            <section>
-            <div className="container">
-                <div className="justify-center mb-5 p-4 mt-10">
-                    <div className="w-full text-center">
-                        <h2 className=" text-gray-50 font-extrabold text-9xl mt-0 mb-4">
+            </Box>
+            <Box>
+            <Box className="container">
+                <Box className="justify-center mb-5 p-4 mt-10">
+                    <Box maxWidth="xl" className="text-center">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
                             <span><Link href="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -110,12 +111,12 @@ export const Accessories = () => {
                                 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></Link>
                             </span><Link href="/caps" className="animate__animated animate__flash animate__delay-10s"> Caps</Link>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            </section>
-            <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+                        </Typography>
+                    </Box>
+                </Box>
+            </Box>
+            </Box>
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1b.jpg"
@@ -158,7 +159,7 @@ export const Accessories = () => {
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-9.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-9b.jpg"
                 />
-            </section>
+            </Box>
         </>
     )
 }

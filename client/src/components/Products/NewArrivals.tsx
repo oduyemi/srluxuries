@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import { Box, Typography } from "@mui/material";
 import { Carousel } from './Carousel';
 
 export const NewArrivals: React.FC = () => {
@@ -13,21 +14,21 @@ export const NewArrivals: React.FC = () => {
   }, []);
 
   return (
-    <section className="new_arrivals_area section-padding-80 clearfix mt-5">
-      <div className="container">
-          <div className="w-full">
-            <div className="section-heading text-center">
-              <h2 className='text-4xl text-butter my-5'>Popular Products</h2>
-            </div>
-          </div>
-      </div>
+    <Box className="new_arrivals_area section-padding-80 clearfix mt-5">
+      <Box className="container">
+          <Box maxWidth="xl">
+            <Box className="section-heading text-center">
+              <Typography variant="h2" className='text-4xl text-butter my-5'>Popular Products</Typography>
+            </Box>
+          </Box>
+      </Box>
 
-      <div className="container">
-          <div className="col-12">
+      <Box className="container">
+          <Box className="col-12">
             <Carousel products={products} itemsPerPage={4} />
-          </div>
-      </div>
-    </section>
+          </Box>
+      </Box>
+    </Box>
   );
 };
 
