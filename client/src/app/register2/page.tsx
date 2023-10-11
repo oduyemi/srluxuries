@@ -1,15 +1,18 @@
 import { Reg2 } from "@/components/Forms/Forms";
 import { Header } from "@/components/navigation/Header";
+import { Box } from "@mui/material";
+
+
 
 export default function Register2 () {
     return(
         <>
-            <section>
+            <Box>
                 <Header />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <Reg2 />
-            </section>
+            </Box>
         </>
        
     )

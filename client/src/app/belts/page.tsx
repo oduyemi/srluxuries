@@ -1,19 +1,21 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { BeltsPage } from "@/components/BeltsPage/index";
+import { Box } from "@mui/material";
+
 
 export default function Belts () {
     return(
         <>
-            <section>
+            <Box>
                 <Header />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <BeltsPage />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <Footer />
-            </section>
+            </Box>
         </>
         
     )

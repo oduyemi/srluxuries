@@ -1,15 +1,18 @@
 import { LoginForm } from "@/components/Forms/Forms";
 import { Header } from "@/components/navigation/Header";
+import { Box } from "@mui/material";
+
+
 
 export default function Login () {
     return(
         <>
-            <section>
+            <Box>
                 <Header />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <LoginForm />
-            </section>
+            </Box>
         </>
     )
 }

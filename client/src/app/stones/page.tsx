@@ -1,19 +1,21 @@
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { StonesPage } from "@/components/StonesPage/index";
+import { Box } from "@mui/material";
+
 
 export default function Stones () {
     return(
         <>
-            <section>
+            <Box>
                 <Header />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <StonesPage />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <Footer />
-            </section>
+            </Box>
         </>
         
     )

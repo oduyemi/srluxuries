@@ -1,19 +1,21 @@
 import { Accessories } from "@/components/Accessories/index";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
+import { Box } from "@mui/material";
+
 
 export default function accessories () {
     return(
         <>
-            <section>
+            <Box>
                 <Header />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <Accessories />
-            </section>
-            <section>
+            </Box>
+            <Box>
                 <Footer />
-            </section>
+            </Box>
         </>
     )
 }
