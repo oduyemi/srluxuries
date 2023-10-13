@@ -10,7 +10,7 @@ export const StonesPage = () => {
                 <Box className="collection mx-auto" id="stones">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold my-2 text-goldie">S R LUXURIES</Typography>
-                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4">Luxury Stones</Typography>
+                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4">Luxury Stones</Typography>
                         </Box> 
                     </Box>
                 </Box>

@@ -9,7 +9,7 @@ export const AboutPage = () => {
                 <Box className="abt mx-auto ">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold">about</Typography>
-                        <Typography variant="h2" className="text-4xl font-extrabold mb-2 text-butter w-1/3 mt-0 gold_title">
+                        <Typography variant="h2" className="text-4xl font-extrabold mb-2 text-butter w-2/3 mt-0 gold_title">
                             Samuel Rowland
                             <span><h2 className="text-[#39A9DB] sm:text-3xl spaced_title">L U X U R I E S </h2></span>
                         </Typography>

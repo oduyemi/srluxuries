@@ -10,7 +10,7 @@ export const Trad = () => {
                 <Box className="collection mx-auto" id="trad">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold text-goldie mt-8">SR LUXURIES</Typography>
-                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4 mt-0">Trads</Typography>
+                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4 mt-0">Trads</Typography>
                         </Box> 
                     </Box>
                 </Box>

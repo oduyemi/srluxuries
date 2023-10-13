@@ -10,7 +10,7 @@ export const CollectionPage = () => {
                 <Box className="collection mx-auto">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold text-goldie">S R LUXURIES</Typography>
-                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-1/3 mb-4 mt-0">Collection</Typography>
+                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4 mt-0">Collection</Typography>
                         </Box> 
                     </Box>
                 </Box>
