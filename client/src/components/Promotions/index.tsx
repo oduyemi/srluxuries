@@ -8,12 +8,12 @@ export const Promotions = () => {
                 <Box className="serv deals mx-auto">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold my-2 text-tan">promotions</Typography>
-                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-butter w-1/3">
+                        <Typography variant="h2" className="gold_title text-5xl font-extrabold mb-2 text-butter w-1/3">
                             SRL<span>
-                                    <Typography variant="h2" className="pl-2 text-[#39A9DB] inline">&nbsp;Specials</Typography>
+                                    <Typography variant="h2" className="gold_title pl-2 text-[#39A9DB] inline">&nbsp;Specials</Typography>
                                 </span>
                         </Typography>
-                        <Typography variant="h5" className="text-sm pl-2 text-tan" paragraph>
+                        <Typography variant="h5" className="text-sm pl-1 text-tan" paragraph>
                             Don&apos;t miss out on another good deal.
                         </Typography>
                         <Box className="mt-4">

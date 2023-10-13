@@ -79,7 +79,7 @@ export const Header = () => {
                             alt="Logo"
                             width={50}
                             height={50}
-                            className="h-14 w-14 object-contain ml-4"
+                            className="h-14 w-14 object-contain ml-4 logo"
                         />
                         </Link>
                     </Box>

@@ -10,7 +10,7 @@ export const ProductCat3 = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className="gold_title text-gray-50 font-extrabold md:text-9xl sm:text-6xl mt-0 mb-4">
                             <span><Link href="/accessories">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -23,7 +23,7 @@ export const ProductCat3 = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-hover.jpg"

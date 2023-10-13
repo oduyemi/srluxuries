@@ -23,7 +23,7 @@ export const Questions: React.FC = () => {
             <Box maxWidth="sm" className="mb-5 mx-auto">
                 <Box className="abt-desc mx-auto">
                     <Typography variant="h6" className='font-extrabold my-2 text-tan'>faqs</Typography>
-                    <Typography variant="h2" className='text-5xl font-extrabold mb-2 text-butter w-1/3'>Your<span><Typography variant="h2" className="pl-2 text-[#39A9DB] inline">Questions</Typography></span></Typography>
+                    <Typography variant="h2" className='text-5xl font-extrabold mb-2 text-butter w-2/3 gold_title'>Your<span><Typography variant="h2" className="pl-2 text-[#39A9DB] inline gold_title">Questions</Typography></span></Typography>
                     <Typography variant="h6" className="text-sm pl-2 text-brownie" paragraph>
                         Here are the things you need to know.
                     </Typography>

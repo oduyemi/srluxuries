@@ -17,7 +17,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/trad-wears">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -30,7 +30,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-1b.jpg"
@@ -64,7 +64,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/corporate-wears">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -77,7 +77,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/corporatewears/cw-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/corporatewears/cw-1b.jpg"
@@ -111,7 +111,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/summer-wears">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -124,7 +124,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/summer/sm-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/summer/sm-1b.jpg"
@@ -172,7 +172,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/foot">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -185,7 +185,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-1.jpg"
@@ -209,7 +209,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/beads">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -222,7 +222,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
@@ -247,7 +247,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className="text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className="text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/belts">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -260,7 +260,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/belts/b-hover.jpg"
@@ -294,7 +294,7 @@ export const ShopPage = () => {
             <Box className="container">
                 <Box className="justify-center mb-5 p-4 mt-10">
                     <Box maxWidth="xl" className="text-center">
-                        <Typography variant="h2" className=" text-gray-50 font-extrabold text-9xl sm:text-6xl mt-0 mb-4">
+                        <Typography variant="h2" className=" text-gray-50 font-extrabold md:text-9xl sm:text-6xl gold_title mt-0 mb-4">
                             <span><Link href="/caps">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" 
                                 className="bi bi-arrow-right inline text-gray-50" viewBox="0 0 16 16"> 
@@ -307,7 +307,7 @@ export const ShopPage = () => {
                 </Box>
             </Box>
             </Box>
-            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+            <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
             <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1.jpg"
                     hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/accessories/caps/cp-1b.jpg"

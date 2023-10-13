@@ -11,7 +11,7 @@ export const Location = () => {
             </Box>
 
             <Box maxWidth="sm" className="contact-info">
-                <Typography variant="h2" gutterBottom className="text-goldie">How to Find <span><Typography variant="h2" className="inline text-bluey">SR LUXURIES</Typography></span></Typography>
+                <Typography variant="h2" gutterBottom className="text-goldie spaced_title text-center mt-4">How to Find <span><Typography variant="h2" className="inline text-bluey spaced_title">SR LUXURIES</Typography></span></Typography>
                 <Typography sx={{ fontWeight:"light" }} variant="h6" className="mb-4" paragraph>
                     Need something? Our team is here to help! Please feel free to reach us with
                     the details below, or fill the Contact Form and we will get back to you shortly.
