@@ -70,7 +70,7 @@ export const Tailor = () => {
                             </strong>
                         </Typography>
                         <Box sx={{ display:"flex" }}>
-                            <Link href="/appoinment">
+                            <Link href="/appointment">
                                 <Button variant="contained" sx={{ backgroundColor:"#CD8F2C" }} className="spaced rounded bg-goldie px-6 py-2 text-sm hover:bg-tan hover:text-white
                                 border border-goldie hover:border-tan"> 
                                     Book Appointment
