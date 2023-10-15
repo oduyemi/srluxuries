@@ -5,7 +5,7 @@ import { Box, Typography, Button,Grid } from "@mui/material";
 
 export const TopCategory = () => {
     return(
-        <Box container maxWidth="xl">
+        <Box maxWidth="xl">
             <Box maxWidth="l" sx={{ display:"flex", justifyItems:"center", alignItems:"center"}} className="bg-img background-overlay">
                 <Grid maxWidth="l" className="mx-auto">
                     <Image
