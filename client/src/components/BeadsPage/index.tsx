@@ -7,7 +7,7 @@ export const BeadsPage = () => {
 
     return(
         <>
-            <Box className="h-full w-full mb-5 mx-auto">
+            <Box maxWidth="xl" className="mb-5 mx-auto">
                 <Box className="collection mx-auto" id="beads">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold text-goldie">S R LUXURIES</Typography>
@@ -17,33 +17,33 @@ export const BeadsPage = () => {
                 </Box>
                 <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-1.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-1.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-1.jpg"
                 />
 
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-2.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-2.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-2.jpg"
                 />
 
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-3.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-3.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-3.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-3b.jpg"
                 />
 
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-4.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bd-4b.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-4.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-4b.jpg"
                 />
             </Box>
-            <Box className="mt-6">
+            {/* <Box className="mt-6">
                 <Box className="my-6 mx-auto text-center">
                     <Link href="/stones">
-                        <Button sx={{ backgroundColor:"#CD8F2C" }} variant="contained" className="rounded hover:bg-tan px-8 py-2 text-l  hover:text-white border border-goldie
+                        <Button variant="contained" sx={{ backgroundColor:"#CD8F2C" }} className="rounded bg-goldie hover:bg-tan px-8 py-2 text-l  hover:text-white border border-goldie
                         hover:border-tan">Go to Luxury Stones</Button>
                     </Link>
                 </Box>
-            </Box>
+            </Box> */}
         </>
     )
 }

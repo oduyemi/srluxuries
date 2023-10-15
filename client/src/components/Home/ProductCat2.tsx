@@ -25,24 +25,24 @@ export const ProductCat2 = () => {
             </Box>
             <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-1.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-1.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-1.jpg"
                     // productName="Product Name 1"
                     // price="149"
                     // originalPrice="199"
                 />
 
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-2.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-2.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-2.jpg"
                     // productName="Product Name 2"
                     // price="149"
                     // originalPrice="199"
                 />
 
                 <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-3.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/sh-3.jpg"
+                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-3.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-3.jpg"
                     // productName="Product Name 3"
                     // price="149"
                     // originalPrice="199"

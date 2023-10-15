@@ -33,6 +33,8 @@ export const Header = () => {
               <Link href="/about" className="text-l block py-2 hover:text-butter">
                 About
               </Link>
+              <Link href="/collection" className="text-l block py-2 hover:text-butte">Collection&apos;</Link>
+              <Link href="/tees" className="text-l block py-2 hover:text-butte">SRL Tees&apos;</Link>
               <Link href="/belts" className="text-l block py-2 hover:text-butter">
                 Belts
               </Link>
@@ -45,17 +47,20 @@ export const Header = () => {
               <Link href="/beads" className="text-l block py-2 hover:text-butter">
                 Luxury Beads
               </Link>
-              <Link href="/stones" className="text-l block py-2 hover:text-butter">
+              {/* <Link href="/stones" className="text-l block py-2 hover:text-butter">
                 Luxury Stones
-              </Link>
+              </Link> */}
               <Link href="/corporate-wears" className="text-l block py-2 hover:text-butter">
                 Corporate Wears
               </Link>
               <Link href="/aummer-wears" className="text-l block py-2 hover:text-butter">
-                Summer Wears
+                SRL 2 Catchy Piece
               </Link>
               <Link href="/trad-wears" className="text-l block py-2 hover:text-butter">
                 Trad Wears
+              </Link>
+              <Link href="/services" className="text-l block py-2 hover:text-butter">
+                Services
               </Link>
               <Link
                 href="/locator"
@@ -138,9 +143,9 @@ export const Header = () => {
                                     <li>
                                         <Link href="/beads" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Luxury Beads</Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link href="/stones" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Luxury Stones</Link>
-                                    </li>
+                                    </li> */}
                                 </ul> 
                             </Box>                                           
                     </li>
@@ -160,11 +165,14 @@ export const Header = () => {
                                 isPagesDropdownOpen ? "block" : "hidden"
                             } bg-transparent text-base z-10 list-none rounded shadow absolute mt-2 w-36 left-30`}>
                                 <ul className="py-1" aria-labelledby="dropdownNavbarLink">
-                                <li>
-                                        <Link href="corporate-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Corporate Wears</Link>
+                                    <li>
+                                        <Link href="/tees" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">SRL Tees&apos;</Link>
                                     </li>
                                     <li>
-                                        <Link href="summer-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Summer Wears</Link>
+                                        <Link href="summer-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">SRL 2 Catchy Piece</Link>
+                                    </li>
+                                    <li>
+                                        <Link href="corporate-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Corporate Wears</Link>
                                     </li>
                                     <li>
                                         <Link href="trad-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Trad Wears</Link>
@@ -172,9 +180,12 @@ export const Header = () => {
                                 </ul>
                         </Box>
                     </li>
+                    {/* <li>
+                        <Link href="" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0"> Fit</Link>
+                    </li> */}
                     <li>
-                        <Link href="" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Wedding Fit</Link>
-                    </li>
+                        <Link href="/services" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Services</Link>
+                    </li> 
                     <li>
                     <Link href="locator" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Contact Us</Link>
                     </li>

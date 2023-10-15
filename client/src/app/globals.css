@@ -7,12 +7,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 body {
     color: #000000;
     background-color: #ffffff;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: Georgia, Times, serif;
 }
@@ -100,7 +100,7 @@ body {
 }
 
 #belts{
-  background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/general/belt.jpg) !important;
+  background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/belts/gen.jpg) !important;
 }
 
 #caps{
@@ -112,6 +112,10 @@ body {
 
 #footwears{
   background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/general/shoe.jpg) !important;
+}
+
+#tees{
+  background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/tees/gen.jpg) !important;
 }
 
 #store{
@@ -368,10 +372,50 @@ body {
     left:10%;
   } */
 
-@media (min-width: 200px){
+
+  @media (max-width: 768px) {
+    .mobile-menu-button {
+      display: block;
+      position: relative !important;
+      left: 22% !important;
+    }
+  
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 60px; 
+      right: 0;
+      left: 0;
+      background-color: white;
+      z-index: 999;
+      border-top: 1px solid #ccc;
+    }
+  
+    #mobile-menu.active {
+      display: flex;
+    }
+  
+    .nav-menu-wrapper{
+      display:none;
+    }
+  
+    .cta--text h6{
+      font-size: smaller !important;
+    }
+  
+    .cta--text h3{
+      font-size: medium !important;
+    }
+  
+  }
+    
+
+@media (max-width: 500px){
   .banner-desc, .abt-desc{
     position: relative;
-    top: 30%;
+    top: 20%;
   }
   .spaced_title{
     font-size: large !important;
@@ -386,51 +430,28 @@ body {
     right: 32%;
   }
 
+  .login{
+    position: relative;
+    left: 7%;
+  }
+
+  .consult{
+    flex-direction: column-reverse;
+  }
+
+  .consult .imgbox{
+    position: relative !important;
+    right: 14% !important;
+  }
+
+  .spaced{
+    position: relative;
+    left: 10%;
+  }
 
   /* .up{
     margin-top: -10% !important;
   } */
 }
-
-
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    display: block;
-    position: relative !important;
-    left: 22% !important;
-  }
-
-  #mobile-menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 60px; 
-    right: 0;
-    left: 0;
-    background-color: white;
-    z-index: 999;
-    border-top: 1px solid #ccc;
-  }
-
-  #mobile-menu.active {
-    display: flex;
-  }
-
-  .nav-menu-wrapper{
-    display:none;
-  }
-
-  .cta--text h6{
-    font-size: smaller !important;
-  }
-
-  .cta--text h3{
-    font-size: medium !important;
-  }
-
-}
-
-
 
 
