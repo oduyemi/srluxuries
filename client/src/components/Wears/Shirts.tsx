@@ -7,7 +7,7 @@ export const Shirts = () => {
     return(
         <>
             <Box maxWidth="xl" className="mb-5 mx-auto">
-                <Box className="collection mx-auto" id="summer">
+                <Box className="collection mx-auto" id="shirts">
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold text-goldie pl-10">SR LUXURIES</Typography>
                         <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-tan w-2/3 mb-4 pl-10 mt-0">SRL Casual Shirts</Typography>

@@ -122,8 +122,12 @@ body {
   background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/general/store.jpg) !important;
 }
 
-#summer{
+#shirts{
   background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/general/summer.jpg) !important;
+}
+
+#summer{
+  background-image: url(https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/gen.jpg) !important;
 }
 
 #trad{

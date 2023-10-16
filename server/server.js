@@ -151,6 +151,8 @@ app.post("/product-category", async (req, res) => {
     ];
 
     for (const category of categories) {
+        const query = mysql.format(insertCategoryQuery, category);
+        console.log("Insert Statement:", query);
         try {
             await new Promise((resolve, reject) => {
                 db.query(insertCategoryQuery, category, (err, result) => {
@@ -177,20 +179,18 @@ app.post("/product", async (req, res) => {
         VALUES (?, ?, ?, ?);
     `;
     const products = [
-        ["SRL Beaded Bracelet", 1, 12000, ""],
-        ["SRL Gemstone Bracelet", 1, 15000, ""],
+        ["SRL Beaded Bracelet", 1, 12000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-1.jpg"],
+        ["SRL Gemstone Bracelet", 1, 15000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/beads/bds-4.jpg"],
         ["SRL Leather Belt", 2, 12000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/belts/bt-1.jpg"],
         ["Full Asooke Cap", 3, 7000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-1.jpg"],
         ["Patterned Cap with Embroidery", 3, 7000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-2.jpg"],
         ["Brown 3-Piece Suit", 4, 80000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/corporatewears/cw-1.jpg"],
         ["Red 3-Piece Suit", 4, 120000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/corporatewears/cw-2.jpg"],
-        ["Men Leather Slipper Sandal", 5, 35000, ""],
-        ["Men Leather Half Shoe", 5, 40000, ""],
+        ["Men Leather Slipper Sandal", 5, 35000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-10.jpg"],
+        ["Men Leather Half Shoe", 5, 40000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/footwears/shoe-9.jpg"],
         ["SRL 2-Catchy-Piece", 6, 25000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-1.jpg"],
-        ["SRL Casual Brocade Shirt", 7, 15000, ""],
-        ["SRL Casual Shirt", 7, 12000, ""],
-        
-        
+        ["SRL Casual Brocade Shirt", 7, 15000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-1.jpg"],
+        ["SRL Casual Shirt", 7, 12000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-1.jpg"],
         ["SRL White Signature Tee-Shirt", 8, 20000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/tees/t-2.jpg"],
         ["SRL Black Signature Tee-Shirt", 8, 20000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/tees/t-1.jpg"],
         ["White 2-piece Senator Suit", 9, 50000, "https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-6.jpg"],
@@ -205,6 +205,8 @@ app.post("/product", async (req, res) => {
     ];
 
     for (const product of products) {
+        const query = mysql.format(insertProductQuery, product);
+        console.log("Insert Statement:", query);
         try {
             await new Promise((resolve, reject) => {
                 db.query(insertProductQuery, product, (err, result) => {
