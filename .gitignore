@@ -35,9 +35,12 @@
 /client/next-env.d.ts
 
 
-/server/srl/__pycache__
-/server/.env.local
-/server/config.py
+
+/server/.env
+/server/node_modules
+
 
 /client/.next
+
+
 

@@ -50,6 +50,12 @@ export const Header = () => {
               {/* <Link href="/stones" className="text-l block py-2 hover:text-butter">
                 Luxury Stones
               </Link> */}
+              <Link href="/tees" className="text-l block py-2 hover:text-butter">
+                SRL Tees
+              </Link>
+              <Link href="/shirts" className="text-l block py-2 hover:text-butter">
+                Casual Shirts
+              </Link>
               <Link href="/corporate-wears" className="text-l block py-2 hover:text-butter">
                 Corporate Wears
               </Link>
@@ -166,10 +172,13 @@ export const Header = () => {
                             } bg-transparent text-base z-10 list-none rounded shadow absolute mt-2 w-36 left-30`}>
                                 <ul className="py-1" aria-labelledby="dropdownNavbarLink">
                                     <li>
-                                        <Link href="/tees" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">SRL Tees&apos;</Link>
+                                        <Link href="/tees" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">SRL Tees</Link>
                                     </li>
                                     <li>
                                         <Link href="summer-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">SRL 2 Catchy Piece</Link>
+                                    </li>
+                                    <li>
+                                    <Link href="/shirts" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Casual Shirts</Link>
                                     </li>
                                     <li>
                                         <Link href="corporate-wears" className="text-l hover:bg-gray-100 text-gray-700 block px-4 py-2">Corporate Wears</Link>
