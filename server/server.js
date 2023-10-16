@@ -35,7 +35,7 @@ db.connect((err) => {
 // Table creation
 const createUserTable = `
     CREATE TABLE IF NOT EXISTS User (
-        UserId INT NOT NULL,
+        UserId INT NOT NULL AUTO_INCREMENT,
         Name VARCHAR(120),
         Phone VARCHAR(50),
         Password VARCHAR(80),
@@ -88,7 +88,7 @@ const createUserTable = `
 
 const createProductCategoryTable = `
     CREATE TABLE IF NOT EXISTS ProductCategory (
-        ProductCategoryId INT NOT NULL,
+        ProductCategoryId INT NOT NULL AUTO_INCREMENT,
         Name VARCHAR(255),
         Description Text,
         PRIMARY KEY (ProductCategoryId)
@@ -97,7 +97,7 @@ const createProductCategoryTable = `
 
 const createProductTable = `
     CREATE TABLE IF NOT EXISTS Product (
-        ProductId INT NOT NULL,
+        ProductId INT NOT NULL AUTO_INCREMENT,
         ProductName VARCHAR(255),
         ProductCategoryId INT,
         Price FLOAT,
@@ -142,7 +142,7 @@ app.post("/product-category", async (req, res) => {
         ["Beads", "SRL Luxury Beads and Stones"],
         ["Belts", "SRL Custom Belt Designs"],
         ["Caps", "SRL Unique Cap Designs"],
-        ["Corporate Wears", "SRL Custom Corporate and Business Casual Wears"],
+        ["Corporate Wears", "SRL Corporate and Business Casual Wears"],
         ["Footwears", "SRL Custom Footwear Designs"],
         ["2-Catchy-Piece", "SRL 2-Piece wears for summer"],
         ["SRL Shirts", "SRL unique Shirts"],
