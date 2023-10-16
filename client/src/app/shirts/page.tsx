@@ -3,7 +3,7 @@ import { Footer } from "@/components/navigation/Footer";
 import { Shirts } from "@/components/Wears/Shirts";
 import { Box } from "@mui/material";
 
-export default function SummerWears () {
+export default function shirts () {
     return(
         <>
             <Box>
