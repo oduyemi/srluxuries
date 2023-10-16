@@ -87,11 +87,11 @@ export const ShopPage = () => {
 
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-2bjpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-2b.jpg"
                 />
                 <ProductCatCard
                     normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-2.jpg"
+                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-2b.jpg"
                 />
 
                 <ProductCatCard
