@@ -1,8 +1,35 @@
 "use client"
+import { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
-export const Shirts = () => {
+interface Products {
+    ProductName: string;
+    Price: number;
+    ProductImage: string;
+    ProductHoverImage: string;
+  }
+  
+  export const Shirts = () => {
+    const [shirtsProducts, setShirtsProducts] = useState<Products[]>([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const response = await fetch("https://api.srl.yemi.dev/products/shirts");
+              if (!response.ok) {
+                  console.error("HTTP error!", response.status, response.statusText);
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              const data = await response.json();
+              setShirtsProducts(data);
+          } catch (error) {
+              console.error("Error fetching data:", error);
+      }
+    };
+
+      fetchData();
+  }, []);
 
     return(
         <>
@@ -11,53 +38,20 @@ export const Shirts = () => {
                     <Box className="abt-desc">
                         <Typography variant="h6" className="font-extrabold text-goldie pl-10">SR LUXURIES</Typography>
                         <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-tan w-2/3 mb-4 pl-10 mt-0">SRL Casual Shirts</Typography>
-                        </Box> 
-                    </Box>
+                    </Box> 
                 </Box>
-                <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-1b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-1b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-2b.jpg"
-                />
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-2b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-3.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-3b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-3.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-3b.jpg"
-                />
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-4.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casual/cs-4b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-4.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-4b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-5.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/shirts/casualbrocade/cs-5b.jpg"
-                />
             </Box>
+                <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
+                    {shirtsProducts.map((product, index) => (
+                        <ProductCatCard
+                            key={index}
+                            normalImageSrc={product.ProductImage}  
+                            hoverImageSrc={product.ProductHoverImage}  
+                            productName={product.ProductName}  
+                            price={product.Price} 
+                        />
+                        ))}
+                </Box>
         </>
     )
 }

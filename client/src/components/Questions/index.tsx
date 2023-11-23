@@ -21,7 +21,7 @@ export const Questions: React.FC = () => {
     return(
         <>
             <Box maxWidth="sm" className="mb-5 mx-auto">
-                <Box className="abt-desc mx-auto">
+                <Box className="abt-desc mx-auto mt">
                     <Typography variant="h6" className='font-extrabold my-2 text-tan'>faqs</Typography>
                     <Typography variant="h2" className='text-5xl font-extrabold mb-2 text-butter w-2/3 gold_title'>Your<span><Typography variant="h2" className="pl-2 text-[#39A9DB] inline gold_title">Questions</Typography></span></Typography>
                     <Typography variant="h6" className="text-sm pl-2 text-brownie" paragraph>

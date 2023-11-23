@@ -1,58 +1,60 @@
 "use client"
+import { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
-export const Trad = () => {
 
-    return(
-        <>
-            <Box maxWidth="xl" className="mb-5 mx-auto">
-                <Box className="collection mx-auto" id="trad">
-                    <Box className="abt-desc">
-                        <Typography variant="h6" className="font-extrabold text-goldie mt-8">SR LUXURIES</Typography>
-                        <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4 mt-0">Trads</Typography>
-                        </Box> 
-                    </Box>
-                </Box>
-                <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-1.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-1b.jpg"
-                    />
+interface Products {
+    ProductName: string;
+    Price: number;
+    ProductImage: string;
+    ProductHoverImage: string;
+  }
+  
+  export const Trad = () => {
+    const [tradProducts, setTradProducts] = useState<Products[]>([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const response = await fetch("https://api.srl.yemi.dev/products/trad");
+              if (!response.ok) {
+                  console.error("HTTP error!", response.status, response.statusText);
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              const data = await response.json();
+              setTradProducts(data);
+          } catch (error) {
+              console.error("Error fetching data:", error);
+      }
+    };
 
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/agbada/a-1.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/agbada/a-1b.jpg"
-                    />
-
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-2.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-2b.jpg"
-                    />
-
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-3.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-3b.jpg"
-                    />
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/agbada/a-2.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/agbada/a-2b.jpg"
-                    />
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-4.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-4b.jpg"
-                    />
-
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-5.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-5b.jpg"
-                    />
-
-                    <ProductCatCard
-                        normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-6.jpg"
-                        hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/trad/td-6b.jpg"
-                    />
+      fetchData();
+  }, []);
+  
+  
+    return (
+      <>
+        <Box maxWidth="xl" className="mb-5 mx-auto">
+          <Box className="collection mx-auto" id="trad">
+            <Box className="abt-desc">
+              <Typography variant="h6" className="font-extrabold text-goldie mt-8">SR LUXURIES</Typography>
+              <Typography variant="h2" className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4 mt-0">Trads</Typography>
             </Box>
-        </>
-    )
-}
+          </Box>
+        </Box>
+        <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
+          {tradProducts.map((product, index) => (
+            <ProductCatCard
+              key={index}
+              normalImageSrc={product.ProductImage}  
+              hoverImageSrc={product.ProductHoverImage}  
+              productName={product.ProductName}  
+              price={product.Price} 
+            />
+          ))}
+        </Box>
+      </>
+    );
+  }
+  

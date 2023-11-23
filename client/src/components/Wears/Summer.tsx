@@ -1,9 +1,37 @@
 "use client"
+import { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
-export const Summer = () => {
 
+interface Products {
+    ProductName: string;
+    Price: number;
+    ProductImage: string;
+    ProductHoverImage: string;
+  }
+  
+  export const Summer = () => {
+    const [summerProducts, setSummerProducts] = useState<Products[]>([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const response = await fetch("https://api.srl.yemi.dev/products/two-piece");
+              if (!response.ok) {
+                  console.error("HTTP error!", response.status, response.statusText);
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              const data = await response.json();
+              setSummerProducts(data);
+          } catch (error) {
+              console.error("Error fetching data:", error);
+      }
+    };
+
+      fetchData();
+  }, []);
+  
     return(
         <>
             <Box maxWidth="xl" className="mb-5 mx-auto">
@@ -15,35 +43,16 @@ export const Summer = () => {
                     </Box>
                 </Box>
                 <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-2 mb-5">
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-1b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-2b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-3.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-3bjpg"
-                />
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-4.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-4.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-5.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-5b.jpg"
-                />
-
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-6.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/summer/sm-6b.jpg"
-                />
-            </Box>
+                    {summerProducts.map((product, index) => (
+                        <ProductCatCard
+                            key={index}
+                            normalImageSrc={product.ProductImage}  
+                            hoverImageSrc={product.ProductHoverImage}  
+                            productName={product.ProductName}  
+                            price={product.Price} 
+                        />
+                    ))}
+                </Box>
         </>
     )
 }

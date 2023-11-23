@@ -20,7 +20,7 @@ export const Location = () => {
                 <Box className="contact-address mt-50">
                     <Typography variant="h5" sx={{ display:"inline" }} className="text-tan">Address:<span><Typography variant="h5" sx={{ fontWeight:"light", display:"inline" }} paragraph> 117, Obafemi Awolowo Way, Ikeja, Lagos</Typography></span></Typography>
                     <Typography variant="h5"  className="text-tan">Telephone:<span><Typography variant="h5" sx={{ fontWeight:"light", display:"inline" }} paragraph> +234 915 999 9965</Typography></span></Typography>
-                    <Typography variant="h5" paragraph><Link href="mailto:contact@srluxuries.com" className="text-butter">contact@srluxuries.com</Link></Typography>
+                    <Typography variant="h5" paragraph><Link href="mailto:supportt@srluxuries.com" className="text-butter">contact@srluxuries.com</Link></Typography>
                 </Box>
             </Box>
         </Box>

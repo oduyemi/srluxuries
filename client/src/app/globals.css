@@ -148,6 +148,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
 
+  .product-card {
+    overflow: hidden !important;
+  }
+  
+  .product-card h6 {
+    white-space: normal !important;
+  }
 
 
 .brands-area {

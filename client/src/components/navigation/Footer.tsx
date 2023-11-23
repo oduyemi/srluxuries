@@ -48,7 +48,7 @@ export const Footer = () => {
             <div className="w-full md:w-1/2">
                 <div className="single_widget_area mb-8 mt-4 md:mb-0">
                     <ul className="footer_widget_menu">
-                        <li><Link href="/">Privacy Policy</Link></li>
+                        <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                     </ul>
                 </div>
             </div>
@@ -86,7 +86,7 @@ export const Footer = () => {
                                 </path>
                             </svg>
                         </Link>
-                        <Link href="/" data-toggle="tooltip" data-placement="top" title="Instagram">
+                        {/* <Link href="/" data-toggle="tooltip" data-placement="top" title="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                                 className="bi bi-instagram" viewBox="0 0 16 16">
                                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927
@@ -105,7 +105,7 @@ export const Footer = () => {
                                 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
                                 </path>
                             </svg>
-                        </Link>
+                        </Link> */}
                         <Link href="/" data-toggle="tooltip" data-placement="top" title="Twitter">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                                 className="bi bi-twitter" viewBox="0 0 16 16">

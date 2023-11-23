@@ -1,29 +1,34 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "backend server",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oduyemi/srluxuries.git"
-  },
-  "keywords": [
-    "backend",
-    "server"
-  ],
-  "author": "Opeyemi Oduyemi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/oduyemi/srluxuries/issues"
-  },
-  "homepage": "https://github.com/oduyemi/srluxuries#readme",
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "mysql": "^2.18.1"
+    "name": "server",
+    "version": "1.0.0",
+    "description": "backend server",
+    "main": "server.js",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "NODE_ENV=production node server.js",
+      "lint": "next lint"
+    },
+    "engines": {
+      "node": "14.21.2"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/oduyemi/srluxuries.git"
+    },
+    "keywords": [
+      "backend",
+      "server"
+    ],
+    "author": "Opeyemi Oduyemi",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/oduyemi/srluxuries/issues"
+    },
+    "homepage": "https://github.com/oduyemi/srluxuries#readme",
+    "dependencies": {
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "mysql": "^2.18.1"
+    }
   }
-}

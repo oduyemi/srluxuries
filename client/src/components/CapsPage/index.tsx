@@ -1,8 +1,36 @@
 "use client"
+import { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
-export const CapsPage = () => {
+
+interface Products {
+    ProductName: string;
+    Price: number;
+    ProductImage: string;
+    ProductHoverImage: string;
+  }
+  
+  export const CapsPage = () => {
+    const [capsProducts, setCapsProducts] = useState<Products[]>([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+              const response = await fetch("https://api.srl.yemi.dev/products/caps");
+              if (!response.ok) {
+                  console.error("HTTP error!", response.status, response.statusText);
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              const data = await response.json();
+              setCapsProducts(data);
+          } catch (error) {
+              console.error("Error fetching data:", error);
+      }
+    };
+
+      fetchData();
+  }, []);
 
     return(
         <>
@@ -15,15 +43,16 @@ export const CapsPage = () => {
                     </Box>
                 </Box>
                 <Box maxWidth="xl" className="mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-1.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-1b.jpg"
-                />
+                    {capsProducts.map((product, index) => (
+                        <ProductCatCard
+                            key={index}
+                            normalImageSrc={product.ProductImage}  
+                            hoverImageSrc={product.ProductHoverImage}  
+                            productName={product.ProductName}  
+                            price={product.Price} 
+                        />
+                        ))}
 
-                <ProductCatCard
-                    normalImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-2.jpg"
-                    hoverImageSrc="https://res.cloudinary.com/dymd1jkbl/image/upload/v1691953768/srl/caps/cp-2b.jpg"
-                />
 
                
             </Box>
