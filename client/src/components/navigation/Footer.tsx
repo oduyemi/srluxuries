@@ -51,6 +51,35 @@ export const Footer = () => {
                         <li><Link href="/privacy-policy">Privacy Policy</Link></li>
                     </ul>
                 </div>
+                <div className="single_widget_area mb-8 mt-4 md:mb-0">
+                    <Link href="/">
+                        <Image
+                            src="/assets/images/svg/logo-facebook.svg"
+                            alt="Facebook"
+                            width={20}
+                            height={20}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                    <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
+                        <Image
+                            src="/assets/images/svg/logo-instagram.svg"
+                            alt="Instagram"
+                            width={20}
+                            height={20}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                    <Link href="https://www.twitter.com/srluxuries" target="_blank">
+                        <Image
+                            src="/assets/images/svg/logo-twitter.svg"
+                            alt="Twitter"
+                            width={40}
+                            height={40}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                </div>
             </div>
         </div>
             <div className="single_widget_area">
