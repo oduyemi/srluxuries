@@ -36,8 +36,8 @@ export const Footer = () => {
                             <li>
                                 <Link href="/locator">Contact</Link>
                                 <ul>
-                                    <li><p className="text-white text-sm w-2/3">support@thesrluxuries.com</p></li><br/>
-                                    <li><p className="text-white text-sm w-2/3">info@thesrluxuries.com</p></li>
+                                    <li><p className="text-white text-sm w-2/3">support@thesrluxuries.com</p></li>
+                                    {/* <li><p className="text-white text-sm w-2/3">info@thesrluxuries.com</p></li> */}
                                     {/* <li><p className="text-white text-sm">08188777223</p></li> */}
                                 </ul>
                             </li>
