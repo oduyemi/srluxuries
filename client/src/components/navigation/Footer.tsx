@@ -52,7 +52,7 @@ export const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="single_widget_area mb-8 mt-4 md:mb-0">
+            <div className="flex items-center justify-between mb-8 mt-4 md:mb-0">
                     <Link href="/">
                         <Image
                             src="/assets/images/svg/logo-facebook.svg"
@@ -80,38 +80,7 @@ export const Footer = () => {
                             className="footer_icons w-5"
                         />
                     </Link>
-                </div>
-        </div>
-            <div className="single_widget_area">
-                <div className="footer_social_area">
-                    <Link href="/">
-                        <Image
-                            src="/assets/images/svg/logo-facebook.svg"
-                            alt="Facebook"
-                            width={20}
-                            height={20}
-                            className="footer_icons w-5"
-                        />
-                    </Link>
-                    <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
-                        <Image
-                            src="/assets/images/svg/logo-instagram.svg"
-                            alt="Instagram"
-                            width={20}
-                            height={20}
-                            className="footer_icons w-5"
-                        />
-                    </Link>
-                    <Link href="https://www.twitter.com/srluxuries" target="_blank">
-                        <Image
-                            src="/assets/images/svg/logo-twitter.svg"
-                            alt="Twitter"
-                            width={40}
-                            height={40}
-                            className="footer_icons w-5"
-                        />
-                    </Link>
-                </div>     
+                </div>   
 
         <div className="mt-5">
             <div className="w-full text-center text-butter">
