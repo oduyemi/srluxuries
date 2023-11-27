@@ -37,6 +37,7 @@ export const Footer = () => {
                                 <Link href="/locator">Contact</Link>
                                 <ul>
                                     <li><p className="text-white text-sm w-2/3">support@thesrluxuries.com</p></li>
+                                    <li><p className="text-white text-sm w-2/3">info@thesrluxuries.com</p></li>
                                     {/* <li><p className="text-white text-sm">08188777223</p></li> */}
                                 </ul>
                             </li>
@@ -52,38 +53,36 @@ export const Footer = () => {
                 </div>
             </div>
         </div>
-        <div className="w-full md:w-1/2">
-                <div className="single_widget_area">
-                    <div className="footer_social_area">
-                        <Link href="/">
-                            <Image
-                                src="/assets/images/svg/logo-facebook.svg"
-                                alt="Facebook"
-                                width={20}
-                                height={20}
-                                className="footer_icons w-5"
-                            />
-                        </Link>
-                        <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
-                            <Image
-                                src="/assets/images/svg/logo-instagram.svg"
-                                alt="Instagram"
-                                width={20}
-                                height={20}
-                                className="footer_icons w-5"
-                            />
-                        </Link>
-                        <Link href="https://www.twitter.com/srluxuries" target="_blank">
-                            <Image
-                                src="/assets/images/svg/logo-twitter.svg"
-                                alt="Twitter"
-                                width={40}
-                                height={40}
-                                className="footer_icons w-5"
-                            />
-                        </Link>
-                    </div>     
-        </div>
+            <div className="single_widget_area">
+                <div className="footer_social_area">
+                    <Link href="/">
+                        <Image
+                            src="/assets/images/svg/logo-facebook.svg"
+                            alt="Facebook"
+                            width={20}
+                            height={20}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                    <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
+                        <Image
+                            src="/assets/images/svg/logo-instagram.svg"
+                            alt="Instagram"
+                            width={20}
+                            height={20}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                    <Link href="https://www.twitter.com/srluxuries" target="_blank">
+                        <Image
+                            src="/assets/images/svg/logo-twitter.svg"
+                            alt="Twitter"
+                            width={40}
+                            height={40}
+                            className="footer_icons w-5"
+                        />
+                    </Link>
+                </div>     
 
         <div className="mt-5">
             <div className="w-full text-center text-butter">
