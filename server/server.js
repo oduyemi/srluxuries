@@ -581,8 +581,8 @@ app.get("/products", async (req, res) => {
 
 app.get("/products/beads", async (req, res) => {
     const fetchBeadsQuery = `
-        SELECT * FROM Product
-        WHERE ProductCategoryId = (SELECT productcategoryId FROM productcategory WHERE Name = "Beads");
+        SELECT * FROM product
+        WHERE ProductCategoryId = (SELECT ProductCategoryId FROM productcategory WHERE Name = "Beads");
     `;
 
     try {

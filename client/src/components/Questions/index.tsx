@@ -64,7 +64,7 @@ export const Questions: React.FC = () => {
                         id="collapse1"
                         >
                         <Box className="px-5 py-4">
-                            <strong className="text-ggreen">We are keen on satisfying my customers. </strong>
+                            <strong className="text-ggreen">We are keen on satisfying our customers. </strong>
                             You can. <code>Terms and conditions apply</code>.
                         </Box>
                     </Box>
