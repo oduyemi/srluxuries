@@ -82,7 +82,7 @@ export const Footer = () => {
                                 alt="Facebook"
                                 width={40}
                                 height={40}
-                                className="w-10"
+                                className="w-5"
                             />
                         </Link>
                         <Link href="https://www.instagram.com/sr_luxuries/">
@@ -91,7 +91,7 @@ export const Footer = () => {
                                 alt="Instagram"
                                 width={40}
                                 height={40}
-                                className="w-10"
+                                className="w-5"
                             />
                         </Link>
                         <Link href="https://www.twitter.com/srluxuries">
@@ -100,7 +100,7 @@ export const Footer = () => {
                                 alt="Twitter"
                                 width={40}
                                 height={40}
-                                className="w-10"
+                                className="w-5"
                             />
                         </Link>
                     </div>
