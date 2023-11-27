@@ -45,7 +45,6 @@ export const Footer = () => {
                 </div>
             </div>
             {/* Single Widget Area */}
-            <div className="w-full md:w-1/2">
                 <div className="single_widget_area mb-8 mt-4 md:mb-0">
                     <ul className="footer_widget_menu">
                         <li><Link href="/privacy-policy">Privacy Policy</Link></li>
@@ -83,10 +82,7 @@ export const Footer = () => {
                                 className="footer_icons w-5"
                             />
                         </Link>
-                    </div>
-                </div>
-
-     
+                    </div>     
         </div>
 
         <div className="mt-5">
