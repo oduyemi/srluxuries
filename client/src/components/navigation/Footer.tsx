@@ -53,27 +53,7 @@ export const Footer = () => {
                 </div>
             </div>
         </div>
-
-        <div className="flex justify-center items-end">
-            {/* <div className="w-full md:w-1/2">
-                <div className="single_widget_area pl-6">
-                    <div className="footer_heading mb-8 md:mb-0">
-                        <h6>Join Our Mailing List</h6>
-                    </div>
-                    <div className="mailing_form">
-                        <form action="" method="post">
-                            <input type="email" name="mail" className="mail" placeholder="Your email here" />
-                            <button
-                                type="submit"
-                                className="rounded-full bg-goldie px-6 py-2 text-xl hover:bg-tan hover:text-white border border-goldie hover:border-tan"
-                            >
-                                Join Now
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div> */}
-            <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2">
                 <div className="single_widget_area">
                     <div className="footer_social_area">
                         <Link href="/">
@@ -105,7 +85,8 @@ export const Footer = () => {
                         </Link>
                     </div>
                 </div>
-            </div>
+
+     
         </div>
 
         <div className="mt-5">
