@@ -55,31 +55,31 @@ export const Footer = () => {
             <div className="w-full md:w-1/2">
                 <div className="single_widget_area">
                     <div className="footer_social_area">
-                        <Link href="/">
+                        <Link href="https://www.facebook.com/sr_luxuries" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook">
                             <Image
                                 src="/assets/images/svg/logo-facebook.svg"
                                 alt="Facebook"
                                 width={20}
                                 height={20}
-                                className="footer_icons w-5"
+                                className="footer_icons w-7"
                             />
                         </Link>
-                        <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
+                        <Link href="https://www.instagram.com/sr_luxuries/" target="_blank" data-toggle="tooltip" data-placement="top" title="Instagram">
                             <Image
                                 src="/assets/images/svg/logo-instagram.svg"
                                 alt="Instagram"
                                 width={20}
                                 height={20}
-                                className="footer_icons w-5"
+                                className="footer_icons w-7"
                             />
                         </Link>
-                        <Link href="https://www.twitter.com/srluxuries" target="_blank">
+                        <Link href="https://www.twitter.com/srluxuries" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter">
                             <Image
                                 src="/assets/images/svg/logo-twitter.svg"
                                 alt="Twitter"
                                 width={40}
                                 height={40}
-                                className="footer_icons w-5"
+                                className="footer_icons w-7"
                             />
                         </Link>
                     </div>
