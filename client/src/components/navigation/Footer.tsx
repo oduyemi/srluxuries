@@ -52,7 +52,7 @@ export const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="footer_social_area mb-8 mt-4 md:mb-0">
+            <div className="single_widget_area mb-8 mt-4 md:mb-0">
                     <Link href="/">
                         <Image
                             src="/assets/images/svg/logo-facebook.svg"
