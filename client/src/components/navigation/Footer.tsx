@@ -80,21 +80,21 @@ export const Footer = () => {
                             <Image
                                 src="/assets/images/svg/logo-facebook.svg"
                                 alt="Facebook"
-                                width={40}
-                                height={40}
+                                width={20}
+                                height={20}
                                 className="w-5"
                             />
                         </Link>
-                        <Link href="https://www.instagram.com/sr_luxuries/">
+                        <Link href="https://www.instagram.com/sr_luxuries/" target="_blank">
                             <Image
                                 src="/assets/images/svg/logo-instagram.svg"
                                 alt="Instagram"
-                                width={40}
-                                height={40}
+                                width={20}
+                                height={20}
                                 className="w-5"
                             />
                         </Link>
-                        <Link href="https://www.twitter.com/srluxuries">
+                        <Link href="https://www.twitter.com/srluxuries" target="_blank">
                             <Image
                                 src="/assets/images/svg/logo-twitter.svg"
                                 alt="Twitter"
