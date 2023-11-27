@@ -262,7 +262,7 @@ body {
       right: 0;
       text-align: center;
       z-index: 10; }
-  .footer_area .single_widget_area .footer_social_area a {
+  .footer_area .single_widget_area .footer_social_area Link {
     color: #ffffff;
     display: inline-block;
     padding: 0 10px;
