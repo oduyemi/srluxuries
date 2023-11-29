@@ -38,7 +38,7 @@ export default function ProductCatCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Image
+      <img
         src={isHovered ? hoverImageSrc : normalImageSrc}
         alt="Product"
         className="h-80 w-72 object-cover rounded-t-xl"
