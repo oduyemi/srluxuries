@@ -5,14 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from 'next/dynamic';
 
-const useRouter = dynamic(() => import('next/router')).useRouter;
+const DynamicComponentWithNoSSR = dynamic(() => import('next/router'), {
+    ssr: false,
+  });
 
 
 export const Header = () => {
     const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
     const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const router = useRouter();
+    const useRouter = DynamicComponentWithNoSSR().useRouter;
     
     const toggleShopDropdown = () => {
         setIsShopDropdownOpen(!isShopDropdownOpen);
