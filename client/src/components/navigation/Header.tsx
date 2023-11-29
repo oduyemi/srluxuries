@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from 'next/dynamic';
-
-const useRouter = dynamic(() => import('next/router'), { ssr: false });
 
 
+
+const useRouter = typeof window !== 'undefined' ? require('next/router').useRouter : null;
 
 export const Header = () => {
     const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
