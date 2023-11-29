@@ -116,17 +116,18 @@ export const Header = () => {
                <ul
                  className="nav-menu-wrapper flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-l md:font-medium" id="mobile-menu">
                     <li>
-                        <Link
-                            href="/"
-                            className={`${
-                                typeof window !== 'undefined' && window.location.pathname === '/'
-                                    ? 'bg-butter text-white'
-                                    : 'text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0'
-                            } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
-                            aria-current="page"
-                        >
-                            Home
-                        </Link>
+                    <Link
+                        href="/"
+                        className={`${
+                            typeof window !== 'undefined' && window.location.pathname === '/'
+                                ? 'bg-butter text-goldie'
+                                : 'text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0'
+                        } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
+                        aria-current="page"
+                    >
+                        Home
+                    </Link>
+
                     </li>
                     <li>
                         <Link href="/about" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">About</Link>
