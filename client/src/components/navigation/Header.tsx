@@ -119,17 +119,27 @@ export const Header = () => {
                         <Link
                             href="/"
                             className={`${
-                                typeof window !== 'undefined' && window.location.pathname === '/'
-                                    ? 'bg-butter text-goldie'
-                                    : 'text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0'
+                                typeof window !== "undefined" && window.location.pathname === "/"
+                                    ? "bg-butter text-goldie"
+                                    : "text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0"
                             } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
-                            aria-current={typeof window !== 'undefined' && window.location.pathname === '/' ? 'page' : undefined}
+                            aria-current={typeof window !== "undefined" && window.location.pathname === "/" ? "page" : undefined}
                         >
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">About</Link>
+                        <Link
+                            href="/about"
+                            className={`${
+                                typeof window !== "undefined" && window.location.pathname === "/about"
+                                    ? "bg-butter text-goldie"
+                                    : "text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0"
+                            } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
+                            aria-current={typeof window !== "undefined" && window.location.pathname === "/" ? "page" : undefined}
+                        >
+                            About
+                        </Link>
                     </li>
                     <li>
                         <button onClick={toggleShopDropdown} data-dropdown-toggle="dropdownNavbar"
@@ -203,10 +213,30 @@ export const Header = () => {
                         <Link href="" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0"> Fit</Link>
                     </li> */}
                     <li>
-                        <Link href="/services" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Services</Link>
+                        <Link
+                            href="/services"
+                            className={`${
+                                typeof window !== "undefined" && window.location.pathname === "/services"
+                                    ? "bg-butter text-goldie"
+                                    : "text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0"
+                            } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
+                            aria-current={typeof window !== "undefined" && window.location.pathname === "/" ? "page" : undefined}
+                        >
+                            Services
+                        </Link>
                     </li> 
                     <li>
-                    <Link href="locator" className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-butter md:p-0">Contact Us</Link>
+                        <Link
+                            href="/locator"
+                            className={`${
+                                typeof window !== "undefined" && window.location.pathname === "/locator"
+                                    ? "bg-butter text-goldie"
+                                    : "text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0"
+                            } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`}
+                            aria-current={typeof window !== "undefined" && window.location.pathname === "/" ? "page" : undefined}
+                        >
+                            Contact Us
+                        </Link>
                     </li>
                 </ul>
                 <Box maxWidth="sm" sx={{ display:"flex", alignItems:"center", justifyContent:"center"}} className="space-x-2 menu-icons">
