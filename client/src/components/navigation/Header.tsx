@@ -3,18 +3,16 @@ import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 
-const DynamicComponentWithNoSSR = dynamic(() => import('next/router'), {
-    ssr: false,
-  });
+
 
 
 export const Header = () => {
     const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
     const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [router, setRouter] = useState(null);
+    const router = useRouter();
     
     const toggleShopDropdown = () => {
         setIsShopDropdownOpen(!isShopDropdownOpen);
@@ -27,11 +25,6 @@ export const Header = () => {
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
       };
-
-    useEffect(() => {
-    const { useRouter } = require('next/router');
-    setRouter(useRouter());
-    }, []);
 
       const renderMobileMenu = () => {
         if (isMobileMenuOpen) {
