@@ -24,6 +24,8 @@ export const Header = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
       };
 
+      const router = useRouter();
+
       const renderMobileMenu = () => {
         if (isMobileMenuOpen) {
           return (
@@ -80,7 +82,7 @@ export const Header = () => {
         }
         return null;
       };
-      const router = useRouter();
+      
     return(
         <nav id="header" className="bg-transparent">
                 <Box maxWidth="xl" sx={{ display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"between"}} className=" mt-0 py-1">
