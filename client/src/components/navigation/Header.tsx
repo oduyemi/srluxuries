@@ -11,6 +11,7 @@ export const Header = () => {
     const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
     const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const router = useRouter();
     
     const toggleShopDropdown = () => {
         setIsShopDropdownOpen(!isShopDropdownOpen);
@@ -23,8 +24,6 @@ export const Header = () => {
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen)
       };
-
-      const router = useRouter();
 
       const renderMobileMenu = () => {
         if (isMobileMenuOpen) {
