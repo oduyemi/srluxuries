@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 
 
@@ -33,8 +34,8 @@ export const Header = () => {
               <Link href="/about" className="text-l block py-2 hover:text-butter">
                 About
               </Link>
-              <Link href="/collection" className="text-l block py-2 hover:text-butte">Collection&apos;</Link>
-              <Link href="/tees" className="text-l block py-2 hover:text-butte">SRL Tees&apos;</Link>
+              <Link href="/collection" className="text-l block py-2 hover:text-butter">Collection&apos;</Link>
+              <Link href="/tees" className="text-l block py-2 hover:text-butter">SRL Tees&apos;</Link>
               <Link href="/belts" className="text-l block py-2 hover:text-butter">
                 Belts
               </Link>
@@ -79,7 +80,7 @@ export const Header = () => {
         }
         return null;
       };
-      
+      const router = useRouter();
     return(
         <nav id="header" className="bg-transparent">
                 <Box maxWidth="xl" sx={{ display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"between"}} className=" mt-0 py-1">
@@ -114,8 +115,9 @@ export const Header = () => {
                <ul
                  className="nav-menu-wrapper flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-l md:font-medium" id="mobile-menu">
                     <li>
-                        <Link href="/" className="bg-butter md:bg-transparent text-white block pl-3 pr-4 py-2 md:text-goldie md:p-0 rounded focus:outline-none"
-                            aria-current="page">Home
+                        <Link href="/" className={`${
+                             router.pathname === '/' ? 'bg-butter text-white' : 'text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0'
+                            } block pl-3 pr-4 py-2 md:p-0 rounded focus:outline-none`} aria-current="page">Home
                         </Link>
                     </li>
                     <li>

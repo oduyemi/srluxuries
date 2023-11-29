@@ -146,7 +146,7 @@ export const Questions: React.FC = () => {
                         <Box className="px-5 py-4">
                             <strong className="text-ggreen">There are criterias for product return.</strong> Be
                             sure to make your return request within 48 hours of purchase.
-                            The item to be returned must be in a good state. There should
+                            The item to be returned must be in a good state. There should be
                             no wear or tear, the item must not be dirty or damaged in any shape
                             or form. Upon successful return, you will be refunded.
                         </Box>
@@ -313,7 +313,7 @@ export const Questions: React.FC = () => {
                             <strong className="text-ggreen">Yes. Terms and conditions apply. </strong>
                             There is room for returning your order, but provided that the product 
                             has issues. Because of the sensivity of clothing and other fashion
-                            items, returning an order wil be possible only when there is 
+                            items, returning an order will be possible only when there is 
                             an issue with the product.
                         </Box>
                     </Box>
