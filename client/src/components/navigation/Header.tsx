@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+
+const useRouter = dynamic(() => import('next/router'), { ssr: false });
 
 
 
