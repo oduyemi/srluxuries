@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import axios from "axios";
+import Image from "next/image";
 
 
 interface ProductCatCardProps {
@@ -37,7 +38,7 @@ export default function ProductCatCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
+      <Image
         src={isHovered ? hoverImageSrc : normalImageSrc}
         alt="Product"
         className="h-80 w-72 object-cover rounded-t-xl"

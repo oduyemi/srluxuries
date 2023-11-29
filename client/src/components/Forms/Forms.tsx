@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Box, Typography, Button, Card, Grid, Radio } from "@mui/material";
 import Link from "next/link";
+import Image from "next/image";
 import axios from "axios";
 
 interface CustomFile {
@@ -980,9 +981,9 @@ export const CustomStyle = () => {
                 required
               />
 
-              {file1 && <img src={file1.preview} alt="Preview" style={{ width: "100px" }} />}
-              {file2 && <img src={file2.preview} alt="Preview" style={{ width: "100px" }} />}
-              {file3 && <img src={file3.preview} alt="Preview" style={{ width: "100px" }} />}
+                {file1 && <Image src={file1.preview} alt="Preview" width={100} height={100} />}
+                {file2 && <Image src={file2.preview} alt="Preview" width={100} height={100} />}
+                {file3 && <Image src={file3.preview} alt="Preview" width={100} height={100} />}
             </Box>
             <Box className="text-center">
               <Box className="my-3 text-center">
