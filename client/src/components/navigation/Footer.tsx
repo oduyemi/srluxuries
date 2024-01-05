@@ -12,16 +12,16 @@ export const Footer = () => {
                 Find us on any of these platforms, we respond fast.
                 </h5>
                 <div className="mt-6 lg:mb-0 mb-6">
-                    <Link href="" className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                    <Link href="https://www.twitter.com/srluxuries" className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
                         <i className="fab fa-twitter"></i>
                     </Link>
-                    <Link href="" className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                    {/* <Link href="" className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
                         <i className="fab fa-facebook-square"></i>
+                    </Link> */}
+                    <Link href="https://www.instagram.com/sr_luxuries/" className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                        <i className="fab fa-instagram-square"></i>
                     </Link>
-                    <Link href="" className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                        <i className="fab fa-mail"></i>
-                    </Link>
-                    <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                    <button className="bg-white text-butter shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <i className="fab fa-github"></i>
                 </button>
                 </div>
