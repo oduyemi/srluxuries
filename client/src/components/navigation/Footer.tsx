@@ -8,18 +8,22 @@ export const Footer = () => {
             <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
                 <h4 className="text-3xl fonat-semibold text-butter">Let&apos;s keep in touch!</h4>
-                <h5 className="text-lg mt-0 mb-2 text-white-600">
+                <h5 className="text-lg mt-0 mb-2 text-white">
                 Find us on any of these platforms, we respond fast.
                 </h5>
                 <div className="mt-6 lg:mb-0 mb-6">
-                    <Link href="https://www.twitter.com/srluxuries" className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                        <i className="fab fa-twitter"></i>
+                    <Link href="https://www.twitter.com/srluxuries">
+                        <button className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                            <i className="fab fa-twitter"></i>
+                    </button>
                     </Link>
                     {/* <Link href="" className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
                         <i className="fab fa-facebook-square"></i>
                     </Link> */}
-                    <Link href="https://www.instagram.com/sr_luxuries/" className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                        <i className="fab fa-instagram-square"></i>
+                    <Link href="https://www.instagram.com/sr_luxuries/">
+                        <button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                            <i className="fab fa-instagram-square"></i>
+                        </button>
                     </Link>
                     <button className="bg-white text-butter shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <i className="fab fa-github"></i>
