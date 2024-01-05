@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-brownie pt-8 pb-6">
+    <footer className="relative bg-tan pt-8 pb-6">
         <div className="container mx-auto px-4">
             <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-                <h4 className="text-3xl fonat-semibold text-blueGray-700">Let&apos;s keep in touch!</h4>
-                <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
+                <h4 className="text-3xl fonat-semibold text-butter">Let&apos;s keep in touch!</h4>
+                <h5 className="text-lg mt-0 mb-2 text-white-600">
                 Find us on any of these platforms, we respond fast.
                 </h5>
                 <div className="mt-6 lg:mb-0 mb-6">
