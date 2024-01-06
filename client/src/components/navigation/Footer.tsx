@@ -1,3 +1,6 @@
+"use client"
+import { useState } from "react";
+import Modal from 'react-modal';
 import { Box } from "@mui/material";
 import Icon from '@mdi/react';
 import { mdiAlphaX } from '@mdi/js';
@@ -6,8 +9,18 @@ import { mdiCardAccountMail } from '@mdi/js';
 import Image from "next/image";
 import Link from "next/link";
 
+Modal.setAppElement('#root');
 
 export const Footer = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+      };
+    
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
   return (
     <footer className="relative bg-tan pt-8 pb-6">
         <Box className="container mx-auto px-4">
@@ -33,6 +46,17 @@ export const Footer = () => {
                     <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                         <Icon className="mx-auto" path={mdiCardAccountMail} size={1.2} />
                     </button>
+                        <Modal
+                            isOpen={isModalOpen}
+                            onRequestClose={closeModal}
+                            className="modal"
+                            overlayClassName="overlay"
+                        >
+                            <h2>Email Addresses</h2>
+                            <p>Email 1: info@thesrluxuries.com</p>
+                            <p>Email 2: support@thesrluxuries.com</p>
+                            <button onClick={closeModal}>Close</button>
+                        </Modal>
                 </Box>
             </Box>
             <Box className="w-full lg:w-6/12 px-4">
