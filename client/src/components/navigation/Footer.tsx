@@ -9,18 +9,17 @@ import { mdiCardAccountMail } from '@mdi/js';
 import Image from "next/image";
 import Link from "next/link";
 
-Modal.setAppElement('#root');
 
-export const Footer = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+export const Footer = ({ openModal }: { openModal: () => void }) => {
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => {
-        setIsModalOpen(true);
-      };
+    // const openModal = () => {
+    //     setIsModalOpen(true);
+    //   };
     
-      const closeModal = () => {
-        setIsModalOpen(false);
-      };
+    //   const closeModal = () => {
+    //     setIsModalOpen(false);
+    //   };
   return (
     <footer className="relative bg-tan pt-8 pb-6">
         <Box className="container mx-auto px-4">
@@ -43,10 +42,13 @@ export const Footer = () => {
                         </button>
                     </Link>
 
-                    <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                        <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                            type="button"
+                            onClick={openModal}
+                        >
                         <Icon className="mx-auto" path={mdiCardAccountMail} size={1.2} />
-                    </button>
-                        {isModalOpen && (
+                        </button>
+                        {/* {isModalOpen && (
                             <Modal
                                 isOpen={isModalOpen}
                                 onRequestClose={closeModal}
@@ -58,7 +60,7 @@ export const Footer = () => {
                                 <p>support@thesrluxuries.com</p>
                                 <button onClick={closeModal}> X </button>
                             </Modal>
-                            )}
+                            )} */}
                 </Box>
             </Box>
             <Box className="w-full lg:w-6/12 px-4">

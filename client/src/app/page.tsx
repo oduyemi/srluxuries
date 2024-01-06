@@ -8,9 +8,19 @@ import { ProductCat2 } from "@/components/Home/ProductCat2";
 import { ProductCat3 } from "@/components/Home/ProductCat3";
 import { Promotions } from "@/components/Promotions/index";
 import { Box } from "@mui/material";
-
+import { useState } from "react";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <main className="">
       <Box>
@@ -23,21 +33,17 @@ export default function Home() {
       <Box className="my-8">
         <TopCategory />
       </Box>
-        <ProductCat2 />
-      <Box>
-      </Box>
+      <ProductCat2 />
       <Box className="my-8">
         <Promotions />
       </Box>
-        <ProductCat3 />
-      <Box>
-      </Box>
+      <ProductCat3 />
       <Box className="my-8">
         <Brands />
       </Box>
       <Box>
-        <Footer />
+        <Footer openModal={openModal} />
       </Box>
     </main>
-  )
+  );
 }
