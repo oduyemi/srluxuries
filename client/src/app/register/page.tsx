@@ -3,6 +3,7 @@ import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { Box } from "@mui/material";
 
+
 export default function Register () {
     return(
         <>
@@ -13,7 +14,7 @@ export default function Register () {
                 <Reg1 />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
        

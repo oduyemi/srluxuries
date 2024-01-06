@@ -15,7 +15,7 @@ export default function Register6 () {
                 <Reg6 />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
        

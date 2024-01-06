@@ -1,9 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root');
 
 const inter = Inter({ subsets: ['latin'] });
 

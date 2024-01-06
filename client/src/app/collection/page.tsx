@@ -3,6 +3,7 @@ import { Footer } from "@/components/navigation/Footer";
 import { CollectionPage } from "@/components/CollectionPage/index"
 import { Box } from "@mui/material";
 
+
 export default function Collection () {
     return(
         <>
@@ -13,7 +14,7 @@ export default function Collection () {
                 <CollectionPage />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
         

@@ -4,7 +4,9 @@ import { AboutPage } from "@/components/AboutPage/index";
 import { Questions } from "@/components/Questions/index";
 import { Box } from "@mui/material";
 
+
 export default function About () {
+ 
     return(
         <>
             <Box>
@@ -15,7 +17,7 @@ export default function About () {
                 <Questions />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
     )

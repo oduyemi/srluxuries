@@ -4,6 +4,7 @@ import { Footer } from "@/components/navigation/Footer";
 import { Box } from "@mui/material";
 
 
+
 export default function tees () {
     return(
         <>
@@ -14,7 +15,7 @@ export default function tees () {
                 <Tees />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
     )

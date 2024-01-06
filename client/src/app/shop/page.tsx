@@ -14,7 +14,7 @@ export default function Shop () {
                 <ShopPage />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
     )

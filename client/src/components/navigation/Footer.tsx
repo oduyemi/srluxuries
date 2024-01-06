@@ -6,11 +6,21 @@ import Icon from '@mdi/react';
 import { mdiAlphaX } from '@mdi/js';
 import { mdiInstagram } from '@mdi/js';
 import { mdiCardAccountMail } from '@mdi/js';
+import Popup from "../Popup"; 
 import Image from "next/image";
 import Link from "next/link";
 
 
-export const Footer = ({ openModal }: { openModal: () => void }) => {
+export const Footer = () => {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
 
   return (
     <footer className="relative bg-tan pt-8 pb-6">
@@ -34,25 +44,10 @@ export const Footer = ({ openModal }: { openModal: () => void }) => {
                         </button>
                     </Link>
 
-                        <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                            type="button"
-                            onClick={openModal}
-                        >
+                    <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" onClick={openPopup}>
                         <Icon className="mx-auto" path={mdiCardAccountMail} size={1.2} />
-                        </button>
-                        {/* {isModalOpen && (
-                            <Modal
-                                isOpen={isModalOpen}
-                                onRequestClose={closeModal}
-                                className="modal"
-                                overlayClassName="overlay"
-                            >
-                                <h2>Email Addresses</h2>
-                                <p>info@thesrluxuries.com</p>
-                                <p>support@thesrluxuries.com</p>
-                                <button onClick={closeModal}> X </button>
-                            </Modal>
-                            )} */}
+                        <Popup isOpen={isPopupOpen} onClose={closePopup} />
+                    </button>
                 </Box>
             </Box>
             <Box className="w-full lg:w-6/12 px-4">

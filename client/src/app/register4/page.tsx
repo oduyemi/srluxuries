@@ -4,7 +4,6 @@ import { Footer } from "@/components/navigation/Footer";
 import { Box } from "@mui/material";
 
 
-
 export default function Register4 () {
     return(
         <>
@@ -15,7 +14,7 @@ export default function Register4 () {
                 <Reg4 />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
        

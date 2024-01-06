@@ -4,6 +4,7 @@ import { Location } from "@/components/Location/index";
 import { Box } from "@mui/material";
 
 
+
 export default function Locator () {
     return(
         <>
@@ -12,7 +13,7 @@ export default function Locator () {
             </Box>
             <Location />
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>  
     )

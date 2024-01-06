@@ -15,7 +15,7 @@ export default function Appoint () {
                 <Appointment />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
     )

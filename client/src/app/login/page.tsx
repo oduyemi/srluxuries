@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 
 
 export default function Login () {
+
     return(
         <>
             <Box>
@@ -15,7 +16,7 @@ export default function Login () {
                 <LoginForm />
             </Box>
             <Box>
-                <Footer openModal={openModal} />
+                <Footer />
             </Box>
         </>
     )
