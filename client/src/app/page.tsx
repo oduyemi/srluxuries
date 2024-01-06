@@ -1,4 +1,3 @@
-import Modal from 'react-modal';
 import { Header } from "@/components/navigation/Header";
 import { Banner } from "@/components/Home/Banner";
 import { TopCategory } from "@/components/Home/TopCategory";
@@ -10,7 +9,6 @@ import { ProductCat3 } from "@/components/Home/ProductCat3";
 import { Promotions } from "@/components/Promotions/index";
 import { Box } from "@mui/material";
 
-Modal.setAppElement('#root');
 
 export default function Home() {
   return (
