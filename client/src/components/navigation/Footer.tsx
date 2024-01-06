@@ -16,7 +16,7 @@ export const Footer = () => {
                 <Box className="mt-6 lg:mb-0 mb-6">
                     <Link href="https://www.twitter.com/srluxuries">
                         <button className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                            {TwitterIcon}
+                            <i>{TwitterIcon}</i>
                     </button>
                     </Link>
                     {/* <Link href="" className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
