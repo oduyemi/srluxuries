@@ -19,7 +19,7 @@ export const Footer = () => {
                 </h5>
                 <Box className="mt-6 lg:mb-0 mb-6">
                     <Link href="https://www.twitter.com/srluxuries">
-                        <button className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
+                        <button className="bg-white text-black shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
                             <Icon className="mx-auto" path={mdiAlphaX} size={1.2} />
                     </button>
                     </Link>
