@@ -29,7 +29,7 @@ export const Footer = () => {
                         <Icon path={mdiInstagram} size={3} />
                         </button>
                     </Link>
-                    
+
                     <button className="bg-white text-butter shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                         <Icon path={mdiCardAccountMail} size={3} />
                     </button>
@@ -38,36 +38,36 @@ export const Footer = () => {
             <Box className="w-full lg:w-6/12 px-4">
                 <Box className="flex flex-wrap items-top mb-6">
                 <Box className="w-full lg:w-4/12 px-4 ml-auto">
-                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                    <span className="block uppercase text-butter text-sm font-semibold mb-2">Useful Links</span>
                     <ul className="list-unstyled">
                     <li>
-                        <Link className="text-blueGray-600 hover:text-butter font-semibold block pb-2 text-sm" href="/about">About Us</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/about">About Us</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/accesories">Accesories</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/accesories">Accesories</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/collections">Collections</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/collections">Collections</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/privacy-policy">Privacy Policy</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/privacy-policy">Privacy Policy</Link>
                     </li>
                     </ul>
                 </Box>
                 <Box className="w-full lg:w-4/12 px-4">
-                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+                    <span className="block uppercase text-butter text-sm font-semibold mb-2">Other Resources</span>
                     <ul className="list-unstyled">
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/services">Services</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/services">Services</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/appointment">Book Appointment</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/appointment">Book Appointment</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/privacy-policy">Privacy Policy</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/privacy-policy">Privacy Policy</Link>
                     </li>
                     <li>
-                        <Link className="text-blueGray-600 hover:text-white font-semibold block pb-2 text-sm" href="/locator">Contact Us</Link>
+                        <Link className="text-white hover:text-butter font-semibold block pb-2 text-sm" href="/locator">Contact Us</Link>
                     </li>
                     </ul>
                 </Box>
