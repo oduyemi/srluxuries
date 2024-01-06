@@ -13,7 +13,7 @@ export default function Register () {
                 <Reg1 />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
        

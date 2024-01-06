@@ -13,7 +13,7 @@ export default function Caps () {
                 <CapsPage />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

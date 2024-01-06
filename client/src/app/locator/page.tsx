@@ -12,7 +12,7 @@ export default function Locator () {
             </Box>
             <Location />
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>  
     )

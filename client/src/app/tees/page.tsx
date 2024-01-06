@@ -14,7 +14,7 @@ export default function tees () {
                 <Tees />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

@@ -13,7 +13,7 @@ export default function Collection () {
                 <CollectionPage />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

@@ -12,7 +12,7 @@ export default function Services () {
             </Box>
             <Tailor />
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

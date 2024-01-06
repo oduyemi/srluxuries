@@ -14,7 +14,7 @@ export default function CorporateWears () {
                 <Corporate />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

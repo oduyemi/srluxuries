@@ -14,7 +14,7 @@ export default function Belts () {
                 <BeltsPage />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

@@ -13,7 +13,7 @@ export default function shirts () {
                 <Shirts />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

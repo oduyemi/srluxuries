@@ -15,7 +15,7 @@ export default function About () {
                 <Questions />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

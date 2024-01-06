@@ -12,7 +12,7 @@ export default function Beads () {
                 <BeadsPage />
             </section>
             <section>
-                <Footer />
+                <Footer openModal={openModal} />
             </section>
         </>
     )

@@ -13,7 +13,7 @@ export default function SummerWears () {
                 <Summer />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

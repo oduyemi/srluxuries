@@ -13,7 +13,7 @@ export default function TradWears () {
                 <Trad />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         

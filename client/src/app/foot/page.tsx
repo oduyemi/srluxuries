@@ -14,7 +14,7 @@ export default function Foot () {
                 <FootwearsPage />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

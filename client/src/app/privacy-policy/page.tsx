@@ -13,7 +13,7 @@ export default function Caps () {
                 <Privacy />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

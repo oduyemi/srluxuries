@@ -14,7 +14,7 @@ export default function accessories () {
                 <Accessories />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

@@ -15,7 +15,7 @@ export default function Login () {
                 <LoginForm />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
     )

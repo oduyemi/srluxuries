@@ -14,7 +14,7 @@ export default function Stones () {
                 <StonesPage />
             </Box>
             <Box>
-                <Footer />
+                <Footer openModal={openModal} />
             </Box>
         </>
         
