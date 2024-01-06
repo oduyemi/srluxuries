@@ -9,7 +9,6 @@ import { mdiCardAccountMail } from '@mdi/js';
 import Image from "next/image";
 import Link from "next/link";
 
-Modal.setAppElement('#root');
 
 export const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
