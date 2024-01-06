@@ -6,7 +6,7 @@ import Icon from '@mdi/react';
 import { mdiAlphaX } from '@mdi/js';
 import { mdiInstagram } from '@mdi/js';
 import { mdiCardAccountMail } from '@mdi/js';
-import Popup from "../Popup"; 
+import Popup from "./Popup"; 
 import Image from "next/image";
 import Link from "next/link";
 
