@@ -20,18 +20,18 @@ export const Footer = () => {
                 <Box className="mt-6 lg:mb-0 mb-6">
                     <Link href="https://www.twitter.com/srluxuries">
                         <button className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                            <Icon path={mdiAlphaX} size={3} />
+                            <Icon path={mdiAlphaX} size={1.8} />
                     </button>
                     </Link>
                    
                     <Link href="https://www.instagram.com/sr_luxuries/">
                         <button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                        <Icon path={mdiInstagram} size={3} />
+                        <Icon path={mdiInstagram} size={1.8} />
                         </button>
                     </Link>
 
                     <button className="bg-white text-butter shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                        <Icon path={mdiCardAccountMail} size={3} />
+                        <Icon path={mdiCardAccountMail} size={1.8} />
                     </button>
                 </Box>
             </Box>
