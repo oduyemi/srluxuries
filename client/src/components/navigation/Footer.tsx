@@ -26,9 +26,9 @@ export const Footer = () => {
         <Box className="container mx-auto px-4">
             <Box className="flex flex-wrap text-left lg:text-left">
             <Box className="w-full lg:w-6/12 px-4">
-                <h4 className="text-3xl fonat-semibold text-butter">Let&apos;s keep in touch!</h4>
+                <h4 className="text-3xl font-semibold text-butter">Let&apos;s keep in touch!</h4>
                 <h5 className="text-lg mt-0 mb-2 text-white">
-                Find us on any of these platforms, we respond fast.
+                Find us on any of these platforms, we respond quickly.
                 </h5>
                 <Box className="mt-6 lg:mb-0 mb-6">
                     <Link href="https://www.twitter.com/srluxuries" target="_blank">
@@ -46,17 +46,19 @@ export const Footer = () => {
                     <button className="bg-white text-ggreen shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                         <Icon className="mx-auto" path={mdiCardAccountMail} size={1.2} />
                     </button>
-                        <Modal
-                            isOpen={isModalOpen}
-                            onRequestClose={closeModal}
-                            className="modal"
-                            overlayClassName="overlay"
-                        >
-                            <h2>Email Addresses</h2>
-                            <p>Email 1: info@thesrluxuries.com</p>
-                            <p>Email 2: support@thesrluxuries.com</p>
-                            <button onClick={closeModal}>Close</button>
-                        </Modal>
+                        {isModalOpen && (
+                            <Modal
+                                isOpen={isModalOpen}
+                                onRequestClose={closeModal}
+                                className="modal"
+                                overlayClassName="overlay"
+                            >
+                                <h2>Email Addresses</h2>
+                                <p>info@thesrluxuries.com</p>
+                                <p>support@thesrluxuries.com</p>
+                                <button onClick={closeModal}> X </button>
+                            </Modal>
+                            )}
                 </Box>
             </Box>
             <Box className="w-full lg:w-6/12 px-4">
