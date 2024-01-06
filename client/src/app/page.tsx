@@ -1,3 +1,4 @@
+"use client"
 import { Header } from "@/components/navigation/Header";
 import { Banner } from "@/components/Home/Banner";
 import { TopCategory } from "@/components/Home/TopCategory";

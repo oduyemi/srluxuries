@@ -11,15 +11,7 @@ import Link from "next/link";
 
 
 export const Footer = ({ openModal }: { openModal: () => void }) => {
-    // const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // const openModal = () => {
-    //     setIsModalOpen(true);
-    //   };
-    
-    //   const closeModal = () => {
-    //     setIsModalOpen(false);
-    //   };
   return (
     <footer className="relative bg-tan pt-8 pb-6">
         <Box className="container mx-auto px-4">
