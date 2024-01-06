@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import Icon from '@mdi/react';
 import { mdiAlphaX } from '@mdi/js';
+import { mdiInstagram } from '@mdi/js';
+import { mdiCardAccountMail } from '@mdi/js';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,20 +20,19 @@ export const Footer = () => {
                 <Box className="mt-6 lg:mb-0 mb-6">
                     <Link href="https://www.twitter.com/srluxuries">
                         <button className="bg-white text-bluey shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                            <Icon path={mdiAlphaX} size={1} />
+                            <Icon path={mdiAlphaX} size={3} />
                     </button>
                     </Link>
-                    {/* <Link href="" className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                        <i className="fab fa-facebook-square"></i>
-                    </Link> */}
+                   
                     <Link href="https://www.instagram.com/sr_luxuries/">
                         <button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2">
-                            <i className="fab fa-instagram-square"></i>
+                        <Icon path={mdiInstagram} size={3} />
                         </button>
                     </Link>
+                    
                     <button className="bg-white text-butter shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
-                    <i className="fab fa-github"></i>
-                </button>
+                        <Icon path={mdiCardAccountMail} size={3} />
+                    </button>
                 </Box>
             </Box>
             <Box className="w-full lg:w-6/12 px-4">
