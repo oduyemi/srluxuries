@@ -65,7 +65,7 @@ export const LoginForm = () => {
                         <Box className="my-3 text-center">
                             <Button
                                 variant="contained"
-                                sx={{ backgroundColor: "#CD8F2C" }}
+                                sx={{ backgroundColor: "#CD8F2C", position: "relative", left:"17%" }}
                                 className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen
                                         border border-goldie hover:border-tan"
                                 onClick={submitForm}
