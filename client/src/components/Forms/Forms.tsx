@@ -1069,7 +1069,7 @@ export const Appointment = () => {
                         <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
                             We will contact you with the next available appointment date
                         </Typography>
-                        <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
+                        <Box maxWidth="md" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
                             <Grid>
                                 <label className="text-ggreen text-l font-light mb-2" htmlFor="name">
                                     Your Name
