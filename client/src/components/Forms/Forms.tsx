@@ -47,14 +47,14 @@ export const LoginForm = () => {
                 <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
                     <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
                         <input
-                            className="shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-1/2 py-2 px-6 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="number"
                             name="phone"
                             required
                             placeholder="Enter Phone Number"
                         />
                         <input
-                            className="shadow appearance-none border rounded w-1/2 py-2 px-3 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="shadow appearance-none border rounded w-1/2 py-2 px-6 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="password"
                             name="pwd"
                             required
