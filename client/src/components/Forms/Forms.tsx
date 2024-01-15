@@ -58,7 +58,7 @@ export const LoginForm = () => {
                             type="password"
                             name="pwd"
                             required
-                            placeholder="Enter Password"
+                            placeholder="Password"
                         />
                     </Box>
                     <Box className="text-center">
