@@ -74,12 +74,16 @@ export const LoginForm = () => {
                             </Button>
                         </Box>
                         <Box className="text-center my-3">
-                            <span className="text-brownie ps-3 text-xs mr-3">
-                                Not Registered Yet?{" "}
-                                <Link className="text-goldie" href="/register">
-                                    Click Here
-                                </Link>
-                            </span>
+                          <Typography variant="h6" paragraph
+                            sx={{position: "relative", left:"17%"}}
+                            className="text-brownie ps-3 text-xs mr-3">
+                              Not Registered Yet?{" "}
+                          </Typography>
+                          <span>
+                            <Link className="text-goldie" href="/register">
+                                Click Here
+                            </Link>
+                          </span>
                         </Box>
                     </Box>
                 </form>
