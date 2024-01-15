@@ -78,12 +78,12 @@ export const LoginForm = () => {
                             sx={{position: "relative", left:"17%"}}
                             className="text-brownie ps-3 text-xs mr-3">
                               Not Registered Yet?{" "}
+                            <span>
+                              <Link className="text-goldie" href="/register">
+                                  Click Here
+                              </Link>
+                            </span>
                           </Typography>
-                          <span>
-                            <Link className="text-goldie" href="/register">
-                                Click Here
-                            </Link>
-                          </span>
                         </Box>
                     </Box>
                 </form>
