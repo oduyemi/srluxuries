@@ -17,7 +17,7 @@ export const Tailor = () => {
                             to limelight. 
                         </Typography>
                         <Box className="mt-5">
-                            <Link href="/login">
+                            <Link href="/custom-image">
                                 <Button sx={{ backgroundColor:"#CD8F2C" }} className="rounded bg-goldie px-4 py-2 text-sm hover:bg-tan hover:text-white
                                     text-black border border-goldie hover:border-tan"> 
                                     Upload Style
