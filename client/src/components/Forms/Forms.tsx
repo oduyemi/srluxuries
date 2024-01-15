@@ -1210,7 +1210,7 @@ export const Appointment = () => {
                             </Grid>
                         
                             <Box className="text-center">
-                                <Box className="my-3 text-center">
+                                <Box className="my-4 text-center">
                                     <Button
                                         variant="contained"
                                         sx={{ backgroundColor: "#CD8F2C" }}
