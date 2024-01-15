@@ -45,7 +45,7 @@ export const LoginForm = () => {
         <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
             <Card className="shadow appearance-none bg-transparent mx-auto">
                 <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-                    <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6 mx-auto">
+                    <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column", position: "relative", left:"7%" }} className="mb-3 gap-6 mx-auto">
                         <input
                             className="shadow appearance-none border rounded w-2/3 py-2 mx-auto px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="number"
