@@ -75,7 +75,7 @@ export const LoginForm = () => {
                         </Box>
                         <Box className="text-center my-3">
                           <Typography variant="h6" paragraph
-                            sx={{position: "relative", left:"17%"}}
+                            sx={{position: "relative", left:"17%", fontWeight:"light" }}
                             className="text-brownie ps-3 text-xs mr-3">
                               Not Registered Yet?{" "}
                             <span>
