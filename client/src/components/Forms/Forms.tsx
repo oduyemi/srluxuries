@@ -51,7 +51,7 @@ export const LoginForm = () => {
                             type="number"
                             name="phone"
                             required
-                            placeholder="Enter Phone Number"
+                            placeholder="Phone Number"
                         />
                         <input
                             className="shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
