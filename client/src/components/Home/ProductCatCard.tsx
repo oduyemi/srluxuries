@@ -27,7 +27,7 @@ export default function ProductCatCard({
     *Product Name:* ${productName}
     *Price:* ₦ ${price}
     *Image:* ${normalImageSrc}`;
-    const whatsappLink = `https://wa.me/+2347036400067?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/+2349159999965?text=${encodeURIComponent(whatsappMessage)}`;
     
     window.open(whatsappLink, '_blank');
   };

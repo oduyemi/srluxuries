@@ -941,7 +941,7 @@ export const CustomStyle = () => {
       console.log("Cloudinary Links:", cloudinaryLinks);
 
       const whatsappMessage = `Hi, I have uploaded my custom style. Here are the images:\n${cloudinaryLinks.join("\n")}`;
-      const whatsappLink = `https://wa.me/+2347036400067?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappLink = `https://wa.me/+2349159999965?text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappLink, "_blank");
     } catch (error) {
       console.error("Error during file upload:", error);
@@ -1047,7 +1047,7 @@ export const Appointment = () => {
   
               const encodedMessage = encodeURIComponent(whatsappMessage);
   
-              const whatsappLink = `https://wa.me/+2347036400067?text=${encodedMessage}`;
+              const whatsappLink = `https://wa.me/+2349159999965?text=${encodedMessage}`;
   
               window.open(whatsappLink, "_blank");
           } else {
