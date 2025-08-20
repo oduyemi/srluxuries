@@ -42,7 +42,7 @@ cloudinary.config({
 
 
 const corsOptions = {
-    origin: 'https://thesrluxuries.com/',
+    origin: 'https://srluxuries.com/',
     optionsSuccessStatus: 200,
   };
   app.use(cors(corsOptions));
@@ -843,7 +843,7 @@ nextApp.prepare().then(() => {
   
     app.listen(port, (err) => {
       if (err) throw err;
-      console.log(`> Ready on https://thesrluxuries.com:${port}`);
+      console.log(`> Ready on https://srluxuries.com:${port}`);
     });
   });
 
