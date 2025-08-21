@@ -20,7 +20,7 @@ export default function Home() {
       <Box>
         <ProductCat1 />
       </Box>
-      <Box className="my-8">
+      <Box className="mt-16 mb-8">
         <TopCategory />
       </Box>
       <ProductCat2 />
