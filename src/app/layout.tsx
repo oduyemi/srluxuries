@@ -23,10 +23,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} style={{ margin: 0, padding: 0 }}>
         <ClientSideLayout>{children}</ClientSideLayout>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-        />
       </body>
     </html>
   );
