@@ -10,13 +10,17 @@ cloudinary.config({
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const files = formData.getAll("images") as File[];
+    const files = formData.getAll("images") as unknown[];
 
     if (!files.length) {
       return NextResponse.json({ message: "No files uploaded" }, { status: 400 });
     }
 
     const uploadPromises = files.map(async (file) => {
+      if (!(file instanceof File)) {
+        throw new Error("Invalid file input");
+      }
+
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
 
