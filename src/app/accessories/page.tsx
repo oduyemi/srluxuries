@@ -8,13 +8,7 @@ export default function accessories () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Accessories />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

@@ -9,13 +9,7 @@ export default function tees () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Tees />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

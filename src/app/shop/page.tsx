@@ -8,13 +8,7 @@ export default function Shop () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <ShopPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

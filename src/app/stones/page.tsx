@@ -8,13 +8,7 @@ export default function Stones () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <StonesPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

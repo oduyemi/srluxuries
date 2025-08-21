@@ -5,10 +5,10 @@ import ProductCatCard from "../Home/ProductCatCard";
 
 
 interface Products {
-    ProductName: string;
-    Price: number;
-    ProductImage: string;
-    ProductHoverImage: string;
+    productName: string;
+    price: number;
+    productImage: string;
+    productHoverImage: string;
   }
   
   export const Summer = () => {
@@ -17,7 +17,7 @@ interface Products {
     useEffect(() => {
       const fetchData = async () => {
           try {
-              const response = await fetch("https://api.srl.yemi.dev/products/two-piece");
+              const response = await fetch("/api/products/two-piece");
               if (!response.ok) {
                   console.error("HTTP error!", response.status, response.statusText);
                   throw new Error(`HTTP error! Status: ${response.status}`);
@@ -46,10 +46,10 @@ interface Products {
                     {summerProducts.map((product, index) => (
                         <ProductCatCard
                             key={index}
-                            normalImageSrc={product.ProductImage}  
-                            hoverImageSrc={product.ProductHoverImage}  
-                            productName={product.ProductName}  
-                            price={product.Price} 
+                            normalImageSrc={product.productImage}  
+                            hoverImageSrc={product.productHoverImage}  
+                            productName={product.productName}  
+                            price={product.price} 
                         />
                     ))}
                 </Box>

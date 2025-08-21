@@ -8,13 +8,7 @@ export default function Belts () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <BeltsPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

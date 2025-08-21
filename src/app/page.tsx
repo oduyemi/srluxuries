@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <main className="">
       <Box>
-        <Header />
         <Banner />
       </Box>
       <Box>
@@ -31,9 +30,6 @@ export default function Home() {
       <ProductCat3 />
       <Box className="my-8">
         <Brands />
-      </Box>
-      <Box>
-        <Footer />
       </Box>
     </main>
   );

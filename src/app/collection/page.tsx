@@ -8,13 +8,7 @@ export default function Collection () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <CollectionPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

@@ -7,13 +7,7 @@ export default function TradWears () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Trad />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

@@ -7,14 +7,8 @@ import { Box } from "@mui/material";
 export default function Caps () {
     return(
         <>
-            <Box>
-                <Header />
-            </Box>
             <Box className="mt-10">
                 <Privacy />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

@@ -9,15 +9,9 @@ export default function About () {
  
     return(
         <>
-            <Box>
-                <Header />
-            </Box>
-                <AboutPage />
+            <AboutPage />
             <Box>
                 <Questions />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

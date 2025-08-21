@@ -9,14 +9,8 @@ export default function Login () {
 
     return(
         <>
-            <Box>
-                <Header />
-            </Box>
             <Box className="mt-10">
                 <LoginForm />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

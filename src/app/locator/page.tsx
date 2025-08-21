@@ -8,13 +8,7 @@ import { Box } from "@mui/material";
 export default function Locator () {
     return(
         <>
-            <Box>
-                <Header />
-            </Box>
             <Location />
-            <Box>
-                <Footer />
-            </Box>
         </>  
     )
 }

@@ -5,10 +5,10 @@ import { Box, Typography } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
 interface Products {
-    ProductName: string;
-    Price: number;
-    ProductImage: string;
-    ProductHoverImage: string;
+    productName: string;
+    price: number;
+    productImage: string;
+    productHoverImage: string;
   }
 
 
@@ -48,7 +48,7 @@ export const ShopPage = () => {
     
         const fetchTradData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/trad");
+            const response = await fetch("/api/products/trad");
             const traddata = await response.json();
             setTradProducts(traddata);
           } catch (error) {
@@ -58,7 +58,7 @@ export const ShopPage = () => {
         
         const fetchCorporateData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/corporate");
+            const response = await fetch("/api/products/corporate");
             const corporatedata = await response.json();
             setCorporateProducts(corporatedata);
           } catch (error) {
@@ -68,7 +68,7 @@ export const ShopPage = () => {
     
         const fetchSummerData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/two-piece");
+            const response = await fetch("/api/products/two-piece");
             const summerdata = await response.json();
             setSummerProducts(summerdata);
           } catch (error) {
@@ -78,7 +78,7 @@ export const ShopPage = () => {
     
         const fetchFootData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/footwears");
+            const response = await fetch("/api/products/footwears");
             const footdata = await response.json();
             setFootProducts(footdata);
           } catch (error) {
@@ -87,7 +87,7 @@ export const ShopPage = () => {
         };
         const fetchBeadsData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/beads");
+            const response = await fetch("/api/products/beads");
             const beadsdata = await response.json();
             setBeadsProducts(beadsdata);
           } catch (error) {
@@ -97,7 +97,7 @@ export const ShopPage = () => {
     
         const fetchBeltsData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/belts");
+            const response = await fetch("/api/products/belts");
             const beltsdata = await response.json();
             setBeltsProducts(beltsdata);
           } catch (error) {
@@ -107,7 +107,7 @@ export const ShopPage = () => {
     
         const fetchCapsData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/caps");
+            const response = await fetch("/api/products/caps");
             const capsdata = await response.json();
             setCapsProducts(capsdata);
           } catch (error) {
@@ -157,10 +157,10 @@ export const ShopPage = () => {
                 {teesProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -183,10 +183,10 @@ export const ShopPage = () => {
                 {shirtsProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -210,10 +210,10 @@ export const ShopPage = () => {
                 {tradProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -238,10 +238,10 @@ export const ShopPage = () => {
                 {corporateProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -266,10 +266,10 @@ export const ShopPage = () => {
                 {summerProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -294,10 +294,10 @@ export const ShopPage = () => {
                 {footProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -322,10 +322,10 @@ export const ShopPage = () => {
                 {beadsProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -350,10 +350,10 @@ export const ShopPage = () => {
                 {beltsProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>
@@ -378,10 +378,10 @@ export const ShopPage = () => {
                 {capsProducts.map((product, index) => (
                     <ProductCatCard
                     key={index}
-                    normalImageSrc={product.ProductImage}  
-                    hoverImageSrc={product.ProductHoverImage}  
-                    productName={product.ProductName}  
-                    price={product.Price} 
+                    normalImageSrc={product.productImage}  
+                    hoverImageSrc={product.productHoverImage}  
+                    productName={product.productName}  
+                    price={product.price} 
                     />
                 ))}
             </Box>

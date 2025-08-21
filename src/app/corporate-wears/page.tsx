@@ -8,13 +8,7 @@ export default function CorporateWears () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Corporate />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

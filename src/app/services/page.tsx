@@ -7,13 +7,7 @@ import { Box } from "@mui/material";
 export default function Services () {
     return(
         <>
-            <Box>
-                <Header />
-            </Box>
             <Tailor />
-            <Box>
-                <Footer />
-            </Box>
         </>
     )
 }

@@ -8,13 +8,7 @@ export default function Foot () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <FootwearsPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

@@ -6,13 +6,7 @@ export default function Beads () {
     return(
         <>
             <section>
-                <Header />
-            </section>
-            <section>
                 <BeadsPage />
-            </section>
-            <section>
-                <Footer />
             </section>
         </>
     )

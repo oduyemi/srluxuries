@@ -9,13 +9,7 @@ export default function Register3 () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Reg3 />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
        

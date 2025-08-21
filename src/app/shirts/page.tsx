@@ -7,13 +7,7 @@ export default function shirts () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Shirts />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         

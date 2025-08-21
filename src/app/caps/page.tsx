@@ -7,13 +7,7 @@ export default function Caps () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <CapsPage />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
     )

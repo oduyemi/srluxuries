@@ -8,13 +8,7 @@ export default function Register4 () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Reg4 />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
        

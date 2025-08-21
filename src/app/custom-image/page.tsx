@@ -8,9 +8,6 @@ export default function CustomImage () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <CustomStyle />
             </Box>
         </>

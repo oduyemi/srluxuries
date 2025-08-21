@@ -9,13 +9,7 @@ export default function SummerWears () {
     return(
         <>
             <Box>
-                <Header />
-            </Box>
-            <Box>
                 <Summer />
-            </Box>
-            <Box>
-                <Footer />
             </Box>
         </>
         
