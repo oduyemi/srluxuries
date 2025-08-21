@@ -10,6 +10,6 @@ export const verifyToken = (token: string): { id: string } => {
 
 
 export const logout = async () => {
-  await fetch('/api/logout', { method: 'POST' });
-  window.location.href = '/login'; // Redirect to login
+  await fetch('/api/auth/logout', { method: 'POST' });
+  window.location.href = '/api/auth/login'; // Redirect to login
 };
