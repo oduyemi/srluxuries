@@ -1,4 +1,4 @@
-const dbName = process.env.DB_NAME || "srldb";
+const dbName = process.env.DB_NAME || "linkorgphotodb";
 const dbHost = "127.0.0.1";
 const dbPort = 27017; 
 
