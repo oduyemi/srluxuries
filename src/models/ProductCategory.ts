@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
 export interface IProductCategory extends Document {
+  _id: mongoose.Types.ObjectId;
   name: string;
   description?: string;
 }

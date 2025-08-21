@@ -6,10 +6,10 @@ import ProductCatCard from "./ProductCatCard";
 import "animate.css";
 
 interface Products{
-    ProductName: string;
-    Price: number;
-    ProductImage: string;
-    ProductHoverImage: string;
+    productName: string;
+    price: number;
+    productImage: string;
+    productHoverImage: string;
 }
 
 export const ProductCat1 = () => {
@@ -18,7 +18,7 @@ export const ProductCat1 = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/trad");
+            const response = await fetch("/api/products/trad");
             const data = await response.json();
             setTradProducts(data);
           } catch (error) {
@@ -37,10 +37,10 @@ export const ProductCat1 = () => {
           {tradProducts.slice(0, 3).map((product, index) => (
             <ProductCatCard
               key={index}
-              normalImageSrc={product.ProductImage}
-              hoverImageSrc={product.ProductHoverImage}
-              productName={product.ProductName}
-              price={product.Price}
+              normalImageSrc={product.productImage}
+              hoverImageSrc={product.productHoverImage}
+              productName={product.productName}
+              price={product.price}
             />
           ))}
         </Box>

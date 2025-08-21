@@ -4,10 +4,10 @@ import { Box, Typography, Button } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
 
 interface Products {
-    ProductName: string;
-    Price: number;
-    ProductImage: string;
-    ProductHoverImage: string;
+    productName: string;
+    price: number;
+    productImage: string;
+    productHoverImage: string;
   }
   
   export const Shirts = () => {
@@ -16,7 +16,7 @@ interface Products {
     useEffect(() => {
       const fetchData = async () => {
           try {
-              const response = await fetch("https://api.srl.yemi.dev/products/shirts");
+              const response = await fetch("/api/products/shirts");
               if (!response.ok) {
                   console.error("HTTP error!", response.status, response.statusText);
                   throw new Error(`HTTP error! Status: ${response.status}`);
@@ -45,10 +45,10 @@ interface Products {
                     {shirtsProducts.map((product, index) => (
                         <ProductCatCard
                             key={index}
-                            normalImageSrc={product.ProductImage}  
-                            hoverImageSrc={product.ProductHoverImage}  
-                            productName={product.ProductName}  
-                            price={product.Price} 
+                            normalImageSrc={product.productImage}  
+                            hoverImageSrc={product.productHoverImage}  
+                            productName={product.productName}  
+                            price={product.price} 
                         />
                         ))}
                 </Box>
