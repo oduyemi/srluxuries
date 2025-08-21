@@ -45,7 +45,7 @@ const handle = nextApp.getRequestHandler();
 const app = express();
 
 const corsOptions = {
-  origin: "https://srluxuries.com/",
+  origin: ["https://srluxuries.com", "https://www.srluxuries.com", "http://localhost:3000"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
