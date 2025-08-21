@@ -1,9 +1,8 @@
 /**
  * @type {import('next').NextConfig}
  */
-
- module.exports = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+module.exports = {
+  webpack: (config, { webpack }) => {
     config.plugins.push(
       new webpack.ProvidePlugin({
         $: "jquery",
@@ -11,17 +10,20 @@
         "window.jQuery": "jquery",
       })
     );
-
     return config;
   },
   images: {
-    domains: [process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || ""], 
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+    ],
   },
   env: {
     CLOUDINARY_CLOUD_NAME: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
   },
- };
- 
-
+};
