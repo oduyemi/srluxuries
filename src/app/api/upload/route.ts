@@ -17,9 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     const uploadPromises = files.map(async (file) => {
-      if (!(file instanceof File)) {
-        throw new Error("Invalid file input");
-      }
+      if (!(file instanceof File)) throw new Error("Invalid file");
 
       const arrayBuffer = await file.arrayBuffer();
       const buffer = Buffer.from(arrayBuffer);
@@ -37,13 +35,9 @@ export async function POST(req: NextRequest) {
     });
 
     const results = await Promise.all(uploadPromises);
-
-    return NextResponse.json({
-      message: "Files uploaded to Cloudinary successfully",
-      files: results,
-    });
+    return NextResponse.json({ files: results });
   } catch (error) {
-    console.error("Error uploading files:", error);
+    console.error("Upload error:", error);
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
 }
