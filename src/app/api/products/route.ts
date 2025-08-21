@@ -25,12 +25,14 @@ export async function GET(req: NextRequest) {
       }
 
       // find products in that category
-      const products = await Product.find({ category: categoryDoc._id });
+      const products = await Product.find({
+        productCategoryId: categoryDoc._id,
+      }).populate("productCategoryId");
       return NextResponse.json(products);
     }
 
     // otherwise return all products
-    const products = await Product.find().populate("category");
+    const products = await Product.find().populate("productCategoryId");
     return NextResponse.json(products);
   } catch (error) {
     console.error("Error fetching products:", error);
