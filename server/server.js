@@ -7,13 +7,12 @@ const multer = require("multer");
 const path = require("path");
 const next = require("next");
 const cloudinary = require("cloudinary").v2;
+const userRoutes = require("./routes/user.js");
+const productRoutes = require("./routes/products");
+
 
 // MongoDB connection
 const { dbConnect } = require("./db");
-
-// Import routes
-const userRoutes = require("./routes/user");
-const productRoutes = require("./routes/product");
 
 // Cloudinary config
 cloudinary.config({
@@ -40,7 +39,10 @@ const upload = multer({
 });
 
 const dev = process.env.NODE_ENV !== "production";
-const nextApp = next({ dev });
+const nextApp = next({
+  dev,
+  dir: path.join(__dirname, ".."), 
+});
 const handle = nextApp.getRequestHandler();
 const app = express();
 
@@ -52,7 +54,7 @@ app.use(cors(corsOptions));
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "fallbackSecret",
     resave: false,
     saveUninitialized: true,
   })

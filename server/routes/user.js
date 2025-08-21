@@ -3,8 +3,8 @@ const cloudinary = require("cloudinary").v2;
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 const router = express.Router();
-const { User } = require("../server/models/User");
-const { Appointment } = require("../server/models/Appointment");
+const { User } = require("../models/User");
+const { Appointment } = require("../models/Appointment");
 
 
 async function hashPassword(password) {
@@ -22,7 +22,7 @@ async function hashPassword(password) {
   }
 
 
-  
+
 router.post("/register", async (req, res) => {
   try {
     const { Name, Phone, Password, ConfirmPassword, Address } = req.body;

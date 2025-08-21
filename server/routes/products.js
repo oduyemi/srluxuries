@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { Product, ProductCategory } = require("../server"); // import your models
+const Product = require("../models/Product");
+
 
 // ROOT
 router.get("/", (req, res) => {
@@ -41,3 +42,5 @@ router.get("/products/:category", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+module.exports = router;
