@@ -1,21 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import {dbConnect} from "@/utils/db"; 
+import { dbConnect } from "@/utils/db";
 import Product from "@/models/Product";
 import ProductCategory from "@/models/ProductCategory";
 
+
+export const dynamic = "force-dynamic"; // 🚀 prevents static generation
 // ============= GET ALL PRODUCTS =============
 export async function GET(req: NextRequest) {
   try {
     await dbConnect();
-
     const { searchParams } = new URL(req.url);
     const category = searchParams.get("category");
-
+    let products;
     if (category) {
-      // find category first
       const categoryDoc = await ProductCategory.findOne({
         name: new RegExp(`^${category}$`, "i"),
-      });
+      }).lean();
 
       if (!categoryDoc) {
         return NextResponse.json(
@@ -24,16 +24,16 @@ export async function GET(req: NextRequest) {
         );
       }
 
-      // find products in that category
-      const products = await Product.find({
+      products = await Product.find({
         productCategoryId: categoryDoc._id,
-      }).populate("productCategoryId");
-      return NextResponse.json(products);
+      })
+        .populate("productCategoryId")
+        .lean();
+    } else {
+      products = await Product.find().populate("productCategoryId").lean();
     }
 
-    // otherwise return all products
-    const products = await Product.find().populate("productCategoryId");
-    return NextResponse.json(products);
+    return NextResponse.json({ data: products }, { status: 200 });
   } catch (error) {
     console.error("Error fetching products:", error);
     return NextResponse.json(
