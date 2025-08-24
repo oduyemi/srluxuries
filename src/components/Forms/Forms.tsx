@@ -229,7 +229,7 @@ export const CustomStyle = () => {
   };
 
   return (
-    <Box maxWidth="md" sx={{ margin: "auto", my: 10 }}>
+    <Box maxWidth="md" sx={{ margin: "auto", my: 6 }}>
       <Card className="shadow p-6 bg-white rounded-lg">
         <Typography
           variant="h4"

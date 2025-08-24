@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 import { dbConnect } from "@/utils/db";
 import CustomStyle from "@/models/customStyle";
-import twilio from "twilio"; 
 
 // Cloudinary config
 cloudinary.config({
@@ -13,10 +12,17 @@ cloudinary.config({
 });
 
 // Twilio config
-const twilioClient = twilio(
-  process.env.TWILIO_ACCOUNT_SID!,
-  process.env.TWILIO_AUTH_TOKEN!
-);
+let twilioClient: any;
+async function getTwilioClient() {
+  if (!twilioClient) {
+    const twilio = (await import("twilio")).default;
+    twilioClient = twilio(
+      process.env.TWILIO_ACCOUNT_SID!,
+      process.env.TWILIO_AUTH_TOKEN!
+    );
+  }
+  return twilioClient;
+}
 
 const ADMIN_WHATSAPP = "whatsapp:+2349159999965"; 
 
@@ -68,8 +74,9 @@ export async function POST(req: NextRequest) {
 
     setTimeout(async () => {
       try {
-        await twilioClient.messages.create({
-          from: "whatsapp:" + process.env.TWILIO_WHATSAPP_NUMBER, 
+        const client = await getTwilioClient();
+        await client.messages.create({
+          from: "whatsapp:" + process.env.TWILIO_WHATSAPP_NUMBER,
           to: ADMIN_WHATSAPP,
           body: `📢 New Upload from User ${userId}\n\nFile: ${result.secure_url}`,
         });
@@ -77,8 +84,7 @@ export async function POST(req: NextRequest) {
       } catch (err) {
         console.error("Failed to send WhatsApp message:", err);
       }
-    }, 3000); 
-
+    }, 3000);
     return response;
   } catch (error) {
     console.error(error);
