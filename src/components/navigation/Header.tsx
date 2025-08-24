@@ -20,7 +20,9 @@ export const Header = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const isActive = (path: string) =>
-    pathname === path ? "bg-butter text-goldie" : "text-gray-700 hover:text-butter";
+    pathname === path
+      ? "bg-butter text-goldie font-semibold"
+      : "text-gray-700 hover:text-butter";
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -39,38 +41,45 @@ export const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Mobile menu links
+  const mobileLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/collection", label: "Collection" },
+    { href: "/tees", label: "SRL Tees" },
+    { href: "/belts", label: "Belts" },
+    { href: "/caps", label: "Caps" },
+    { href: "/foot", label: "Footwears" },
+    { href: "/beads", label: "Luxury Beads" },
+    { href: "/shirts", label: "Casual Shirts" },
+    { href: "/corporate-wears", label: "Corporate Wears" },
+    { href: "/two-piece", label: "SRL 2 Catchy Piece" },
+    { href: "/trad-wears", label: "Trad Wears" },
+    { href: "/services", label: "Services" },
+    { href: "/locator", label: "Contact Us" },
+  ];
+
   const renderMobileMenu = () =>
-    isMobileMenuOpen ? (
-      <Box className="md:hidden px-4 space-y-2">
-        {[
-          { href: "/", label: "Home" },
-          { href: "/about", label: "About" },
-          { href: "/collection", label: "Collection" },
-          { href: "/tees", label: "SRL Tees" },
-          { href: "/belts", label: "Belts" },
-          { href: "/caps", label: "Caps" },
-          { href: "/foot", label: "Footwears" },
-          { href: "/beads", label: "Luxury Beads" },
-          { href: "/shirts", label: "Casual Shirts" },
-          { href: "/corporate-wears", label: "Corporate Wears" },
-          { href: "/two-piece", label: "SRL 2 Catchy Piece" },
-          { href: "/trad-wears", label: "Trad Wears" },
-          { href: "/services", label: "Services" },
-          { href: "/locator", label: "Contact Us" },
-        ].map((link) => (
+    isMobileMenuOpen && (
+      <Box
+        className="md:hidden px-4 py-3 mt-2 space-y-2 bg-white shadow-md rounded-lg animate-slide-down"
+        sx={{ transition: "all 0.3s ease" }}
+      >
+        {mobileLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className={`block py-2 ${isActive(link.href)}`}
+            onClick={() => setIsMobileMenuOpen(false)} // ✅ auto-close on click
+            className={`block py-2 px-3 rounded-md transition ${isActive(link.href)}`}
           >
             {link.label}
           </Link>
         ))}
       </Box>
-    ) : null;
+    );
 
   return (
-    <nav id="header" className="bg-transparent">
+    <nav id="header" className="bg-white shadow-sm sticky top-0 z-50">
       <Box
         maxWidth="xl"
         sx={{
@@ -79,7 +88,7 @@ export const Header = () => {
           alignItems: "center",
           justifyContent: "space-between",
         }}
-        className="py-2 px-4"
+        className="py-3 px-4"
       >
         {/* Logo */}
         <Box className="flex items-center">
@@ -97,35 +106,44 @@ export const Header = () => {
         {/* Mobile Menu Button */}
         <Box className="md:hidden">
           <button
-            className="text-gray-700 p-2"
+            className="text-gray-700 p-2 rounded-md hover:bg-gray-100 transition"
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
-            <svg
-              className="w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 4H4a1 1 0 100 2h8a1 1 0 100-2zM4 10a1 1 0 110-2h8a1 1 0 110 2H4zm8 3a1 1 0 100 2H4a1 1 0 100-2h8z"
-                clipRule="evenodd"
-              />
-            </svg>
+            {isMobileMenuOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
           {renderMobileMenu()}
         </Box>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex md:space-x-6 md:text-base font-medium">
+        <ul className="hidden md:flex md:space-x-6 md:text-base font-medium items-center">
           <li>
-            <Link href="/" className={`block py-2 ${isActive("/")}`}>
+            <Link href="/" className={`block py-2 px-2 rounded ${isActive("/")}`}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className={`block py-2 ${isActive("/about")}`}>
+            <Link href="/about" className={`block py-2 px-2 rounded ${isActive("/about")}`}>
               About
             </Link>
           </li>
@@ -134,40 +152,32 @@ export const Header = () => {
           <li className="relative" ref={shopRef}>
             <button
               onClick={toggleShopDropdown}
-              className="flex items-center py-2 hover:text-butter"
+              className="flex items-center py-2 px-2 hover:text-butter transition"
             >
               Accessories
               <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 
+                  111.414 1.414l-4 4a1 1 0 
+                  01-1.414 0l-4-4a1 1 0 010-1.414z"
                   clipRule="evenodd"
                 />
               </svg>
             </button>
             {isShopDropdownOpen && (
-              <Box className="absolute mt-2 w-40 bg-white shadow rounded z-10">
-                <ul>
-                  <li>
-                    <Link href="/belts" className="block px-4 py-2 hover:bg-gray-100">
-                      Belts
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/caps" className="block px-4 py-2 hover:bg-gray-100">
-                      Caps
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/foot" className="block px-4 py-2 hover:bg-gray-100">
-                      Footwears
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/beads" className="block px-4 py-2 hover:bg-gray-100">
-                      Luxury Beads
-                    </Link>
-                  </li>
+              <Box className="absolute mt-2 w-40 bg-white shadow-lg rounded-lg z-10">
+                <ul className="py-2">
+                  {["Belts", "Caps", "Footwears", "Luxury Beads"].map((item) => (
+                    <li key={item}>
+                      <Link
+                        href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        className="block px-4 py-2 hover:bg-gray-100 transition"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </Box>
             )}
@@ -177,69 +187,50 @@ export const Header = () => {
           <li className="relative" ref={pagesRef}>
             <button
               onClick={togglePagesDropdown}
-              className="flex items-center py-2 hover:text-butter"
+              className="flex items-center py-2 px-2 hover:text-butter transition"
             >
               Wears
               <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 
+                  111.414 1.414l-4 4a1 1 0 
+                  01-1.414 0l-4-4a1 1 0 010-1.414z"
                   clipRule="evenodd"
                 />
               </svg>
             </button>
             {isPagesDropdownOpen && (
-              <Box className="absolute mt-2 w-48 bg-white shadow rounded z-10">
-                <ul>
-                  <li>
-                    <Link href="/tees" className="block px-4 py-2 hover:bg-gray-100">
-                      SRL Tees
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/two-piece"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      SRL 2 Catchy Piece
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/shirts"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Casual Shirts
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/corporate-wears"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Corporate Wears
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/trad-wears"
-                      className="block px-4 py-2 hover:bg-gray-100"
-                    >
-                      Trad Wears
-                    </Link>
-                  </li>
+              <Box className="absolute mt-2 w-48 bg-white shadow-lg rounded-lg z-10">
+                <ul className="py-2">
+                  {[
+                    { label: "SRL Tees", href: "/tees" },
+                    { label: "SRL 2 Catchy Piece", href: "/two-piece" },
+                    { label: "Casual Shirts", href: "/shirts" },
+                    { label: "Corporate Wears", href: "/corporate-wears" },
+                    { label: "Trad Wears", href: "/trad-wears" },
+                  ].map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 hover:bg-gray-100 transition"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </Box>
             )}
           </li>
 
           <li>
-            <Link href="/services" className={`block py-2 ${isActive("/services")}`}>
+            <Link href="/services" className={`block py-2 px-2 rounded ${isActive("/services")}`}>
               Services
             </Link>
           </li>
           <li>
-            <Link href="/locator" className={`block py-2 ${isActive("/locator")}`}>
+            <Link href="/locator" className={`block py-2 px-2 rounded ${isActive("/locator")}`}>
               Contact Us
             </Link>
           </li>
@@ -253,7 +244,7 @@ export const Header = () => {
               alt="Cart"
               width={24}
               height={24}
-              className="h-6 w-6"
+              className="h-6 w-6 hover:scale-110 transition"
             />
           </Link>
           <Link href="/login">
@@ -262,7 +253,7 @@ export const Header = () => {
               alt="Profile"
               width={24}
               height={24}
-              className="h-6 w-6"
+              className="h-6 w-6 hover:scale-110 transition"
             />
           </Link>
         </Box>
