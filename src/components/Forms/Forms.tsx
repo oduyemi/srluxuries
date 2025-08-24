@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import { Box, Typography, Button, Card, Grid, TextField } from "@mui/material";
+import { RadioGroupInput } from "./RadioGroupInput";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -241,222 +242,144 @@ export const CustomStyle = () => {
 };
 
 
-
-
 export const Appointment = () => {
   const [formData, setFormData] = useState({
-      name: "",
-      phone: "",
-      reason: "",
-      firstVisit: "",
-      callback: "",
-      visitPreference: "",
+    name: "",
+    phone: "",
+    reason: "",
+    firstVisit: "",
+    callback: "",
+    visitPreference: "",
   });
 
   const handleInputChange = (name: string, value: string) => {
-      setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
-      }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-    const handleSubmit = async () => {
-      try {
-          const response = await axios.post("/submit-appointment", formData);
-  
-          if (response.status === 200) {
-              const data = response.data;
-              console.log("Appointment submitted:", data.message);
-  
-              // Now, create a WhatsApp message with the form data
-              const whatsappMessage = `Hi, I would like to book an appointment:
-                  *Name:* ${formData.name}
-                  *Phone:* ${formData.phone}
-                  *Reason:* ${formData.reason}
-                  *First Visit:* ${formData.firstVisit}
-                  *Callback Preferred:* ${formData.callback}
-                  *Visit Preference:* ${formData.visitPreference}`;
-  
-              const encodedMessage = encodeURIComponent(whatsappMessage);
-  
-              const whatsappLink = `https://wa.me/+2349159999965?text=${encodedMessage}`;
-  
-              window.open(whatsappLink, "_blank");
-          } else {
-              console.error("Appointment submission error:", response.statusText);
-          }
-      } catch (error) {
-          console.error("Error during appointment submission:", error);
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post("/api/appointments", formData);
+      if (response.status === 201) {
+        const data = response.data;
+        const whatsappMessage = `Hi, I would like to book an appointment:
+          *Name:* ${formData.name}
+          *Phone:* ${formData.phone}
+          *Reason:* ${formData.reason}
+          *First Visit:* ${formData.firstVisit || "Not Specified"}
+          *Callback Preferred:* ${formData.callback || "No"}
+          *Visit Preference:* ${formData.visitPreference}`;
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        const whatsappLink = `https://wa.me/+2349159999965?text=${encodedMessage}`;
+        window.open(whatsappLink, "_blank");
+
+        console.log("Appointment submitted:", data.message);
+      } else {
+        console.error("Appointment submission error:", response.statusText);
       }
+    } catch (error) {
+      console.error("Error during appointment submission:", error);
+    }
   };
 
-    return (
-        <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-            <Card className="shadow appearance-none bg-transparent mx-auto">
-                <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-                    <Box maxWidth="sm" className="mx-auto login">
-                        <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                            Book Appointment
-                        </Typography>
-                        <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                            We will contact you with the next available appointment date
-                        </Typography>
-                        <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                            <Grid>
-                                <label className="text-ggreen text-l font-light mb-2" htmlFor="name">
-                                    Your Name
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={(e) => handleInputChange("name", e.target.value)}
-                                    className="shadow appearance-none border rounded w-full mb-4 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                />
-                                <input
-                                    type="number"
-                                    placeholder="Phone Number"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                                    className="shadow appearance-none border rounded w-full mb-6 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                />
-                            </Grid>
-                            <Grid>
-                                <label className="text-ggreen text-l font-light mb-2" htmlFor="reason">
-                                    Why would you like to book this appointment?
-                                </label>
-                                <textarea
-                                    name="reason"
-                                    placeholder="Enter your reason here..."
-                                    className="shadow appearance-none border rounded w-full py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                    onChange={(e) => handleInputChange("reason", e.target.value)}
-                                ></textarea>
-                            </Grid>
-                            <Grid>
-                                <label className="text-ggreen text-l font-light mb-2" htmlFor="firstVisit">
-                                    Is this your first visit to our offices?
-                                </label>
-                                <ul>
-                                    <li>
-                                        <input
-                                            type="radio"
-                                            name="firstVisit"
-                                            value="Yes"
-                                            onChange={() => handleInputChange("firstVisit", "Yes")}
-                                        />
-                                        <label htmlFor="firstVisitYes">Yes</label>
-                                    </li>
-                                    <li className="choice-2">
-                                        <input
-                                            type="radio"
-                                            name="firstVisit"
-                                            value="No"
-                                            onChange={() => handleInputChange("firstVisit", "No")}
-                                        />
-                                        <label htmlFor="firstVisitNo">No</label>
-                                    </li>
-                                    <li className="choice-3">
-                                        <input
-                                            type="radio"
-                                            name="firstVisit"
-                                            value="NotSure"
-                                            onChange={() => handleInputChange("firstVisit", "NotSure")}
-                                        />
-                                        <label htmlFor="firstVisitNotSure">Not sure</label>
-                                    </li>
-                                </ul>
-                            </Grid>
+  return (
+    <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
+      <Card className="shadow bg-transparent mx-auto p-6">
+        <form>
+          <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
+            Book Appointment
+          </Typography>
+          <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
+            We will contact you with the next available appointment date
+          </Typography>
 
-                            <Grid>
-                                <label className="text-ggreen text-l font-light mb-2" htmlFor="callback">
-                                    Would you prefer a callback instead?
-                                </label>
-                                <ul>
-                                    <li>
-                                        <input
-                                            type="radio"
-                                            value="Yes"
-                                            name="callback"
-                                            onChange={() => handleInputChange("callback", "Yes")}
-                                        />
-                                        <label htmlFor="callback">Yes</label>
-                                    </li>
-                                    <li className="choice-2">
-                                        <input
-                                            type="radio"
-                                            value="No"
-                                            name="callback"
-                                            onChange={() => handleInputChange("callback", "No")}
-                                        />
-                                        <label htmlFor="callback">No</label>
-                                    </li>
-                                    <li className="choice-3">
-                                        <input
-                                            type="radio"
-                                            value="Maybe"
-                                            name="callback"
-                                            onChange={() => handleInputChange("callback", "Maybe")}
-                                        />
-                                        <label htmlFor="callback">Maybe</label>
-                                    </li>
-                                </ul>
-                            </Grid>
-                            <Grid>
-                                <label className="text-ggreen text-l font-light mb-2" htmlFor="visitPreference">
-                                    When would you prefer to visit?
-                                </label>
-                                <ul>
-                                    <li>
-                                        <input
-                                            type="radio"
-                                            value="three_days"
-                                            name="visitPreference"
-                                            onChange={() => handleInputChange("visitPreference", "three_days")}
-                                        />
-                                        <label htmlFor="visitPreference">Within 72 hours</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="radio"
-                                            value="one_week"
-                                            name="visitPreference"
-                                            onChange={() => handleInputChange("visitPreference", "one_week")}
-                                        />
-                                        <label htmlFor="visitPreference">Within a week</label>
-                                    </li>
-                                    <li className="choice-3">
-                                        <input
-                                            type="radio"
-                                            value="two_weeks"
-                                            name="visitPreference"
-                                            onChange={() => handleInputChange("visitPreference", "two_weeks")}
-                                        />
-                                        <label htmlFor="visitPreference">Within 2 weeks</label>
-                                    </li>
-                                </ul>
-                            </Grid>
-                        
-                            <Box className="text-center">
-                                <Box className="my-4 text-center">
-                                    <Button
-                                        variant="contained"
-                                        sx={{ backgroundColor: "#CD8F2C" }}
-                                        className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen border border-goldie hover:border-tan"
-                                        onClick={handleSubmit}
-                                    >
-                                        Submit
-                                    </Button>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
-                </form>
-            </Card>
-        </Box>
-    );
+          <Box className="flex flex-col gap-6">
+            {/* Name */}
+            <Grid>
+              <label className="text-ggreen text-l font-light mb-2">Your Name</label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                className="shadow border rounded w-full mb-4 py-2 px-4"
+                required
+              />
+              <input
+                type="number"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                className="shadow border rounded w-full mb-4 py-2 px-4"
+                required
+              />
+            </Grid>
+
+            {/* Reason */}
+            <Grid>
+              <label className="text-ggreen text-l font-light mb-2">
+                Why would you like to book this appointment?
+              </label>
+              <textarea
+                value={formData.reason}
+                onChange={(e) => handleInputChange("reason", e.target.value)}
+                placeholder="Enter your reason here..."
+                className="shadow border rounded w-full py-2 px-4"
+                required
+              />
+            </Grid>
+
+            {/* First Visit */}
+            <RadioGroupInput
+              label="Is this your first visit to our offices?"
+              name="firstVisit"
+              value={formData.firstVisit}
+              onChange={handleInputChange}
+              options={[
+                { label: "Yes", value: "Yes" },
+                { label: "No", value: "No" },
+                { label: "Not Sure", value: "NotSure" },
+              ]}
+            />
+
+            {/* Callback */}
+            <RadioGroupInput
+              label="Would you prefer a callback instead?"
+              name="callback"
+              value={formData.callback}
+              onChange={handleInputChange}
+              options={[
+                { label: "Yes", value: "Yes" },
+                { label: "No", value: "No" },
+                { label: "Maybe", value: "Maybe" },
+              ]}
+            />
+
+            {/* Visit Preference */}
+            <RadioGroupInput
+              label="When would you prefer to visit?"
+              name="visitPreference"
+              value={formData.visitPreference}
+              onChange={handleInputChange}
+              options={[
+                { label: "Within 72 hours", value: "three_days" },
+                { label: "Within a week", value: "one_week" },
+                { label: "Within 2 weeks", value: "two_weeks" },
+              ]}
+            />
+
+            <Box className="text-center my-4">
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "#CD8F2C" }}
+                className="rounded px-8 py-2 text-xl hover:bg-tan hover:text-ggreen"
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            </Box>
+          </Box>
+        </form>
+      </Card>
+    </Box>
+  );
 };
