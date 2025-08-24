@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { Box, Typography, Button, Card, Grid, TextField } from "@mui/material";
+import { Box, Typography, Button, Card, Grid, TextField, Snackbar, Alert, } from "@mui/material";
 import { RadioGroupInput } from "./RadioGroupInput";
 import Image from "next/image";
 import Link from "next/link";
@@ -130,22 +130,38 @@ export const LoginForm = () => {
 export const CustomStyle = () => {
   const [files, setFiles] = useState<CustomFile[]>([]);
   const [phone, setPhone] = useState("");
+  const [styleName, setStyleName] = useState("");
+  const [description, setDescription] = useState("");
+  const [extraInfo, setExtraInfo] = useState("");
+  const [snackbar, setSnackbar] = useState<{
+    open: boolean;
+    message: string;
+    severity: "success" | "error" | "info";
+  }>({
+    open: false,
+    message: "",
+    severity: "info",
+  });
+
+  const showMessage = (
+    message: string,
+    severity: "success" | "error" | "info" = "info"
+  ) => {
+    setSnackbar({ open: true, message, severity });
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files;
     if (!selectedFiles) return;
 
-    const newFiles: CustomFile[] = [];
-
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
       if (!ALLOWED_TYPES.includes(file.type)) {
-        alert(`File ${file.name} has unsupported format`);
+        showMessage(`❌ ${file.name} has unsupported format`, "error");
         continue;
       }
-
       if (file.size > MAX_FILE_SIZE) {
-        alert(`File ${file.name} exceeds 5MB`);
+        showMessage(`⚠️ ${file.name} exceeds 5MB`, "error");
         continue;
       }
 
@@ -159,57 +175,115 @@ export const CustomStyle = () => {
 
   const handleUpload = async () => {
     if (!phone) {
-      alert("Please enter your phone number");
+      showMessage("Please enter your WhatsApp number", "error");
       return;
     }
-
+    if (!styleName) {
+      showMessage("Please provide a style name", "error");
+      return;
+    }
     if (files.length === 0) {
-      alert("Please select at least one file");
+      showMessage("Please select at least one file", "error");
       return;
     }
 
     const formData = new FormData();
     formData.append("phone", phone);
+    formData.append("styleName", styleName);
+    formData.append("description", description);
+    formData.append("extraInfo", extraInfo);
     files.forEach((f) => formData.append("files", f.file));
+
     try {
       const res = await fetch("/api/upload", { method: "POST", body: formData });
       const data = await res.json();
+
       if (res.ok) {
-        alert("Files uploaded successfully!");
-        window.open(
-          `https://wa.me/+2349159999965?text=${encodeURIComponent(
-            `Hi, I have uploaded my custom style images:\n${data.urls.join("\n")}`
-          )}`,
-          "_blank"
-        );
+        showMessage("✅ Files uploaded successfully!", "success");
+
+        // open WhatsApp to admin with details
+        setTimeout(() => {
+          window.open(
+            `https://wa.me/+2349159999965?text=${encodeURIComponent(
+              `📢 New Custom Style Upload!\n\n👤 WhatsApp: ${phone}\n🎨 Style: ${styleName}\n📝 Description: ${description}\nℹ️ Extra Info: ${extraInfo}\n\n🖼 Images:\n${data.urls.join(
+                "\n"
+              )}`
+            )}`,
+            "_blank"
+          );
+        }, 2000);
+
+        // reset
         setFiles([]);
         setPhone("");
+        setStyleName("");
+        setDescription("");
+        setExtraInfo("");
       } else {
-        alert(data.message || "Upload failed");
+        showMessage(data.message || "Upload failed", "error");
       }
     } catch (err) {
       console.error(err);
-      alert("Error uploading files");
+      showMessage("❌ Error uploading files", "error");
     }
   };
 
   return (
     <Box maxWidth="md" sx={{ margin: "auto", my: 10 }}>
       <Card className="shadow p-6 bg-white rounded-lg">
-        <Typography variant="h4" className="text-goldie" textAlign="center" gutterBottom>
+        <Typography
+          variant="h4"
+          className="text-goldie"
+          textAlign="center"
+          gutterBottom
+        >
           Upload Your Style
         </Typography>
-        <Typography variant="body1" color="textSecondary" textAlign="center" paragraph>
-          Upload up to 3 images of your custom style. Only images under 5MB are allowed.
+        <Typography
+          variant="body1"
+          color="textSecondary"
+          textAlign="center"
+          paragraph
+        >
+          Upload up to 3 images of your custom style. Only images under 5MB are
+          allowed.
         </Typography>
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mt: 2 }}>
-          <input
-            type="text"
-            placeholder="Enter your phone number"
+          <TextField
+            label="WhatsApp Number"
+            placeholder="Enter your WhatsApp number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="border rounded w-full py-2 px-4"
+            fullWidth
+          />
+
+          <TextField
+            label="Style Name"
+            placeholder="e.g. Ankara Gown"
+            value={styleName}
+            onChange={(e) => setStyleName(e.target.value)}
+            fullWidth
+          />
+
+          <TextField
+            label="Description"
+            placeholder="Brief description of your style"
+            multiline
+            rows={3}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            fullWidth
+          />
+
+          <TextField
+            label="Additional Information"
+            placeholder="Any extra details?"
+            multiline
+            rows={2}
+            value={extraInfo}
+            onChange={(e) => setExtraInfo(e.target.value)}
+            fullWidth
           />
 
           <input
@@ -246,9 +320,22 @@ export const CustomStyle = () => {
           </Button>
         </Box>
       </Card>
+
+      {/* Snackbar Notifications */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert severity={snackbar.severity} variant="filled">
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
+
 
 
 export const AppointmentForm = () => {

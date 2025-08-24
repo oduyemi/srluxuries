@@ -1,66 +1,86 @@
 import { NextRequest, NextResponse } from "next/server";
+import { v2 as cloudinary } from "cloudinary";
 import { dbConnect } from "@/utils/db";
 import CustomStyle from "@/models/customStyle";
+import twilio from "twilio"; 
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+// Cloudinary config
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
+  api_key: process.env.CLOUDINARY_API_KEY!,
+  api_secret: process.env.CLOUDINARY_API_SECRET!,
+});
 
-export const POST = async (req: NextRequest) => {
+// Twilio config
+const twilioClient = twilio(
+  process.env.TWILIO_ACCOUNT_SID!,
+  process.env.TWILIO_AUTH_TOKEN!
+);
+
+const ADMIN_WHATSAPP = "whatsapp:+2349159999965"; 
+
+export async function POST(req: NextRequest) {
   try {
     await dbConnect();
-
     const formData = await req.formData();
-    const files = formData.getAll("files") as File[];
-    const phone = formData.get("phone") as string;
+    const file = formData.get("file") as File | null;
+    const userId = formData.get("userId") as string;
 
-    if (!phone) {
-      return NextResponse.json({ message: "Phone number is required" }, { status: 400 });
+    if (!file || !userId) {
+      return NextResponse.json(
+        { error: "File and userId are required" },
+        { status: 400 }
+      );
     }
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
 
-    if (!files || files.length === 0) {
-      return NextResponse.json({ message: "No files provided" }, { status: 400 });
-    }
+    const customFileName = `style_${Date.now()}_${userId}`;
+    const result = await new Promise<any>((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream(
+          {
+            folder: "srl/uploads",
+            public_id: customFileName,
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        )
+        .end(buffer);
+    });
 
-    const uploadedUrls: string[] = [];
+    // Save to MongoDB
+    const customStyle = new CustomStyle({
+      user: userId,
+      fileUrl: result.secure_url,
+      publicId: result.public_id,
+    });
+    await customStyle.save();
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      if (!ALLOWED_TYPES.includes(file.type)) {
-        return NextResponse.json({ message: `File ${file.name} has an unsupported format.` }, { status: 400 });
+    // ✅ Respond immediately to user
+    const response = NextResponse.json(
+      { success: true, url: result.secure_url },
+      { status: 201 }
+    );
+
+    setTimeout(async () => {
+      try {
+        await twilioClient.messages.create({
+          from: "whatsapp:" + process.env.TWILIO_WHATSAPP_NUMBER, 
+          to: ADMIN_WHATSAPP,
+          body: `📢 New Upload from User ${userId}\n\nFile: ${result.secure_url}`,
+        });
+        console.log("WhatsApp message sent to admin ✅");
+      } catch (err) {
+        console.error("Failed to send WhatsApp message:", err);
       }
+    }, 3000); 
 
-      if (file.size > MAX_FILE_SIZE) {
-        return NextResponse.json({ message: `File ${file.name} exceeds 5MB.` }, { status: 400 });
-      }
-
-      const cloudinaryUploadUrl = `https://api.cloudinary.com/v1_1/dymd1jkbl/image/upload/v1691953768/srl/uploads`;
-      const uploadPreset = "ynb6urq8";
-      const timestamp = Date.now();
-      const customFileName = `${phone}_${timestamp}_${i}`;
-      const cloudinaryFormData = new FormData();
-      cloudinaryFormData.append("file", file);
-      cloudinaryFormData.append("upload_preset", uploadPreset);
-      cloudinaryFormData.append("public_id", `srl/uploads/${customFileName}`);
-      const response = await fetch(cloudinaryUploadUrl, {
-        method: "POST",
-        body: cloudinaryFormData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error uploading file ${i + 1}: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      uploadedUrls.push(data.secure_url);
-    }
-
-    await CustomStyle.create({ phone, images: uploadedUrls });
-    return NextResponse.json({
-      message: "Files uploaded successfully",
-      urls: uploadedUrls,
-    }, { status: 201 });
+    return response;
   } catch (error) {
-    console.error("Upload error:", error);
-    return NextResponse.json({ message: "Error uploading files" }, { status: 500 });
+    console.error(error);
+    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
-};
+}
