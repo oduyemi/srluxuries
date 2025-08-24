@@ -1,128 +1,108 @@
 "use client";
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    id: "question1",
+    id: "q1",
     question: "Can I exchange my order if it’s not the right fit?",
     answer: (
       <>
-        <strong className="text-ggreen">We are keen on satisfying our customers.</strong>  
-        Yes, you can. <code>Terms and conditions apply</code>.
+        <strong className="text-ggreen">We are keen on satisfying our customers.</strong>{" "}
+        Yes, you can exchange items. <code>Terms and conditions apply</code>.
       </>
     ),
   },
   {
-    id: "question2",
+    id: "q2",
     question: "How do I use the size and style recommendation tool?",
     answer: (
       <>
-        <strong className="text-ggreen">We take your measurements at registration.</strong>  
-        Enter them when signing up and update when needed.
+        <strong className="text-ggreen">We take your measurements at registration.</strong>{" "}
+        Enter them when signing up and update them anytime.
       </>
     ),
   },
   {
-    id: "question3",
+    id: "q3",
     question: "Can I return a product if I change my mind?",
     answer: (
       <>
-        <strong className="text-ggreen">There are criterias for product return.</strong>  
-        Request must be made within 48 hours in good condition.
+        <strong className="text-ggreen">Returns are possible under conditions.</strong>{" "}
+        Requests must be made within 48 hours in good condition.  
+        Due to the sensitivity of clothing, returns are accepted only when
+        there’s a genuine issue with the product.
       </>
     ),
   },
   {
-    id: "question4",
-    question: "How do I use the size and style recommendation tool?",
+    id: "q4",
+    question: "When can I expect my refund?",
     answer: (
       <>
-        <strong className="text-ggreen">In the case of tailor-to-fit designs.</strong> 
-        We have made provision for you to upload your style image in your request
-        form. You can also add other necessary details. When your request
-        is received, you will be contacted for further detailing and 
-        pricing, which is to foster a good understanding of what is to be done.
+        <strong className="text-ggreen">Almost immediately.</strong>  
+        Refunds are initiated once we receive the product back.  
+        Banks may take 3–10 business days to process it to your account.
       </>
     ),
   },
   {
-    id: "question5",
-    question: " When can I expect my refund?",
-    answer: (
-      <>
-       <strong className="text-ggreen">Almost immediately.</strong>
-        We will provide a refund immediately upon the return of the product
-        However, bank providers may take 3 to 10 business days to process
-        the refund into the original mode of payment.
-      </>
-    ),
-  },
-  {
-    id: "question6",
+    id: "q5",
     question: "Can I change my delivery address?",
     answer: (
       <>
-        <strong className="text-ggreen">Yes, you can.</strong> It is
-        best to change the address before the delivery process begins.
-        Before your order is been delivered, you will be contacted to
-        verify your order and the delivery details.
-      </>
-    ),
-  },
-  {
-    id: "question7",
-    question: "Can I return my order if I change my mind?",
-    answer: (
-      <>
-        <strong className="text-ggreen">Yes. Terms and conditions apply. </strong>
-        There is room for returning your order, but provided that the product 
-        has issues. Because of the sensivity of clothing and other fashion
-        items, returning an order will be possible only when there is 
-        an issue with the product.
+        <strong className="text-ggreen">Yes, you can.</strong>  
+        It’s best to update your address before the delivery process begins.  
+        We’ll contact you to verify your order and delivery details.
       </>
     ),
   },
 ];
 
 export const Questions: React.FC = () => {
-  const [openId, setOpenId] = useState<string | null>("question1");
+  const [openId, setOpenId] = useState<string | null>("q1");
 
   const toggleQuestion = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
   return (
-    <Box maxWidth="md" className="mx-auto mb-10 px-4">
+    <Box maxWidth="md" className="mx-auto mb-16 px-4">
       {/* Header */}
-      <Box className="text-center mb-10">
-        <Typography variant="h6" className="uppercase tracking-widest text-tan font-semibold">
+      <Box className="text-center mb-12">
+        <Typography
+          variant="h6"
+          className="uppercase tracking-[0.25em] text-tan font-semibold"
+        >
           FAQs
         </Typography>
         <Typography
           variant="h2"
           className="text-4xl md:text-5xl font-extrabold text-butter leading-tight"
         >
-          Your
-          <span className="text-[#39A9DB] pl-2">Questions</span>
+          Your <span className="text-[#39A9DB]">Questions</span>
         </Typography>
-        <Typography variant="body1" className="text-brownie mt-2">
-          Here are the things you need to know.
+        <Typography
+          variant="body1"
+          className="text-brownie mt-3 text-lg"
+        >
+          Everything you need to know, simplified.
         </Typography>
       </Box>
 
       {/* FAQ List */}
-      <Box className="space-y-4">
+      <Box className="space-y-5">
         {faqs.map((faq) => (
           <Box
             key={faq.id}
-            className="rounded-2xl border border-tan bg-white shadow-md hover:shadow-lg transition-all duration-300"
+            className="rounded-2xl border border-tan/40 bg-white/90 shadow-md hover:shadow-lg hover:border-[#39A9DB]/50 transition-all duration-300 backdrop-blur-sm"
           >
-            {/* Question Button */}
+            {/* Question */}
             <button
               onClick={() => toggleQuestion(faq.id)}
-              className="flex w-full items-center justify-between px-6 py-4 text-left text-lg font-medium text-neutral-800 transition hover:text-[#39A9DB] focus:outline-none"
+              aria-expanded={openId === faq.id}
+              className="flex w-full items-center justify-between px-6 py-5 text-left text-lg font-semibold text-neutral-800 transition hover:text-[#39A9DB] focus:outline-none"
             >
               {faq.question}
               <motion.span
@@ -149,11 +129,12 @@ export const Questions: React.FC = () => {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <Box className="px-6 pb-4 text-neutral-700 text-base leading-relaxed">
-                    {faq.answer}
+                  <Divider />
+                  <Box className="px-6 py-4 text-neutral-700 text-base leading-relaxed">
+                    <Typography variant="body1">{faq.answer}</Typography>
                   </Box>
                 </motion.div>
               )}

@@ -1,6 +1,5 @@
-import { Reg1 } from "@/components/Forms/Forms";
-import { Header } from "@/components/navigation/Header";
-import { Footer } from "@/components/navigation/Footer";
+"use client";
+import { RegisterForm } from "@/components/Forms/RegisterForm";
 import { Box } from "@mui/material";
 
 
@@ -8,7 +7,7 @@ export default function Register () {
     return(
         <>
             <Box>
-                <Reg1 />
+                <RegisterForm />
             </Box>
         </>
        

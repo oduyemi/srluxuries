@@ -8,6 +8,7 @@ export interface IUser extends Document {
   salt: string;
   address?: string;
 
+  // Blazer/Kaftan
   blazerTopLength?: number;
   blazerShoulder?: number;
   blazerChest?: number;
@@ -15,45 +16,50 @@ export interface IUser extends Document {
   blazerSleeve?: number;
   blazerBicep?: number;
 
+  // Trouser
   trouserLength?: number;
-  trouserWaist?: number;
-  trouserHip?: number;
+  waist?: number;
+  hip?: number;
   trouserStomach?: number;
-  trouserLeg?: number;
+  leg?: number;
 
+  // Shirt
   shirtLength?: number;
-  shirtChest?: number;
-  shirtShoulder?: number;
-  shirtSleeve?: number;
-  shirtStomach?: number;
-  shirtCollar?: number;
+  chest?: number;
+  shoulder?: number;
+  sleeve?: number;
+  stomach?: number;
+  collar?: number;
 
+  // Suit
   suitLength?: number;
-  suitBody?: number;
-  suitSleeve?: number;
-  suitBack?: number;
-  suitRoundSleeve?: number;
-  suitTrouserLength?: number;
-  suitTrouserWaist?: number;
-  suitLap?: number;
-  suitHip?: number;
-  suitCalf?: number;
-  suitAnkle?: number;
+  roundBody?: number;
+  sleeveSuit?: number;
+  back?: number;
+  roundSleeve?: number;
+  trouserLengthSuit?: number;
+  trouserWaist?: number;
+  lap?: number;
+  hipSuit?: number;
+  calf?: number;
+  ankle?: number;
 
+  // Agbada
   agbadaLength?: number;
   agbadaBodyLength?: number;
   agbadaChest?: number;
-  agbadaBack?: number;
-  agbadaShortSleeve?: number;
-  agbadaLongSleeve?: number;
-  agbadaNeck?: number;
-  agbadaStomach?: number;
-  agbadaTrouserLength?: number;
-  agbadaTrouserWaist?: number;
-  agbadaLap?: number;
-  agbadaHip?: number;
-  agbadaCalf?: number;
-  agbadaCap?: number;
+  chestAgbada?: number;
+  backAgbada?: number;
+  shortSleeve?: number;
+  longSleeve?: number;
+  neck?: number;
+  stomachAgbada?: number;
+  trouserLengthAgbada?: number;
+  trouserWaistAgbada?: number;
+  lapAgbada?: number;
+  hipAgbada?: number;
+  calfAgbada?: number;
+  cap?: number;
 }
 
 const UserSchema: Schema<IUser> = new mongoose.Schema({
@@ -63,6 +69,7 @@ const UserSchema: Schema<IUser> = new mongoose.Schema({
   salt: { type: String, required: true },
   address: String,
 
+  // Blazer
   blazerTopLength: Number,
   blazerShoulder: Number,
   blazerChest: Number,
@@ -70,45 +77,50 @@ const UserSchema: Schema<IUser> = new mongoose.Schema({
   blazerSleeve: Number,
   blazerBicep: Number,
 
+  // Trouser
   trouserLength: Number,
-  trouserWaist: Number,
-  trouserHip: Number,
+  waist: Number,
+  hip: Number,
   trouserStomach: Number,
-  trouserLeg: Number,
+  leg: Number,
 
+  // Shirt
   shirtLength: Number,
-  shirtChest: Number,
-  shirtShoulder: Number,
-  shirtSleeve: Number,
-  shirtStomach: Number,
-  shirtCollar: Number,
+  chest: Number,
+  shoulder: Number,
+  sleeve: Number,
+  stomach: Number,
+  collar: Number,
 
+  // Suit
   suitLength: Number,
-  suitBody: Number,
-  suitSleeve: Number,
-  suitBack: Number,
-  suitRoundSleeve: Number,
-  suitTrouserLength: Number,
-  suitTrouserWaist: Number,
-  suitLap: Number,
-  suitHip: Number,
-  suitCalf: Number,
-  suitAnkle: Number,
+  roundBody: Number,
+  sleeveSuit: Number,
+  back: Number,
+  roundSleeve: Number,
+  trouserLengthSuit: Number,
+  trouserWaist: Number,
+  lap: Number,
+  hipSuit: Number,
+  calf: Number,
+  ankle: Number,
 
+  // Agbada
   agbadaLength: Number,
   agbadaBodyLength: Number,
   agbadaChest: Number,
-  agbadaBack: Number,
-  agbadaShortSleeve: Number,
-  agbadaLongSleeve: Number,
-  agbadaNeck: Number,
-  agbadaStomach: Number,
-  agbadaTrouserLength: Number,
-  agbadaTrouserWaist: Number,
-  agbadaLap: Number,
-  agbadaHip: Number,
-  agbadaCalf: Number,
-  agbadaCap: Number,
+  chestAgbada: Number,
+  backAgbada: Number,
+  shortSleeve: Number,
+  longSleeve: Number,
+  neck: Number,
+  stomachAgbada: Number,
+  trouserLengthAgbada: Number,
+  trouserWaistAgbada: Number,
+  lapAgbada: Number,
+  hipAgbada: Number,
+  calfAgbada: Number,
+  cap: Number,
 });
 
 const User: Model<IUser> =

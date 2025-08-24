@@ -1,8 +1,9 @@
 "use client"
 import { useState } from "react";
-import { Box, Typography, Button, Card, Grid, Radio } from "@mui/material";
-import Link from "next/link";
+import { Box, Typography, Button, Card, Grid, TextField } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 interface CustomFile {
@@ -11,884 +12,115 @@ interface CustomFile {
 }
 
 
-
 export const LoginForm = () => {
-    const submitForm = async () => {
+  const submitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
     const phoneInput = document.getElementsByName("phone")[0] as HTMLInputElement;
     const passwordInput = document.getElementsByName("pwd")[0] as HTMLInputElement;
 
     const phone = phoneInput.value;
     const password = passwordInput.value;
 
-        try {
-            const response = await fetch("/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ Phone: phone, Password: password }),
-            });
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ Phone: phone, Password: password }),
+      });
 
-            const data = await response.json();
+      const data = await response.json();
 
-            if (response.ok) {
-              window.location.href = "/custom-image";
-            } else {
-              console.error("Login error:", data.message);
-            }
-          } catch (error) {
-            console.error("Error during registration:", error);
-          }
-        };
-
-    return (
-        <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-            <Card className="shadow appearance-none bg-transparent mx-auto">
-                <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-                    <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column", position: "relative", left:"17%" }} className="mb-3 gap-6 mx-auto">
-                        <input
-                            className="shadow appearance-none border rounded w-2/3 py-2 mx-auto px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="number"
-                            name="phone"
-                            required
-                            placeholder="Phone Number"
-                        />
-                        <input
-                            className="shadow appearance-none border rounded w-2/3 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="password"
-                            name="pwd"
-                            required
-                            placeholder="Password"
-                        />
-                    </Box>
-                    <Box className="text-center">
-                        <Box className="my-3 text-center">
-                            <Button
-                                variant="contained"
-                                sx={{ backgroundColor: "#CD8F2C", position: "relative", left:"17%" }}
-                                className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen
-                                        border border-goldie hover:border-tan"
-                                onClick={submitForm}
-                            >
-                                Login
-                            </Button>
-                        </Box>
-                        <Box className="text-center my-3">
-                          <Typography variant="h6" paragraph
-                            sx={{position: "relative", left:"17%", fontWeight:"light"}}
-                            className="text-brownie ps-3 text-xs mr-3">
-                              Not Registered Yet?{" "}
-                            <span>
-                              <Link className="text-goldie" href="/register">
-                                  Click Here
-                              </Link>
-                            </span>
-                          </Typography>
-                        </Box>
-                    </Box>
-                </form>
-            </Card>
-        </Box>
-    );
-};
-
-export const Reg1 = () => {
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [address, setAddress] = useState("");
-
-    const handleRegistration = async () => {
-        try {
-          const response = await fetch("/register", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              Name: name,
-              Phone: phone,
-              Password: password,
-              ConfirmPassword: confirmPassword,
-              Address: address,
-            }),
-          });
-      
-          const data = await response.json();
-      
-          if (response.ok) {
-            window.location.href = "/register2";
-          } else {
-            console.error("Registration error:", data.message);
-          }
-        } catch (error) {
-          console.error("Error during registration:", error);
-        }
-      };
-      
-    return(
-        <Box maxWidth="sm" sx={{ margin:"auto" }} className="my-10">
-            <Card className="shadow appearance-none bg-transparent mx-auto">                    
-                <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-                    <Box maxWidth="sm" className="mx-auto login">
-                        <Typography variant="h2"className="text-2xl text-ggreen font-light text-center" gutterBottom>Join the SR Club</Typography>
-                        <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>Please fill in your details</Typography>
-                        <Box maxWidth="sm" sx={{ display:"flex", flexDirection:"column" }} className="mb-3 gap-6">
-                        <input
-                            type="text"
-                            placeholder="Your Name"
-                            name="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required
-                            />
-                            <input
-                            type="number"
-                            placeholder="Phone Number"
-                            name="phone"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required
-                            />
-                            <input
-                            type="password"
-                            placeholder="Create Password"
-                            name="pwd"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required
-                            />
-                            <input
-                            type="password"
-                            placeholder="Confirm Password"
-                            name="cpwd"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required
-                            />
-                            <textarea
-                            placeholder="Your Address"
-                            name="address"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                            className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            required
-                            />
-
-                        </Box>
-                        <Box className="text-center">
-                            <Box className="my-3 text-center">
-                                <Button
-                                    variant="contained"
-                                    sx={{ backgroundColor: "#CD8F2C" }}
-                                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen
-                                            border border-goldie hover:border-tan"
-                                    onClick={handleRegistration}
-                                    >
-                                        Next
-                                </Button>
-                            </Box>
-                            <Box className="text-center my-3">
-                                <span className="text-brownie ps-3 text-xs mr-3">Already have an account? <Link className="text-goldie" href="/login">Click Here</Link></span>
-                            </Box>
-                        </Box>
-                    </Box>
-                </form>   
-            </Card>
-        </Box>      
-    )
-};
-
-export const Reg2 = () => {
-    const [blazerTopLength, setBlazerTopLength] = useState("");
-    const [blazerShoulder, setBlazerShoulder] = useState("");
-    const [blazerChest, setBlazerChest] = useState("");
-    const [blazerStomach, setBlazerStomach] = useState("");
-    const [blazerSleeve, setBlazerSleeve] = useState("");
-    const [blazerBicep, setBlazerBicep] = useState("");
-  
-    const handleRegistration = async () => {
-      try {
-        const response = await fetch("/register-blazer", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            BlazerTopLength: blazerTopLength,
-            BlazerShoulder: blazerShoulder,
-            BlazerChest: blazerChest,
-            BlazerStomach: blazerStomach,
-            BlazerSleeve: blazerSleeve,
-            BlazerBicep: blazerBicep,
-          }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-            window.location.href = "/register3";
-        } else {
-          console.error("Registration error:", data.message);
-        }
-      } catch (error) {
-        console.error("Error during registration:", error);
+      if (response.ok) {
+        window.location.href = "/custom-image";
+      } else {
+        console.error("Login error:", data.message);
       }
-    };
-  
-    return (
-      <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-        <Card className="shadow appearance-none bg-transparent mx-auto">
-          <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <Box maxWidth="sm" className="mx-auto login">
-              <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                Blazer and Kaftan
-              </Typography>
-              <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                Please provide your measurement in inches
-              </Typography>
-              <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                <input
-                  type="number"
-                  placeholder="Top Length"
-                  name="top-length"
-                  value={blazerTopLength}
-                  onChange={(e) => setBlazerTopLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Shoulder"
-                  name="shoulder"
-                  value={blazerShoulder}
-                  onChange={(e) => setBlazerShoulder(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Chest"
-                  name="chest"
-                  value={blazerChest}
-                  onChange={(e) => setBlazerChest(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Blazer Stomach"
-                  name="blazer-stomach"
-                  value={blazerStomach}
-                  onChange={(e) => setBlazerStomach(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Blazer Sleeve"
-                  name="blazer-sleeve"
-                  value={blazerSleeve}
-                  onChange={(e) => setBlazerSleeve(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Bicep"
-                  name="bicep"
-                  value={blazerBicep}
-                  onChange={(e) => setBlazerBicep(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </Box>
-              <Box className="text-center">
-                <Box className="my-3 text-center">
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: "#CD8F2C" }}
-                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen border border-goldie hover:border-tan"
-                    onClick={handleRegistration}
-                  >
-                    Next
-                  </Button>
-                </Box>
-                <Box className="text-center my-3">
-                  <Link className="text-goldie" href="/register">
-                    Go Back
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          </form>
-        </Card>
-      </Box>
-    );
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
 
-  export const Reg3 = () => {
-    const [trouserLength, setTrouserLength] = useState("");
-    const [waist, setWaist] = useState("");
-    const [hip, setHip] = useState("");
-    const [trouserStomach, setTrouserStomach] = useState("");
-    const [leg, setLeg] = useState("");
-  
-    const handleRegistration = async () => {
-      try {
-        const response = await fetch("/register-trouser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            TrouserLength: trouserLength,
-            Waist: waist,
-            Hip: hip,
-            TrouserStomach: trouserStomach,
-            Leg: leg,
-          }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-            window.location.href = "/register4";
-        } else {
-          console.error("Registration error:", data.message);
-        }
-      } catch (error) {
-        console.error("Error during registration:", error);
-      }
-    };
-  
-    return (
-      <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-        <Card className="shadow appearance-none bg-transparent mx-auto">
-          <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <Box maxWidth="sm" className="mx-auto login">
-              <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                Trouser
-              </Typography>
-              <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                Please provide your measurement in inches
-              </Typography>
-              <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                <input
-                  type="number"
-                  placeholder="Trouser Length"
-                  name="trouser-length"
-                  value={trouserLength}
-                  onChange={(e) => setTrouserLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Waist"
-                  name="waist"
-                  value={waist}
-                  onChange={(e) => setWaist(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Hip"
-                  name="hip"
-                  value={hip}
-                  onChange={(e) => setHip(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Stomach"
-                  name="trouser-stomach"
-                  value={trouserStomach}
-                  onChange={(e) => setTrouserStomach(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Leg"
-                  name="leg"
-                  value={leg}
-                  onChange={(e) => setLeg(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </Box>
-              <Box className="text-center">
-                <Box className="my-3 text-center">
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: "#CD8F2C" }}
-                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen border border-goldie hover:border-tan"
-                    onClick={handleRegistration}
-                  >
-                    Next
-                  </Button>
-                </Box>
-                <Box className="text-center my-3">
-                  <Link className="text-goldie" href="/register2">
-                    Go Back
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          </form>
-        </Card>
-      </Box>
-    );
-  };
+  return (
+    <Box className="flex items-center justify-center min-h-screen px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-md"
+      >
+        <Card className="shadow-xl rounded-2xl p-8 backdrop-blur bg-white/90">
+          <Typography
+            variant="h4"
+            align="center"
+            fontWeight={700}
+            gutterBottom
+            className="text-goldie"
+          >
+            Welcome Back
+          </Typography>
+          <Typography
+            variant="body2"
+            align="center"
+            color="text.secondary"
+            className="mb-6"
+          >
+            Login to continue your journey
+          </Typography>
 
-  export const Reg5 = () => {
-    const [suitLength, setSuitLength] = useState("");
-    const [roundBody, setRoundBody] = useState("");
-    const [sleeve, setSleeve] = useState("");
-    const [back, setBack] = useState("");
-    const [roundSleeve, setRoundSleeve] = useState("");
-    const [trouserLength, setTrouserLength] = useState("");
-    const [trouserWaist, setTrouserWaist] = useState("");
-    const [lap, setLap] = useState("");
-    const [hip, setHip] = useState("");
-    const [calf, setCalf] = useState("");
-    const [ankle, setAnkle] = useState("");
-  
-    const handleRegistration = async () => {
-      try {
-        const response = await fetch("/register-suit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            SuitLength: suitLength,
-            RoundBody: roundBody,
-            Sleeve: sleeve,
-            Back: back,
-            RoundSleeve: roundSleeve,
-            TrouserLength: trouserLength,
-            TrouserWaist: trouserWaist,
-            Lap: lap,
-            Hip: hip,
-            Calf: calf,
-            Ankle: ankle,
-          }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-            window.location.href = "/register6";
-        } else {
-          console.error("Registration error:", data.message);
-        }
-      } catch (error) {
-        console.error("Error during registration:", error);
-      }
-    };
-  
-    return (
-      <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-        <Card className="shadow appearance-none bg-transparent mx-auto">
-          <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <Box maxWidth="sm" className="mx-auto login">
-              <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                Suit
-              </Typography>
-              <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                Please provide your measurement in inches
-              </Typography>
-              <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                <input
-                  type="number"
-                  placeholder="Suit Length"
-                  name="suit-length"
-                  value={suitLength}
-                  onChange={(e) => setSuitLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Round Body"
-                  name="suit-body"
-                  value={roundBody}
-                  onChange={(e) => setRoundBody(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Sleeve"
-                  name="sleeve"
-                  value={sleeve}
-                  onChange={(e) => setSleeve(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Back"
-                  name="back"
-                  value={back}
-                  onChange={(e) => setBack(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Round Sleeve"
-                  name="round-sleeve"
-                  value={roundSleeve}
-                  onChange={(e) => setRoundSleeve(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Trouser Length"
-                  name="trouser-length"
-                  value={trouserLength}
-                  onChange={(e) => setTrouserLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Trouser Waist"
-                  name="trouser-waist"
-                  value={trouserWaist}
-                  onChange={(e) => setTrouserWaist(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Lap"
-                  name="lap"
-                  value={lap}
-                  onChange={(e) => setLap(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Hip"
-                  name="hip"
-                  value={hip}
-                  onChange={(e) => setHip(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Calf"
-                  name="calf"
-                  value={calf}
-                  onChange={(e) => setCalf(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Ankle"
-                  name="ankle"
-                  value={ankle}
-                  onChange={(e) => setAnkle(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </Box>
-              <Box className="text-center">
-                <Box className="my-3 text-center">
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: "#CD8F2C" }} 
-                    onClick={handleRegistration}
-                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen
-                        border border-goldie hover:border-tan">
-                        Next
-                </Button>
-            </Box>
-            <Box className="text-center my-3">
-                <Link className="text-goldie" href="/register4">Go Back</Link>
-            </Box>
-        </Box>
+          <form onSubmit={submitForm} className="flex flex-col gap-5">
+            <TextField
+              label="Phone Number"
+              name="phone"
+              type="number"
+              required
+              fullWidth
+              variant="outlined"
+              InputProps={{ sx: { borderRadius: 3 } }}
+            />
+
+            <TextField
+              label="Password"
+              name="pwd"
+              type="password"
+              required
+              fullWidth
+              variant="outlined"
+              InputProps={{ sx: { borderRadius: 3 } }}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                backgroundColor: "#CD8F2C",
+                borderRadius: 3,
+                py: 1.5,
+                fontSize: "1rem",
+                textTransform: "none",
+                fontWeight: 600,
+                '&:hover': { backgroundColor: "#b37a23" },
+              }}
+            >
+              Login
+            </Button>
+          </form>
+
+          <Typography
+            variant="body2"
+            align="center"
+            className="mt-6 text-gray-700"
+          >
+            Not Registered Yet? {" "}
+            <Link href="/register" className="text-goldie font-semibold hover:underline">
+              Click Here
+            </Link>
+          </Typography>
+        </Card>
+      </motion.div>
     </Box>
-                </form>   
-            </Card>
-        </Box>      
-    )
+  );
 };
-
-export const Reg4 = () => {
-    const [shirtLength, setShirtLength] = useState("");
-    const [chest, setChest] = useState("");
-    const [shoulder, setShoulder] = useState("");
-    const [sleeve, setSleeve] = useState("");
-    const [stomach, setStomach] = useState("");
-    const [collar, setCollar] = useState("");
-  
-    const handleRegistration = async () => {
-      try {
-        const response = await fetch("/register-shirt", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ShirtLength: shirtLength,
-            Chest: chest,
-            Shoulder: shoulder,
-            Sleeve: sleeve,
-            Stomach: stomach,
-            Collar: collar,
-          }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-            window.location.href = "/register5";
-        } else {
-          console.error("Registration error:", data.message);
-        }
-      } catch (error) {
-        console.error("Error during registration:", error);
-      }
-    };
-  
-    return (
-      <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-        <Card className="shadow appearance-none bg-transparent mx-auto">
-          <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <Box maxWidth="sm" className="mx-auto login">
-              <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                Shirt
-              </Typography>
-              <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                Please provide your measurement in inches
-              </Typography>
-              <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                <input
-                  type="number"
-                  placeholder="Shirt Length"
-                  name="shirt-length"
-                  value={shirtLength}
-                  onChange={(e) => setShirtLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Chest"
-                  name="chest"
-                  value={chest}
-                  onChange={(e) => setChest(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Shoulder"
-                  name="shoulder"
-                  value={shoulder}
-                  onChange={(e) => setShoulder(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Sleeve"
-                  name="sleeve"
-                  value={sleeve}
-                  onChange={(e) => setSleeve(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Stomach"
-                  name="stomach"
-                  value={stomach}
-                  onChange={(e) => setStomach(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Collar"
-                  name="collar"
-                  value={collar}
-                  onChange={(e) => setCollar(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </Box>
-              <Box className="text-center">
-                <Box className="my-3 text-center">
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: "#CD8F2C" }}
-                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen border border-goldie hover:border-tan"
-                    onClick={handleRegistration}
-                  >
-                    Next
-                  </Button>
-                </Box>
-                <Box className="text-center my-3">
-                  <Link className="text-goldie" href="/register3">
-                    Go Back
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          </form>
-        </Card>
-      </Box>
-    );
-  };
-
-  export const Reg6 = () => {
-    const [agbadaLength, setAgbadaLength] = useState("");
-    const [agbadaBodyLength, setAgbadaBodyLength] = useState("");
-    const [agbadaChest, setAgbadaChest] = useState("");
-    const [chest, setChest] = useState("");
-    const [back, setBack] = useState("");
-    const [shortSleeve, setShortSleeve] = useState("");
-    const [longSleeve, setLongSleeve] = useState("");
-    const [neck, setNeck] = useState("");
-    const [stomach, setStomach] = useState("");
-    const [trouserLength, setTrouserLength] = useState("");
-    const [trouserWaist, setTrouserWaist] = useState("");
-    const [lap, setLap] = useState("");
-    const [hip, setHip] = useState("");
-    const [calf, setCalf] = useState("");
-    const [cap, setCap] = useState("");
-  
-    const handleRegistration = async () => {
-      try {
-        const response = await fetch("/register-agbada", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            AgbadaLength: agbadaLength,
-            AgbadaBodyLength: agbadaBodyLength,
-            AgbadaChest: agbadaChest,
-            Chest: chest,
-            Back: back,
-            ShortSleeve: shortSleeve,
-            LongSleeve: longSleeve,
-            Neck: neck,
-            Stomach: stomach,
-            TrouserLength: trouserLength,
-            TrouserWaist: trouserWaist,
-            Lap: lap,
-            Hip: hip,
-            Calf: calf,
-            Cap: cap,
-          }),
-        });
-  
-        const data = await response.json();
-  
-        if (response.ok) {
-          console.log("Registration successful:", data);
-        } else {
-          console.error("Registration error:", data.message);
-        }
-      } catch (error) {
-        console.error("Error during registration:", error);
-      }
-    };
-  
-    return (
-      <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-        <Card className="shadow appearance-none bg-transparent mx-auto">
-          <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <Box maxWidth="sm" className="mx-auto login">
-              <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-                Agbada
-              </Typography>
-              <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-                Please provide your measurement in inches
-              </Typography>
-              <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-                <input
-                  type="number"
-                  placeholder="Agbada Length"
-                  name="agbada-length"
-                  value={agbadaLength}
-                  onChange={(e) => setAgbadaLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Agbada Body-Length"
-                  name="agbada-bodyLength"
-                  value={agbadaBodyLength}
-                  onChange={(e) => setAgbadaBodyLength(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Agbada Chest"
-                  name="agbada-chest"
-                  value={agbadaChest}
-                  onChange={(e) => setAgbadaChest(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="Chest"
-                  name="chest"
-                  value={chest}
-                  onChange={(e) => setChest(e.target.value)}
-                  className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-
-              </Box>
-              <Box className="text-center">
-                <Box className="my-3 text-center">
-                  <Button
-                    variant="contained"
-                    sx={{ backgroundColor: "#CD8F2C" }}
-                    className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen
-                          border border-goldie hover:border-tan"
-                    onClick={handleRegistration}
-                  >
-                    Submit
-                  </Button>
-                </Box>
-                <Box className="text-center my-3">
-                  <Link className="text-goldie" href="/register5">
-                    Go Back
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          </form>
-        </Card>
-      </Box>
-    );
-  };
-
-
 
 
 export const CustomStyle = () => {

@@ -12,48 +12,57 @@ export const Tailor = () => {
       {/* Hero Section */}
       <Box
         maxWidth="xl"
-        className="mx-auto mb-20 px-6 py-16 text-center md:text-left bg-gradient-to-r from-butter/40 to-goldie/20 rounded-3xl shadow-md"
+        className="mx-auto mb-20 px-6 py-20 text-center md:text-left 
+                   bg-gradient-to-r from-butter/50 via-goldie/30 to-tan/20 
+                   rounded-3xl shadow-xl relative overflow-hidden"
       >
+        <div className="absolute inset-0 bg-[url('/assets/images/pattern.svg')] opacity-10"></div>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto relative z-10"
         >
           <Typography
             variant="h6"
-            className="uppercase tracking-[6px] text-tan font-semibold mb-3"
+            className="uppercase tracking-[6px] text-tan font-semibold mb-4"
           >
             Services
           </Typography>
           <Typography
             variant="h2"
-            className="text-4xl md:text-6xl font-extrabold mb-6 leading-snug text-butter"
+            className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-butter drop-shadow-sm"
           >
             Tailored-To-Fit{" "}
             <span className="text-[#39A9DB]">D E S I G N S</span>
           </Typography>
           <Typography
             variant="body1"
-            className="text-lg text-gray-700 leading-relaxed max-w-xl mx-auto md:mx-0"
+            className="text-lg text-gray-800 leading-relaxed max-w-xl mx-auto md:mx-0"
           >
-            Our tailored-to-fit gives you the opportunity to present your
-            imaginative designs. Our expert tailors craft{" "}
-            <span className="font-semibold text-tan">luxury pieces</span> that
-            bring your vision to life with precision and elegance.
+            Present your <span className="font-semibold text-tan">imaginative designs</span> 
+            and watch our expert tailors craft{" "}
+            <span className="font-semibold text-goldie">luxury pieces</span> 
+            with precision and elegance.
           </Typography>
 
-          <Box className="mt-8">
+          <Box className="mt-10">
             <Link href="/custom-image">
               <Button
                 component={motion.button}
                 whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 0px 20px rgba(205,143,44,0.6)",
+                  scale: 1.06,
+                  boxShadow: "0px 6px 30px rgba(205,143,44,0.5)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                sx={{ backgroundColor: "#CD8F2C", color: "#000" }}
-                className="rounded-xl bg-goldie px-8 py-3 text-lg font-semibold text-black hover:bg-tan hover:text-white border border-goldie hover:border-tan transition-all duration-300"
+                sx={{ 
+                  background: "linear-gradient(135deg, #CD8F2C, #EAC784)", 
+                  color: "#000",
+                  borderRadius: "1rem",
+                  padding: "0.9rem 2rem",
+                  fontWeight: 600,
+                  fontSize: "1rem"
+                }}
               >
                 Upload Style
               </Button>
@@ -63,8 +72,8 @@ export const Tailor = () => {
       </Box>
 
       {/* Consultancy Section */}
-      <Box className="mx-auto px-6 py-16 bg-white/70 backdrop-blur-lg rounded-3xl shadow-md">
-        <Box className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      <Box className="mx-auto px-6 py-20 bg-white/70 backdrop-blur-2xl rounded-3xl shadow-lg">
+        <Box className="grid md:grid-cols-2 gap-14 items-center max-w-6xl mx-auto">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -77,9 +86,10 @@ export const Tailor = () => {
               alt="Consultancy collage"
               width={520}
               height={560}
-              className="rounded-3xl object-cover shadow-md group-hover:scale-105 transition-transform duration-500"
+              className="rounded-3xl object-cover shadow-xl group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent 
+                           rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </motion.div>
 
           {/* Text */}
@@ -105,7 +115,7 @@ export const Tailor = () => {
               variant="body1"
               className="mb-8 font-semibold text-gray-800 leading-relaxed"
             >
-              Do you need expert advice on your project or occasion? Book an
+              Need expert advice on your project or occasion? Book an
               appointment today and enjoy{" "}
               <span className="text-tan">luxury consulting at its best</span>.
             </Typography>
@@ -113,12 +123,18 @@ export const Tailor = () => {
               <Button
                 component={motion.button}
                 whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0px 0px 20px rgba(205,143,44,0.6)",
+                  scale: 1.06,
+                  boxShadow: "0px 6px 30px rgba(205,143,44,0.5)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                sx={{ backgroundColor: "#CD8F2C", color: "#000"  }}
-                className="rounded-xl bg-goldie px-8 py-3 text-lg font-semibold text-black hover:bg-tan hover:text-white border border-goldie hover:border-tan transition-all duration-300"
+                sx={{ 
+                  background: "linear-gradient(135deg, #CD8F2C, #EAC784)", 
+                  color: "#000",
+                  borderRadius: "1rem",
+                  padding: "0.9rem 2rem",
+                  fontWeight: 600,
+                  fontSize: "1rem"
+                }}
               >
                 Book Appointment
               </Button>
@@ -128,15 +144,15 @@ export const Tailor = () => {
       </Box>
 
       {/* Showcase Carousel */}
-      <Box className="mx-auto mt-20 max-w-6xl px-6 mb-12">
+      <Box className="mx-auto mt-24 max-w-7xl px-6 mb-16">
         <Typography
           variant="h4"
-          className="text-center text-3xl font-extrabold mb-10 text-tan"
+          className="text-center text-3xl md:text-4xl font-extrabold mb-12 text-tan"
         >
           Featured Tailored Designs
         </Typography>
         <Swiper
-          spaceBetween={24}
+          spaceBetween={28}
           slidesPerView={1}
           breakpoints={{
             640: { slidesPerView: 1 },
@@ -151,16 +167,23 @@ export const Tailor = () => {
           ].map((design, idx) => (
             <SwiperSlide key={idx}>
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="rounded-2xl overflow-hidden shadow-md bg-white"
+                whileHover={{ scale: 1.04 }}
+                className="relative rounded-2xl overflow-hidden shadow-lg bg-white group"
               >
                 <Image
                   src={design}
                   alt={`Tailored Design ${idx + 1}`}
                   width={400}
                   height={500}
-                  className="object-cover w-full h-[400px] hover:opacity-95 transition duration-300"
+                  className="object-cover w-full h-[420px] group-hover:opacity-90 transition duration-300"
                 />
+                <div className="absolute bottom-0 w-full p-4 
+                                bg-gradient-to-t from-black/70 to-transparent 
+                                opacity-0 group-hover:opacity-100 transition duration-500">
+                  <Typography className="text-white text-lg font-semibold">
+                    Design {idx + 1}
+                  </Typography>
+                </div>
               </motion.div>
             </SwiperSlide>
           ))}

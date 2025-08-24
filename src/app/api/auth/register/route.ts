@@ -13,41 +13,155 @@ async function hashPassword(password: string) {
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
-    const { Name, Phone, Password, ConfirmPassword, Address } = await req.json();
+    // Get payload directly
+    const payload = await req.json();
+    const {
+      name,
+      phone,
+      password,
+      confirmPassword,
+      address,
+      blazerTopLength,
+      blazerShoulder,
+      blazerChest,
+      blazerStomach,
+      blazerSleeve,
+      blazerBicep,
+      trouserLength,
+      waist,
+      hip,
+      trouserStomach,
+      leg,
+      shirtLength,
+      chest,
+      shoulder,
+      sleeve,
+      stomach,
+      collar,
+      suitLength,
+      roundBody,
+      sleeveSuit,
+      back,
+      roundSleeve,
+      trouserLengthSuit,
+      trouserWaist,
+      lap,
+      hipSuit,
+      calf,
+      ankle,
+      agbadaLength,
+      agbadaBodyLength,
+      agbadaChest,
+      chestAgbada,
+      backAgbada,
+      shortSleeve,
+      longSleeve,
+      neck,
+      stomachAgbada,
+      trouserLengthAgbada,
+      trouserWaistAgbada,
+      lapAgbada,
+      hipAgbada,
+      calfAgbada,
+      cap,
+    } = payload;
 
-    if (!Name || !Phone || !Password || !ConfirmPassword || !Address) {
-      return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+    // ===== Validation =====
+    if (!name || !phone || !password || !confirmPassword || !address) {
+      return NextResponse.json(
+        { message: "All required fields must be filled" },
+        { status: 400 }
+      );
     }
 
-    if (Password !== ConfirmPassword) {
-      return NextResponse.json({ message: "Both passwords must match!" }, { status: 400 });
+    if (password !== confirmPassword) {
+      return NextResponse.json(
+        { message: "Both passwords must match!" },
+        { status: 400 }
+      );
     }
 
-    const existingUser = await User.findOne({ phone: Phone });
+    const existingUser = await User.findOne({ phone });
     if (existingUser) {
-      return NextResponse.json({ message: "Phone number already registered" }, { status: 400 });
+      return NextResponse.json(
+        { message: "Phone number already registered" },
+        { status: 400 }
+      );
     }
 
-    const { hashedPassword, salt } = await hashPassword(Password);
+    const { hashedPassword, salt } = await hashPassword(password);
 
+    // ===== Save User =====
     const newUser = await User.create({
-      name: Name,
-      phone: Phone,
+      name,
+      phone,
       password: hashedPassword,
       salt,
-      address: Address,
+      address,
+
+      // Measurements
+      blazerTopLength,
+      blazerShoulder,
+      blazerChest,
+      blazerStomach,
+      blazerSleeve,
+      blazerBicep,
+      trouserLength,
+      waist,
+      hip,
+      trouserStomach,
+      leg,
+      shirtLength,
+      chest,
+      shoulder,
+      sleeve,
+      stomach,
+      collar,
+      suitLength,
+      roundBody,
+      sleeveSuit,
+      back,
+      roundSleeve,
+      trouserLengthSuit,
+      trouserWaist,
+      lap,
+      hipSuit,
+      calf,
+      ankle,
+      agbadaLength,
+      agbadaBodyLength,
+      agbadaChest,
+      chestAgbada,
+      backAgbada,
+      shortSleeve,
+      longSleeve,
+      neck,
+      stomachAgbada,
+      trouserLengthAgbada,
+      trouserWaistAgbada,
+      lapAgbada,
+      hipAgbada,
+      calfAgbada,
+      cap,
     });
 
     return NextResponse.json(
       {
         message: "User registered successfully",
-        user: { id: newUser._id, Name, Phone, Address },
-        nextStep: "/next-registration-page",
+        user: {
+          id: newUser._id,
+          name,
+          phone,
+          address,
+        },
       },
       { status: 201 }
     );
   } catch (error) {
     console.error("Error registering user:", error);
-    return NextResponse.json({ message: "Error registering user" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Error registering user" },
+      { status: 500 }
+    );
   }
 }
