@@ -28,7 +28,7 @@ export const ShopPage = () => {
     useEffect(() => {
         const fetchTeesData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/tees");
+            const response = await fetch("/api/products/tees");
             const teesdata = await response.json();
             setTeesProducts(teesdata);
           } catch (error) {
@@ -38,7 +38,7 @@ export const ShopPage = () => {
     
         const fetchShirtsData = async () => {
           try {
-            const response = await fetch("https://api.srl.yemi.dev/products/shirts");
+            const response = await fetch("/api/products/shirts");
             const shirtsdata = await response.json();
             setShirtsProducts(shirtsdata);
           } catch (error) {

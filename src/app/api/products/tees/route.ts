@@ -6,9 +6,9 @@ export async function GET() {
   try {
     await dbConnect();
 
-    const teesCategoryId = "68a6ffa34de2b0e32135ae4c";
+    const tShirtCategoryId = "68a6ffa34de2b0e32135ae4c";
     const products = await Product.find({
-      productCategoryId: teesCategoryId,
+      productCategoryId: tShirtCategoryId,
     }).populate("productCategoryId");
 
     return NextResponse.json(products);
