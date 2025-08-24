@@ -15,7 +15,7 @@ export default function NotFound() {
       p={3}
     >
       <SentimentVeryDissatisfiedIcon sx={{ fontSize: 80, color: "gray" }} />
-      <Typography variant="h3" className="text-brownie" fontWeight="bold" mt={2}>
+      <Typography variant="h3" className="text-tan" fontWeight="bold" mt={2}>
         404 – Page Not Found
       </Typography>
       <Typography variant="body1" mt={2} maxWidth="500px">
