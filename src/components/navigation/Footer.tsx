@@ -20,7 +20,7 @@ export const Footer = () => {
           {/* Contact & Social */}
           <Box className="lg:w-6/12">
             <Typography variant="h4" className="text-3xl font-semibold text-butter mb-2">
-              Let's keep in touch!
+              Let&apos;s keep in touch!
             </Typography>
             <Typography variant="body1" className="text-white mb-4">
               Find us on any of these platforms, we respond quickly.
