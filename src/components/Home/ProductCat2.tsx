@@ -22,7 +22,11 @@ export const ProductCat2 = () => {
         const response = await fetch("/api/products/footwears");
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         const data = await response.json();
-        setFootwearsProducts(data);
+
+        // 🔀 Shuffle products randomly
+        const shuffled = data.sort(() => Math.random() - 0.5);
+
+        setFootwearsProducts(shuffled);
       } catch (error) {
         console.error("Error fetching footwears:", error);
       } finally {

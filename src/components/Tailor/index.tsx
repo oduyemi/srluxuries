@@ -161,9 +161,9 @@ export const Tailor = () => {
           }}
         >
           {[
-            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1695561243/srl/trad/td-5b.jpg",
-            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1695565194/srl/general/faq.jpg",
-            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1695564861/srl/general/tailor.jpg",
+            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1756051680/srl/contemporary/emiratiStyle.jpg",
+            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1695562025/srl/trad/td-3.jpg",
+            "https://res.cloudinary.com/dymd1jkbl/image/upload/v1756050894/srl/contemporary/manmade.jpg",
           ].map((design, idx) => (
             <SwiperSlide key={idx}>
               <motion.div
@@ -173,7 +173,7 @@ export const Tailor = () => {
                 <Image
                   src={design}
                   alt={`Tailored Design ${idx + 1}`}
-                  width={400}
+                  width={160}
                   height={500}
                   className="object-cover w-full h-[420px] group-hover:opacity-90 transition duration-300"
                 />

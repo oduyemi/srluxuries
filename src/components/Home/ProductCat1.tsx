@@ -21,7 +21,11 @@ export const ProductCat1 = () => {
       try {
         const response = await fetch("/api/products/trad");
         const data = await response.json();
-        setTradProducts(data);
+
+        // Shuffle products randomly
+        const shuffled = data.sort(() => Math.random() - 0.5);
+
+        setTradProducts(shuffled);
       } catch (error) {
         console.error("Error fetching product trad:", error);
       } finally {
@@ -101,7 +105,6 @@ export const ProductCat1 = () => {
             ))
           : (
             <Box className="col-span-full flex flex-col items-center justify-center py-12 text-gray-400">
-              {/* Custom Empty State Icon (Box with open lid) */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="56"

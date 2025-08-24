@@ -41,8 +41,7 @@ export default function ProductCatCard({
         <Image
           src={isHovered ? hoverImageSrc : normalImageSrc}
           alt={productName}
-          width={100}
-          height={100}
+          fill
           className={`h-full w-full object-cover transition-transform duration-500 ${
             isHovered ? "scale-110" : "scale-100"
           }`}

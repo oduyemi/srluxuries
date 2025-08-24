@@ -53,7 +53,7 @@ export const Header = () => {
           { href: "/beads", label: "Luxury Beads" },
           { href: "/shirts", label: "Casual Shirts" },
           { href: "/corporate-wears", label: "Corporate Wears" },
-          { href: "/summer-wears", label: "SRL 2 Catchy Piece" },
+          { href: "/two-piece", label: "SRL 2 Catchy Piece" },
           { href: "/trad-wears", label: "Trad Wears" },
           { href: "/services", label: "Services" },
           { href: "/locator", label: "Contact Us" },
@@ -198,7 +198,7 @@ export const Header = () => {
                   </li>
                   <li>
                     <Link
-                      href="/summer-wears"
+                      href="/two-piece"
                       className="block px-4 py-2 hover:bg-gray-100"
                     >
                       SRL 2 Catchy Piece

@@ -44,11 +44,12 @@ export const ProductCat3 = () => {
     fetchAllProducts();
   }, []);
 
-  const allProducts = [
-    ...beltsProducts.slice(0, 1),
-    ...beadsProducts.slice(0, 1),
-    ...capsProducts.slice(0, 1),
-  ];
+  // 🔀 Pick a random item from each category (if available)
+  const getRandomItem = (arr: Product[]) =>
+    arr.length > 0 ? arr[Math.floor(Math.random() * arr.length)] : null;
+
+  const allProducts = [getRandomItem(beltsProducts), getRandomItem(beadsProducts), getRandomItem(capsProducts)]
+    .filter(Boolean) as Product[];
 
   return (
     <>
