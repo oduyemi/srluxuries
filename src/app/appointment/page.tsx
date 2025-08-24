@@ -1,4 +1,4 @@
-import { Appointment } from "@/components/Forms/Forms";
+import { AppointmentForm } from "@/components/Forms/Forms";
 import { Box } from "@mui/material";
 
 
@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 export default function Appoint () {
     return(
         <Box>
-            <Appointment />
+            <AppointmentForm />
         </Box>
     )
 }

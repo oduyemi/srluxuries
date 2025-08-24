@@ -251,7 +251,7 @@ export const CustomStyle = () => {
 };
 
 
-export const Appointment = () => {
+export const AppointmentForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

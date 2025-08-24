@@ -1,49 +1,113 @@
-// Popup.tsx
-import React from "react";
-import { Box } from "@mui/material";
+"use client";
+import { useState } from "react";
+import { 
+  Box, 
+  Typography, 
+  TextField, 
+  Button, 
+  Alert, 
+  Collapse, 
+  Dialog, 
+  DialogTitle, 
+  DialogContent, 
+  DialogActions 
+} from "@mui/material";
 
-interface PopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
-const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
+export const MailPopup: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
+  const [from, setFrom] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+
+  const validateEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
+
+  const handleSend = async () => {
+    if (!from || !validateEmail(from)) {
+      setStatus({ type: "error", message: "Please enter a valid email address." });
+      return;
+    }
+    if (!subject || !message) {
+      setStatus({ type: "error", message: "Subject and message are required." });
+      return;
+    }
+
+    setSending(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch("/api/send-support-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ from, to: "hello@oduyemi.dev", subject, message }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send email");
+
+      setStatus({ type: "success", message: "Your message has been sent successfully!" });
+      setFrom("");
+      setSubject("");
+      setMessage("");
+    } catch {
+      setStatus({ type: "error", message: "Failed to send email. Please try again." });
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
-    <Box
-      className={`popup ${isOpen ? "open" : ""}`}
-      onClick={onClose}
-      sx={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "50%",
-        height: "50%",
-        display: "block",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        visibility: isOpen ? "visible" : "hidden",
-        opacity: isOpen ? 1 : 0,
-        transition: "visibility 0s, opacity 0.5s",
-      }}
-    >
-      <Box
-        className="popup-content"
-        onClick={(e:any) => e.stopPropagation()}
-        sx={{
-          backgroundColor: "white",
-          padding: "20px",
-          borderRadius: "8px",
-          textAlign: "center",
-        }}
-      >
-        <h2>Email Addresses</h2>
-        <p>info@thesrluxuries.com</p>
-        <p>support@thesrluxuries.com</p>
-        <button onClick={onClose}> X </button>
-      </Box>
-    </Box>
+    <Dialog open={isOpen} onClose={onClose}>
+      <DialogTitle>Contact Support</DialogTitle>
+        <DialogContent>
+          <Typography variant="h5" className="font-bold mb-4">Contact Support</Typography>
+            <Collapse in={!!status}>
+              {status && <Alert severity={status.type} className="mb-4">{status.message}</Alert>}
+            </Collapse>
+          <TextField fullWidth label="Your Email" value={from} onChange={(e) => setFrom(e.target.value)} className="mb-3" />
+          <TextField fullWidth label="Subject" value={subject} onChange={(e) => setSubject(e.target.value)} className="mb-3" />
+          <TextField fullWidth label="Message" value={message} onChange={(e) => setMessage(e.target.value)} multiline rows={5} className="mb-3" />
+        </DialogContent>
+         <DialogActions>
+          <Box className="flex justify-end gap-3 mt-3">
+            <Button 
+              sx={{ 
+                borderColor: "#D4A017", 
+                color: "#D4A017", 
+                px: 3, 
+                py: 1, 
+                fontSize: { xs: "0.9rem", sm: "1rem" }, 
+                borderRadius: 3, 
+                "&:hover": { 
+                  backgroundColor: "#FFC857", 
+                  color: "#1F1F1F" 
+                }, 
+              }}
+              onClick={onClose} 
+              disabled={sending}
+            >
+              Cancel
+            </Button>
+            <Button 
+              sx={{ 
+                backgroundColor: "#D4A017", 
+                color: "#1F1F1F", 
+                px: 3, 
+                py: 1, 
+                fontSize: { xs: "0.9rem", sm: "1rem" }, 
+                borderRadius: 3, 
+                "&:hover": { 
+                  backgroundColor: "#FFC857", 
+                  color: "#1F1F1F" 
+                }, 
+              }}
+              onClick={handleSend} 
+              disabled={sending}
+            >
+              {sending ? "Sending..." : "Send"}
+            </Button>
+          </Box>
+        </DialogActions>
+    </Dialog>
   );
 };
-
-export default Popup;
