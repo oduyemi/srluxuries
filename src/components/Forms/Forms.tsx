@@ -127,7 +127,7 @@ export const LoginForm = () => {
 };
 
 
-export const CustomStyle = () => {
+export const CustomStyleForm = () => {
   const [files, setFiles] = useState<CustomFile[]>([]);
   const [phone, setPhone] = useState("");
   const [styleName, setStyleName] = useState("");

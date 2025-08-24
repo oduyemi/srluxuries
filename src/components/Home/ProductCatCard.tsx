@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
+import Image from "next/image";
 
 interface ProductCatCardProps {
   normalImageSrc: string;
@@ -37,9 +38,11 @@ export default function ProductCatCard({
     >
       {/* Image with hover effect */}
       <Box className="relative w-full h-80 overflow-hidden">
-        <img
+        <Image
           src={isHovered ? hoverImageSrc : normalImageSrc}
           alt={productName}
+          width={100}
+          height={100}
           className={`h-full w-full object-cover transition-transform duration-500 ${
             isHovered ? "scale-110" : "scale-100"
           }`}

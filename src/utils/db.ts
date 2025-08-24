@@ -17,15 +17,19 @@ export async function dbConnect() {
     await mongoose.connect(MONGODB_URI);
     isConnected = true;
     console.log("✅ Connected to MongoDB");
+
+    // Ensure indexes are built
     await Promise.all([
       User.init(),
       Appointment.init(),
       Product.init(),
       ProductCategory.init(),
-      CustomStyle.init()
+      CustomStyle.init(),
     ]);
 
-    console.log("✅ Collections initialized: User, Appointment, Product, ProductCategory");
+    console.log(
+      "✅ Collections initialized: User, Appointment, Product, ProductCategory, CustomStyle"
+    );
   } catch (err) {
     console.error("❌ MongoDB connection error:", err);
     throw err;
