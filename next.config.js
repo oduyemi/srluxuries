@@ -1,8 +1,11 @@
 /**
  * @type {import('next').NextConfig}
  */
+const path = require("path");
+
 module.exports = {
-  webpack: (config, { webpack }) => {
+  webpack: (config, { webpack, isServer }) => {
+    // Provide jQuery globally
     config.plugins.push(
       new webpack.ProvidePlugin({
         $: "jquery",
@@ -10,6 +13,12 @@ module.exports = {
         "window.jQuery": "jquery",
       })
     );
+
+    // Prevent cloudinary-core (browser SDK) from being included in server build
+    if (isServer) {
+      config.resolve.alias["cloudinary-core"] = false;
+    }
+
     return config;
   },
   images: {

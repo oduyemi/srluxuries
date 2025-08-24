@@ -1,6 +1,9 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
+
+
 export interface ICustomStyle extends Document {
+  email: string;
   phone: string;            // User's WhatsApp number
   style: string;            // Style name/title
   description: string;      // Short description
@@ -11,6 +14,7 @@ export interface ICustomStyle extends Document {
 
 const CustomStyleSchema: Schema<ICustomStyle> = new Schema(
   {
+    email: { type: String, required: true },
     phone: { type: String, required: true },
     style: { type: String, required: true },
     description: { type: String, required: true },
