@@ -3,6 +3,7 @@ import User from "@/models/User";
 import Appointment from "@/models/Appointment";
 import Product from "@/models/Product";
 import ProductCategory from "@/models/ProductCategory";
+import CustomStyle from "@/models/customStyle";
 
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/srldb";
@@ -21,6 +22,7 @@ export async function dbConnect() {
       Appointment.init(),
       Product.init(),
       ProductCategory.init(),
+      CustomStyle.init()
     ]);
 
     console.log("✅ Collections initialized: User, Appointment, Product, ProductCategory");

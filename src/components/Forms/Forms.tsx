@@ -12,6 +12,9 @@ interface CustomFile {
   preview: string;
 }
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+
 
 export const LoginForm = () => {
   const submitForm = async (e: React.FormEvent) => {
@@ -125,117 +128,123 @@ export const LoginForm = () => {
 
 
 export const CustomStyle = () => {
-  const [file1, setFile1] = useState<CustomFile | null>(null);
-  const [file2, setFile2] = useState<CustomFile | null>(null);
-  const [file3, setFile3] = useState<CustomFile | null>(null);
+  const [files, setFiles] = useState<CustomFile[]>([]);
+  const [phone, setPhone] = useState("");
 
-  const handleFileChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setter: React.Dispatch<React.SetStateAction<CustomFile | null>>
-  ) => {
-    const file = e.target.files?.[0];
-    if (file) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles = e.target.files;
+    if (!selectedFiles) return;
+
+    const newFiles: CustomFile[] = [];
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        alert(`File ${file.name} has unsupported format`);
+        continue;
+      }
+
+      if (file.size > MAX_FILE_SIZE) {
+        alert(`File ${file.name} exceeds 5MB`);
+        continue;
+      }
+
       const reader = new FileReader();
       reader.onloadend = () => {
-        setter((prevFile) => ({ file, preview: reader.result as string }));
+        setFiles((prev) => [...prev, { file, preview: reader.result as string }]);
       };
       reader.readAsDataURL(file);
-    } else {
-      setter(null);
     }
-  };
-
-  const uploadToCloudinary = async (file: File): Promise<string> => {
-    const cloudinaryUploadUrl = `https://api.cloudinary.com/v1_1/dymd1jkbl/image/upload/v1691953768/srl/uploads`;
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "ynb6urq8");
-
-    const response = await fetch(cloudinaryUploadUrl, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error(`Error uploading to Cloudinary: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    return data.secure_url;
   };
 
   const handleUpload = async () => {
+    if (!phone) {
+      alert("Please enter your phone number");
+      return;
+    }
+
+    if (files.length === 0) {
+      alert("Please select at least one file");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("phone", phone);
+    files.forEach((f) => formData.append("files", f.file));
     try {
-      const uploadPromises = [file1, file2, file3]
-        .filter((file) => file !== null)
-        .map(async (file) => await uploadToCloudinary(file!.file));
-
-      const cloudinaryLinks = await Promise.all(uploadPromises);
-      console.log("Cloudinary Links:", cloudinaryLinks);
-
-      const whatsappMessage = `Hi, I have uploaded my custom style. Here are the images:\n${cloudinaryLinks.join("\n")}`;
-      const whatsappLink = `https://wa.me/+2349159999965?text=${encodeURIComponent(whatsappMessage)}`;
-      window.open(whatsappLink, "_blank");
-    } catch (error) {
-      console.error("Error during file upload:", error);
+      const res = await fetch("/api/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (res.ok) {
+        alert("Files uploaded successfully!");
+        window.open(
+          `https://wa.me/+2349159999965?text=${encodeURIComponent(
+            `Hi, I have uploaded my custom style images:\n${data.urls.join("\n")}`
+          )}`,
+          "_blank"
+        );
+        setFiles([]);
+        setPhone("");
+      } else {
+        alert(data.message || "Upload failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error uploading files");
     }
   };
 
   return (
-    <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-      <Card className="shadow appearance-none bg-transparent mx-auto">
-        <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96">
-          <Box maxWidth="sm" className="mx-auto login">
-            <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-              Upload Your Style!
-            </Typography>
-            <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-              Upload up to 3 images of your custom style
-            </Typography>
-            <Box maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }} className="mb-3 gap-6">
-              <input
-                type="file"
-                name="img1"
-                placeholder="Upload"
-                onChange={(e) => handleFileChange(e, setFile1)}
-                className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                required
-              />
-              <input
-                type="file"
-                name="img2"
-                placeholder="Upload"
-                onChange={(e) => handleFileChange(e, setFile2)}
-                className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                required
-              />
-              <input
-                type="file"
-                name="img3"
-                placeholder="Upload"
-                onChange={(e) => handleFileChange(e, setFile3)}
-                className=" shadow appearance-none border rounded w-1/2 py-2 px-4 mx-auto text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                required
-              />
+    <Box maxWidth="md" sx={{ margin: "auto", my: 10 }}>
+      <Card className="shadow p-6 bg-white rounded-lg">
+        <Typography variant="h4" className="text-goldie" textAlign="center" gutterBottom>
+          Upload Your Style
+        </Typography>
+        <Typography variant="body1" color="textSecondary" textAlign="center" paragraph>
+          Upload up to 3 images of your custom style. Only images under 5MB are allowed.
+        </Typography>
 
-                {file1 && <Image src={file1.preview} alt="Preview" width={100} height={100} />}
-                {file2 && <Image src={file2.preview} alt="Preview" width={100} height={100} />}
-                {file3 && <Image src={file3.preview} alt="Preview" width={100} height={100} />}
-            </Box>
-            <Box className="text-center">
-              <Box className="my-3 text-center">
-                <Button
-                  variant="contained"
-                  sx={{ backgroundColor: "#CD8F2C" }}
-                  className="rounded bg-goldie px-8 py-2 text-xl hover:bg-tan hover:text-ggreen border border-goldie hover:border-tan"
-                  onClick={handleUpload}
-                >
-                  Upload
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-        </form>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mt: 2 }}>
+          <input
+            type="text"
+            placeholder="Enter your phone number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="border rounded w-full py-2 px-4"
+          />
+
+          <input
+            type="file"
+            multiple
+            accept=".jpg,.jpeg,.png,.webp"
+            onChange={handleFileChange}
+            className="border rounded w-full py-2 px-4"
+          />
+
+          {files.length > 0 && (
+            <Grid container spacing={2}>
+              {files.map((f, index) => (
+                <Grid item xs={4} sm={3} key={index}>
+                  <Box sx={{ position: "relative", width: "100%", pt: "100%" }}>
+                    <Image
+                      src={f.preview}
+                      alt={`Preview ${index + 1}`}
+                      fill
+                      style={{ objectFit: "cover", borderRadius: "8px" }}
+                    />
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          )}
+
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: "#CD8F2C", py: 1.5 }}
+            onClick={handleUpload}
+          >
+            Upload
+          </Button>
+        </Box>
       </Card>
     </Box>
   );
@@ -281,104 +290,144 @@ export const Appointment = () => {
     }
   };
 
-  return (
-    <Box maxWidth="sm" sx={{ margin: "auto" }} className="my-10">
-      <Card className="shadow bg-transparent mx-auto p-6">
-        <form>
-          <Typography variant="h2" className="text-2xl text-ggreen font-light text-center" gutterBottom>
-            Book Appointment
-          </Typography>
-          <Typography variant="h5" className="text-sm mt-2 text-center text-butter" paragraph gutterBottom>
-            We will contact you with the next available appointment date
-          </Typography>
+ return (
+    <Box
+      sx={{
+        maxWidth: { xs: "95%", sm: "600px" },
+        margin: "auto",
+        my: 6,
+        px: { xs: 2, sm: 0 },
+      }}
+    >
+      <Card
+        sx={{
+          p: { xs: 3, sm: 6 },
+          borderRadius: 3,
+          boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+          backgroundColor: "#ffffffcc", // subtle transparency
+          backdropFilter: "blur(8px)",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{
+            textAlign: "center",
+            fontWeight: 500,
+            color: "#2C5F2D",
+            mb: 1,
+            fontSize: { xs: "1.75rem", sm: "2rem" },
+          }}
+        >
+          Book Appointment
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: "center",
+            color: "#D4A017",
+            mb: 4,
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+          }}
+        >
+          We will contact you with the next available appointment date
+        </Typography>
 
-          <Box className="flex flex-col gap-6">
-            {/* Name */}
-            <Grid>
-              <label className="text-ggreen text-l font-light mb-2">Your Name</label>
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-                className="shadow border rounded w-full mb-4 py-2 px-4"
+        <Box component="form" sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+          {/* Name & Phone */}
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                label="Your Name"
+                variant="outlined"
+                fullWidth
                 required
-              />
-              <input
-                type="number"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
-                className="shadow border rounded w-full mb-4 py-2 px-4"
-                required
+                size="small"
               />
             </Grid>
-
-            {/* Reason */}
-            <Grid>
-              <label className="text-ggreen text-l font-light mb-2">
-                Why would you like to book this appointment?
-              </label>
-              <textarea
-                value={formData.reason}
-                onChange={(e) => handleInputChange("reason", e.target.value)}
-                placeholder="Enter your reason here..."
-                className="shadow border rounded w-full py-2 px-4"
+            <Grid item xs={12} sm={6}>
+              <TextField
+                label="Phone Number"
+                variant="outlined"
+                fullWidth
                 required
+                size="small"
               />
             </Grid>
+          </Grid>
 
-            {/* First Visit */}
-            <RadioGroupInput
-              label="Is this your first visit to our offices?"
-              name="firstVisit"
-              value={formData.firstVisit}
-              onChange={handleInputChange}
-              options={[
-                { label: "Yes", value: "Yes" },
-                { label: "No", value: "No" },
-                { label: "Not Sure", value: "NotSure" },
-              ]}
-            />
+          {/* Reason */}
+          <TextField
+            label="Reason for Appointment"
+            placeholder="Enter your reason..."
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={3}
+            required
+            size="small"
+          />
 
-            {/* Callback */}
-            <RadioGroupInput
-              label="Would you prefer a callback instead?"
-              name="callback"
-              value={formData.callback}
-              onChange={handleInputChange}
-              options={[
-                { label: "Yes", value: "Yes" },
-                { label: "No", value: "No" },
-                { label: "Maybe", value: "Maybe" },
-              ]}
-            />
+          {/* First Visit */}
+          <RadioGroupInput
+            label="Is this your first visit to our offices?"
+            name="firstVisit"
+            value={formData.firstVisit}
+            onChange={handleInputChange}
+            options={[
+              { label: "Yes", value: "Yes" },
+              { label: "No", value: "No" },
+              { label: "Not Sure", value: "NotSure" },
+            ]}
+          />
 
-            {/* Visit Preference */}
-            <RadioGroupInput
-              label="When would you prefer to visit?"
-              name="visitPreference"
-              value={formData.visitPreference}
-              onChange={handleInputChange}
-              options={[
-                { label: "Within 72 hours", value: "three_days" },
-                { label: "Within a week", value: "one_week" },
-                { label: "Within 2 weeks", value: "two_weeks" },
-              ]}
-            />
+          {/* Callback */}
+          <RadioGroupInput
+            label="Would you prefer a callback instead?"
+            name="callback"
+            value={formData.callback}
+            onChange={handleInputChange}
+            options={[
+              { label: "Yes", value: "Yes" },
+              { label: "No", value: "No" },
+              { label: "Maybe", value: "Maybe" },
+            ]}
+          />
 
-            <Box className="text-center my-4">
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "#CD8F2C" }}
-                className="rounded px-8 py-2 text-xl hover:bg-tan hover:text-ggreen"
-                onClick={handleSubmit}
-              >
-                Submit
-              </Button>
-            </Box>
+          {/* Visit Preference */}
+          <RadioGroupInput
+            label="When would you prefer to visit?"
+            name="visitPreference"
+            value={formData.visitPreference}
+            onChange={handleInputChange}
+            options={[
+              { label: "Within 72 hours", value: "three_days" },
+              { label: "Within a week", value: "one_week" },
+              { label: "Within 2 weeks", value: "two_weeks" },
+            ]}
+          />
+
+          {/* Submit Button */}
+          <Box sx={{ textAlign: "center", mt: 2 }}>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#D4A017",
+                color: "#1F1F1F",
+                px: 6,
+                py: 1.5,
+                fontSize: { xs: "0.9rem", sm: "1rem" },
+                borderRadius: 3,
+                "&:hover": {
+                  backgroundColor: "#FFC857",
+                  color: "#1F1F1F",
+                },
+              }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
           </Box>
-        </form>
+        </Box>
       </Card>
     </Box>
   );
