@@ -183,7 +183,7 @@ export const ShopPage = () => {
             variant="body1"
             sx={{
               mt: 6,
-              color: "#666",
+              color: "#fff",
               maxWidth: "600px",
               mx: "auto",
               fontSize: "18px",
