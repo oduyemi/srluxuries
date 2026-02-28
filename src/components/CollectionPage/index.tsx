@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
-import "animate.css";
+import { motion } from "framer-motion";
 
 interface Products {
   productName: string;
@@ -12,7 +12,6 @@ interface Products {
   productHoverImage: string;
 }
 
-// Utility function to shuffle array (Fisher-Yates shuffle)
 const shuffleArray = (array: Products[]) => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -22,347 +21,183 @@ const shuffleArray = (array: Products[]) => {
   return shuffled;
 };
 
+const SectionHeader = ({
+  title,
+  link,
+}: {
+  title: string;
+  link: string;
+}) => (
+  <Box className="text-center mb-20">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <Typography
+        variant="overline"
+        sx={{
+          letterSpacing: 6,
+          color: "#b89b5e",
+          fontWeight: 600,
+        }}
+      >
+        SR LUXURIES
+      </Typography>
+
+      <Typography
+        variant="h3"
+        sx={{
+          fontWeight: 800,
+          mt: 2,
+          fontSize: { xs: "28px", md: "42px" },
+          color: "#111",
+        }}
+      >
+        {title}
+      </Typography>
+
+      {/* Elegant Accent Line */}
+      <Box
+        sx={{
+          width: 60,
+          height: 2,
+          backgroundColor: "#b89b5e",
+          mx: "auto",
+          mt: 3,
+        }}
+      />
+
+      <Link
+        href={link}
+        className="inline-block mt-6 text-gray-600 hover:text-black transition-all tracking-wide"
+      >
+        View Collection →
+      </Link>
+    </motion.div>
+  </Box>
+);
+
+const ProductGrid = ({ products }: { products: Products[] }) => (
+  <Box
+    maxWidth="xl"
+    className="mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 px-6 mb-32"
+  >
+    {products.map((product, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.06 }}
+        viewport={{ once: true }}
+        whileHover={{ y: -6 }}
+      >
+        <ProductCatCard
+          normalImageSrc={product.productImage}
+          hoverImageSrc={product.productHoverImage}
+          productName={product.productName}
+          price={product.price}
+        />
+      </motion.div>
+    ))}
+  </Box>
+);
+
 export const CollectionPage = () => {
-  const [teesProducts, setTeesProducts] = useState<Products[]>([]);
   const [shirtsProducts, setShirtsProducts] = useState<Products[]>([]);
   const [tradProducts, setTradProducts] = useState<Products[]>([]);
   const [corporateProducts, setCorporateProducts] = useState<Products[]>([]);
   const [summerProducts, setSummerProducts] = useState<Products[]>([]);
 
   useEffect(() => {
-    const fetchTeesData = async () => {
+    const fetchData = async (
+      endpoint: string,
+      setter: (data: Products[]) => void
+    ) => {
       try {
-        const response = await fetch("/api/products/tees");
-        const teesdata = await response.json();
-        setTeesProducts(shuffleArray(teesdata));
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        setter(shuffleArray(data));
       } catch (error) {
-        console.error("Error fetching product tees:", error);
+        console.error(`Error fetching ${endpoint}:`, error);
       }
     };
 
-    const fetchShirtsData = async () => {
-      try {
-        const response = await fetch("/api/products/shirts");
-        const shirtsdata = await response.json();
-        setShirtsProducts(shuffleArray(shirtsdata));
-      } catch (error) {
-        console.error("Error fetching product shirts:", error);
-      }
-    };
-
-    const fetchTradData = async () => {
-      try {
-        const response = await fetch("/api/products/trad");
-        const traddata = await response.json();
-        setTradProducts(shuffleArray(traddata));
-      } catch (error) {
-        console.error("Error fetching product trad:", error);
-      }
-    };
-
-    const fetchCorporateData = async () => {
-      try {
-        const response = await fetch("/api/products/corporate");
-        const corporatedata = await response.json();
-        setCorporateProducts(shuffleArray(corporatedata));
-      } catch (error) {
-        console.error("Error fetching product corporate wears:", error);
-      }
-    };
-
-    const fetchSummerData = async () => {
-      try {
-        const response = await fetch("/api/products/two-piece");
-        const summerdata = await response.json();
-        setSummerProducts(shuffleArray(summerdata));
-      } catch (error) {
-        console.error("Error fetching product two-piece wears:", error);
-      }
-    };
-
-    fetchTeesData();
-    fetchShirtsData();
-    fetchTradData();
-    fetchCorporateData();
-    fetchSummerData();
+    fetchData("/api/products/shirts", setShirtsProducts);
+    fetchData("/api/products/trad", setTradProducts);
+    fetchData("/api/products/corporate", setCorporateProducts);
+    fetchData("/api/products/two-piece", setSummerProducts);
   }, []);
 
   return (
-    <>
-      <Box maxWidth="xl" className="mb-5 mx-auto">
-        <Box className="collection mx-auto">
-          <Box className="abt-desc">
-            <Typography variant="h6" className="font-extrabold text-goldie">
-              S R LUXURIES
-            </Typography>
-            <Typography
-              variant="h2"
-              className="text-5xl font-extrabold mb-2 text-white w-2/3 mb-4 mt-0"
-            >
-              Collection
-            </Typography>
-          </Box>
-        </Box>
+    <Box
+      sx={{
+        backgroundColor: "#ffffff",
+        pb: { xs: 10, md: 18 },
+      }}
+    >
+      {/* ===== HERO ===== */}
+      <Box maxWidth="xl" className="mx-auto text-center mb-28 mt-0 px-6 collection">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Typography
+            variant="overline"
+            sx={{
+              letterSpacing: 8,
+              color: "#b89b5e",
+              fontWeight: 600,
+            }}
+          >
+            SR LUXURIES
+          </Typography>
+
+          <Typography
+            variant="h2"
+            sx={{
+              mt: 4,
+              fontWeight: 900,
+              fontSize: { xs: "40px", md: "72px" },
+              color: "#111",
+              lineHeight: 1.1,
+            }}
+          >
+            Refined
+            <br />
+            Collection
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              mt: 6,
+              color: "#fff",
+              maxWidth: "600px",
+              mx: "auto",
+              fontSize: "18px",
+            }}
+          >
+            Curated craftsmanship across traditional elegance,
+            modern corporate structure and expressive seasonal sets.
+          </Typography>
+        </motion.div>
       </Box>
 
-      {/* ====== TEES ====== */}
-      <Box className="container">
-        <Box className="justify-center mb-5 p-4 mt-10">
-          <Box maxWidth="xl" className="text-center">
-            <Typography
-              variant="h2"
-              className=" text-gray-50 font-extrabold text-9xl sm:text-6xl gold_title mt-0 mb-4"
-            >
-              <span>
-                <Link href="/tees">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    fill="currentColor"
-                    className="bi bi-arrow-right inline text-gray-50"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
-                                .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                    />
-                  </svg>
-                </Link>
-              </span>
-              <Link
-                href="/tees"
-                className="animate__animated animate__flash animate__delay-10s"
-              >
-                {" "}
-                SRL Tees
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="xl"
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-20 gap-x-14 mt-2 mb-5"
-      >
-        {teesProducts.map((product, index) => (
-          <ProductCatCard
-            key={index}
-            normalImageSrc={product.productImage}
-            hoverImageSrc={product.productHoverImage}
-            productName={product.productName}
-            price={product.price}
-          />
-        ))}
-      </Box>
+      {/* ===== SECTIONS ===== */}
+      <SectionHeader title="Casual Shirts" link="/shirts" />
+      <ProductGrid products={shirtsProducts} />
 
-      {/* ====== SHIRTS ====== */}
-      <Box className="container">
-        <Box className="justify-center mb-5 p-4 mt-10">
-          <Box maxWidth="xl" className="text-center">
-            <Typography
-              variant="h2"
-              className=" text-gray-50 font-extrabold text-9xl sm:text-6xl gold_title mt-0 mb-4"
-            >
-              <span>
-                <Link href="trad-wears">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    fill="currentColor"
-                    className="bi bi-arrow-right inline text-gray-50"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
-                                .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                    />
-                  </svg>
-                </Link>
-              </span>
-              <Link
-                href="/trad-wears"
-                className="animate__animated animate__flash animate__delay-7s"
-              >
-                {" "}
-                Casual Shirts
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="xl"
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-20 gap-x-14 mt-2 mb-5"
-      >
-        {shirtsProducts.map((product, index) => (
-          <ProductCatCard
-            key={index}
-            normalImageSrc={product.productImage}
-            hoverImageSrc={product.productHoverImage}
-            productName={product.productName}
-            price={product.price}
-          />
-        ))}
-      </Box>
+      <SectionHeader title="Traditional Wears" link="/trad-wears" />
+      <ProductGrid products={tradProducts} />
 
-      {/* ====== TRADS ====== */}
-      <Box className="container">
-        <Box className="justify-center mb-5 p-4 mt-10">
-          <Box maxWidth="xl" className="text-center">
-            <Typography
-              variant="h2"
-              className=" text-gray-50 font-extrabold text-9xl sm:text-6xl gold_title mt-0 mb-4"
-            >
-              <span>
-                <Link href="trad-wears">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    fill="currentColor"
-                    className="bi bi-arrow-right inline text-gray-50"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
-                                .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                    />
-                  </svg>
-                </Link>
-              </span>
-              <Link
-                href="/trad-wears"
-                className="animate__animated animate__flash animate__delay-2s"
-              >
-                {" "}
-                Trads
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="xl"
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-20 gap-x-14 mt-2 mb-5"
-      >
-        {tradProducts.map((product, index) => (
-          <ProductCatCard
-            key={index}
-            normalImageSrc={product.productImage}
-            hoverImageSrc={product.productHoverImage}
-            productName={product.productName}
-            price={product.price}
-          />
-        ))}
-      </Box>
+      <SectionHeader title="Corporate Wears" link="/corporate-wears" />
+      <ProductGrid products={corporateProducts} />
 
-      {/* ====== CORPORATE ====== */}
-      <Box className="container">
-        <Box className="justify-center mb-5 p-4 mt-10">
-          <Box maxWidth="xl" className="text-center">
-            <Typography
-              variant="h2"
-              className=" text-gray-50 font-extrabold text-9xl sm:text-6xl gold_title mt-0 mb-4"
-            >
-              <span>
-                <Link href="/corporate-wears">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    fill="currentColor"
-                    className="bi bi-arrow-right inline text-gray-50"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
-                                .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                    />
-                  </svg>
-                </Link>
-              </span>
-              <Link
-                href="/corporate-wears"
-                className="animate__animated animate__flash animate__delay-5s"
-              >
-                {" "}
-                Corporate
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="xl"
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-20 gap-x-14 mt-2 mb-5"
-      >
-        {corporateProducts.map((product, index) => (
-          <ProductCatCard
-            key={index}
-            normalImageSrc={product.productImage}
-            hoverImageSrc={product.productHoverImage}
-            productName={product.productName}
-            price={product.price}
-          />
-        ))}
-      </Box>
-
-      {/* ====== SUMMER ====== */}
-      <Box className="container">
-        <Box className="justify-center mb-5 p-4 mt-10">
-          <Box maxWidth="xl" className="text-center">
-            <Typography
-              variant="h2"
-              className=" text-gray-50 font-extrabold text-9xl sm:text-6xl gold_title mt-0 mb-4"
-            >
-              <span>
-                <Link href="/two-piece">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    fill="currentColor"
-                    className="bi bi-arrow-right inline text-gray-50"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0
-                                .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                    />
-                  </svg>
-                </Link>
-              </span>
-              <Link
-                href="/two-piece"
-                className="animate__animated animate__flash animate__delay-10s"
-              >
-                2-Catchy Piece
-              </Link>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="xl"
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-20 gap-x-14 mt-2 mb-5"
-      >
-        {summerProducts.map((product, index) => (
-          <ProductCatCard
-            key={index}
-            normalImageSrc={product.productImage}
-            hoverImageSrc={product.productHoverImage}
-            productName={product.productName}
-            price={product.price}
-          />
-        ))}
-      </Box>
-    </>
+      <SectionHeader title="Two-Piece Sets" link="/two-piece" />
+      <ProductGrid products={summerProducts} />
+    </Box>
   );
 };

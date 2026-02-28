@@ -168,7 +168,7 @@ export const Header = () => {
             {isShopDropdownOpen && (
               <Box className="absolute mt-2 w-40 bg-white shadow-lg rounded-lg z-10">
                 <ul className="py-2">
-                  {["Belts", "Caps", "Footwears", "Luxury Beads"].map((item) => (
+                  {["Belts", "Caps", "Foot", "Beads"].map((item) => (
                     <li key={item}>
                       <Link
                         href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}

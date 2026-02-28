@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import ProductCatCard from "../Home/ProductCatCard";
@@ -50,7 +50,7 @@ interface Products {
                             productName={product.productName}  
                             price={product.price} 
                         />
-                        ))};
+                        ))}
 
                 </Box>
             {/* <Box className="mt-6">

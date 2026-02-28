@@ -28,9 +28,9 @@ export default function Home() {
         <Promotions />
       </Box>
       <ProductCat3 />
-      <Box className="my-8">
+      {/* <Box className="my-8">
         <Brands />
-      </Box>
+      </Box> */}
     </main>
   );
 }
